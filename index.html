@@ -1,82 +1,720 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aethelinc Systems | AI Automation Workflows</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', sans-serif; background: #0a0a0f; color: #ffffff; }
-nav { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e1e2e; }
-.logo { font-size: 22px; font-weight: 700; color: #7c6af7; }
-nav a { color: #ccc; text-decoration: none; margin-left: 24px; font-size: 14px; }
-nav a:hover { color: #7c6af7; }
-.hero { text-align: center; padding: 100px 20px 60px; }
-.hero h1 { font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
-.hero h1 span { color: #7c6af7; }
-.hero p { font-size: 18px; color: #aaa; max-width: 600px; margin: 0 auto 36px; }
-.btn { background: #7c6af7; color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; }
-.btn:hover { background: #6355e0; }
-.services { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
-.services h2 { text-align: center; font-size: 32px; margin-bottom: 48px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-.card { background: #12121e; border: 1px solid #1e1e2e; border-radius: 12px; padding: 28px; }
-.card h3 { font-size: 18px; margin-bottom: 12px; color: #7c6af7; }
-.card p { color: #aaa; font-size: 14px; line-height: 1.7; }
-.creds { background: #0d0d1a; padding: 48px 40px; text-align: center; border-top: 1px solid #1e1e2e; }
-.creds p { color: #888; font-size: 13px; margin-top: 8px; }
-footer { text-align: center; padding: 24px; color: #555; font-size: 13px; border-top: 1px solid #1e1e2e; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aethelinc Systems — Enterprise AI automation workflows using N8N, Supabase, and Typebot. Based in Ludhiana, Punjab, India. Serving global clients." />
+  <meta name="keywords" content="automation, N8N, Supabase, AI automation, workflow automation, Ludhiana, India, Typebot, business process automation, enterprise automation" />
+  <meta name="author" content="Aethelinc Systems" />
+  <meta property="og:title" content="Aethelinc Systems | Enterprise AI Automation" />
+  <meta property="og:description" content="We build enterprise-grade automation workflows. N8N, Supabase, AI — so your business scales without manual effort." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aethelinc-systems.vercel.app" />
+  <title>Aethelinc Systems | Enterprise AI Automation Workflows</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #07070d; color: #ffffff; line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #7c6af7; border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 999; background-color: rgba(7,7,13,0.96); padding: 0 56px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a1a2e; backdrop-filter: blur(12px); height: 64px; }
+    .logo { font-size: 19px; font-weight: 800; color: #7c6af7; letter-spacing: 0.3px; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .logo-dot { width: 8px; height: 8px; background: #7c6af7; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { color: #aaaaaa; text-decoration: none; padding: 8px 14px; font-size: 13.5px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #ffffff; background: #1a1a2e; }
+    .nav-cta { background-color: #7c6af7 !important; color: #ffffff !important; padding: 9px 20px !important; border-radius: 7px !important; font-weight: 700 !important; font-size: 13.5px !important; transition: background-color 0.2s, transform 0.1s !important; }
+    .nav-cta:hover { background-color: #6355e0 !important; transform: translateY(-1px) !important; }
+
+    /* ── HERO ── */
+    .hero { text-align: center; padding: 120px 24px 90px; max-width: 900px; margin: 0 auto; position: relative; }
+    .hero::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(124,106,247,0.08) 0%, transparent 70%); pointer-events:none; border-radius:50%; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background-color: #0f0f1e; color: #7c6af7; font-size: 12.5px; font-weight: 600; padding: 7px 20px; border-radius: 20px; border: 1px solid rgba(124,106,247,0.4); margin-bottom: 32px; letter-spacing: 0.3px; }
+    .badge-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 1.5s infinite; }
+    .hero h1 { font-size: 58px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px; }
+    .hero h1 span { background: linear-gradient(135deg, #7c6af7, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 19px; color: #888888; max-width: 620px; margin: 0 auto 48px; line-height: 1.7; }
+    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: linear-gradient(135deg,#7c6af7,#6355e0); color: #ffffff; padding: 15px 36px; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 9px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(124,106,247,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,106,247,0.5); }
+    .btn-whatsapp { background: linear-gradient(135deg,#25D366,#1ebe5d); color: #ffffff; padding: 15px 36px; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 9px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(37,211,102,0.3); }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.45); }
+    .btn-outline { background: transparent; color: #aaaaaa; padding: 15px 36px; border-radius: 9px; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 9px; border: 1px solid #2a2a3e; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline:hover { border-color: #7c6af7; color: #ffffff; }
+    .hero-trust { margin-top: 52px; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #555555; }
+    .trust-icon { color: #22c55e; font-size: 14px; }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: linear-gradient(135deg, #0d0d1a, #0f0f1e); border-top: 1px solid #1a1a2e; border-bottom: 1px solid #1a1a2e; padding: 40px 56px; display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 36px; font-weight: 900; background: linear-gradient(135deg,#7c6af7,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; letter-spacing: -1px; }
+    .stat-label { font-size: 13px; color: #666666; margin-top: 5px; letter-spacing: 0.3px; }
+
+    /* ── SECTION SHARED ── */
+    .section-wrap { max-width: 1200px; margin: 0 auto; }
+    .section-label { text-align: center; font-size: 12px; font-weight: 700; color: #7c6af7; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+    .section-title { text-align: center; font-size: 38px; font-weight: 900; margin-bottom: 14px; letter-spacing: -1px; }
+    .section-subtitle { text-align: center; font-size: 16px; color: #777777; max-width: 580px; margin: 0 auto 56px; line-height: 1.7; }
+
+    /* ── SERVICES / WORKFLOWS ── */
+    .workflows { padding: 96px 56px; }
+    .workflows-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .workflow-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 14px; padding: 28px 24px; cursor: pointer; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; }
+    .workflow-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#7c6af7,#a78bfa); opacity:0; transition:opacity 0.25s; }
+    .workflow-card:hover { border-color: #7c6af7; transform: translateY(-5px); box-shadow: 0 12px 40px rgba(124,106,247,0.18); }
+    .workflow-card:hover::before { opacity:1; }
+    .wf-icon { font-size: 30px; margin-bottom: 14px; display: block; }
+    .wf-number { font-size: 11px; font-weight: 700; color: #3a3a5c; letter-spacing: 1px; margin-bottom: 10px; }
+    .workflow-card h3 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 10px; line-height: 1.35; }
+    .workflow-card p { font-size: 13px; color: #666666; line-height: 1.65; margin-bottom: 16px; }
+    .wf-learn { font-size: 12.5px; color: #7c6af7; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .workflow-card:hover .wf-learn { gap: 10px; }
+    .wf-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .wf-tag { font-size: 10.5px; background: #1a1a2e; color: #7c6af7; padding: 3px 9px; border-radius: 4px; font-weight: 600; }
+
+    /* ── MODAL ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 10000; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(6px); }
+    .modal-overlay.active { display: flex; }
+    .modal-box { background: #0f0f1e; border: 1px solid #2a2a3e; border-radius: 18px; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 40px; position: relative; animation: modalIn 0.25s ease; }
+    @keyframes modalIn { from{opacity:0;transform:scale(0.95) translateY(12px)} to{opacity:1;transform:scale(1) translateY(0)} }
+    .modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%; background: #1a1a2e; border: none; color: #aaaaaa; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+    .modal-close:hover { background: #2a2a3e; color: #ffffff; }
+    .modal-icon { font-size: 40px; margin-bottom: 16px; display: block; }
+    .modal-title { font-size: 24px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .modal-subtitle { font-size: 15px; color: #888888; margin-bottom: 28px; line-height: 1.6; }
+    .modal-section { margin-bottom: 24px; }
+    .modal-section h4 { font-size: 13px; font-weight: 700; color: #7c6af7; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+    .modal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .modal-list li { font-size: 14px; color: #cccccc; display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+    .modal-list li::before { content:'→'; color:#7c6af7; font-weight:700; flex-shrink:0; margin-top:1px; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .modal-tag { font-size: 12px; background: #1a1a2e; border: 1px solid #2a2a3e; color: #a78bfa; padding: 5px 12px; border-radius: 6px; font-weight: 600; }
+    .modal-result { background: linear-gradient(135deg, #0d1f0d, #0a1a0a); border: 1px solid #1a3a1a; border-radius: 10px; padding: 18px 20px; }
+    .modal-result .result-label { font-size: 11px; font-weight: 700; color: #22c55e; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .modal-result p { font-size: 14px; color: #86efac; line-height: 1.6; }
+    .modal-cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-btn-primary { background: linear-gradient(135deg,#7c6af7,#6355e0); color:#ffffff; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px; display:inline-flex; align-items:center; gap:8px; transition:transform 0.2s; }
+    .modal-btn-primary:hover { transform:translateY(-1px); }
+    .modal-btn-wa { background: #25D366; color:#ffffff; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:700; font-size:14px; display:inline-flex; align-items:center; gap:8px; transition:transform 0.2s; }
+    .modal-btn-wa:hover { transform:translateY(-1px); }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works { background: #0a0a14; padding: 96px 56px; border-top: 1px solid #1a1a2e; border-bottom: 1px solid #1a1a2e; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .step-item { text-align: center; padding: 32px 20px; background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 14px; transition: border-color 0.2s; }
+    .step-item:hover { border-color: #7c6af7; }
+    .step-number { width: 52px; height: 52px; background: linear-gradient(135deg,#7c6af7,#6355e0); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: #ffffff; margin: 0 auto 20px; }
+    .step-item h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .step-item p { font-size: 13.5px; color: #666666; line-height: 1.7; }
+    .step-connector { display: none; }
+
+    /* ── TECH STACK ── */
+    .tech-stack { padding: 96px 56px; }
+    .tech-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .tech-badge { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 9px; padding: 11px 22px; font-size: 13.5px; font-weight: 600; color: #aaaaaa; transition: border-color 0.2s, color 0.2s, transform 0.2s; cursor: default; display: flex; align-items: center; gap: 8px; }
+    .tech-badge:hover { border-color: #7c6af7; color: #ffffff; transform: translateY(-2px); }
+    .tech-dot { width: 6px; height: 6px; background: #7c6af7; border-radius: 50%; }
+
+    /* ── WHY US ── */
+    .why-us { background: #0a0a14; padding: 96px 56px; border-top: 1px solid #1a1a2e; border-bottom: 1px solid #1a1a2e; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .why-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 14px; padding: 30px 24px; transition: border-color 0.2s, transform 0.2s; }
+    .why-card:hover { border-color: #7c6af7; transform: translateY(-3px); }
+    .why-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .why-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 9px; color: #ffffff; }
+    .why-card p { font-size: 13.5px; color: #666666; line-height: 1.7; }
+
+    /* ── INDUSTRIES ── */
+    .industries { padding: 96px 56px; }
+    .industry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .industry-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 12px; padding: 24px 22px; display: flex; align-items: center; gap: 16px; transition: border-color 0.2s; }
+    .industry-card:hover { border-color: #7c6af7; }
+    .industry-icon { font-size: 28px; flex-shrink: 0; }
+    .industry-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .industry-card p { font-size: 12.5px; color: #666666; line-height: 1.5; }
+
+    /* ── CONTACT ── */
+    .contact { background: #0a0a14; padding: 96px 56px; border-top: 1px solid #1a1a2e; }
+    .contact-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .contact-inner h2 { font-size: 42px; font-weight: 900; margin-bottom: 16px; letter-spacing: -1px; }
+    .contact-inner h2 span { background: linear-gradient(135deg,#7c6af7,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .contact-inner > p { font-size: 17px; color: #777777; margin-bottom: 44px; line-height: 1.7; }
+    .contact-buttons { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .contact-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-email { background: linear-gradient(135deg,#7c6af7,#6355e0); color:#ffffff; padding:15px 32px; border-radius:9px; text-decoration:none; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:10px; transition:transform 0.2s, box-shadow 0.2s; box-shadow:0 4px 24px rgba(124,106,247,0.35); }
+    .btn-email:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(124,106,247,0.5); }
+    .btn-phone { background:#0f0f1e; color:#aaaaaa; padding:15px 32px; border-radius:9px; text-decoration:none; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:10px; border:1px solid #2a2a3e; transition:border-color 0.2s, color 0.2s; }
+    .btn-phone:hover { border-color:#7c6af7; color:#ffffff; }
+    .btn-wa-large { background:linear-gradient(135deg,#25D366,#1ebe5d); color:#ffffff; padding:15px 32px; border-radius:9px; text-decoration:none; font-weight:700; font-size:15px; display:inline-flex; align-items:center; gap:10px; transition:transform 0.2s, box-shadow 0.2s; box-shadow:0 4px 20px rgba(37,211,102,0.3); }
+    .btn-wa-large:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,0.45); }
+    .contact-details-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; border-top: 1px solid #1a1a2e; padding-top: 40px; }
+    .contact-detail-item h4 { font-size: 12px; font-weight: 700; color: #7c6af7; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .contact-detail-item p { font-size: 14px; color: #666666; line-height: 1.9; }
+    .contact-detail-item a { color: #aaaaaa; text-decoration: none; transition: color 0.2s; }
+    .contact-detail-item a:hover { color: #7c6af7; }
+
+    /* ── CREDENTIALS ── */
+    .credentials { background: #07070d; padding: 22px 56px; border-top: 1px solid #1a1a2e; }
+    .credentials-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 20px; }
+    .cred-item { font-size: 12px; color: #444444; display: flex; align-items: center; gap: 6px; }
+    .cred-item span { color: #7c6af7; font-weight: 600; }
+    .cred-sep { color: #2a2a3e; }
+
+    /* ── FOOTER ── */
+    footer { background: #050509; padding: 48px 56px 28px; border-top: 1px solid #1a1a2e; }
+    .footer-top { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand p { font-size: 13.5px; color: #555555; line-height: 1.8; margin-top: 12px; max-width: 240px; }
+    .footer-col h4 { font-size: 12px; font-weight: 700; color: #7c6af7; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13.5px; color: #555555; text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: #aaaaaa; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #1a1a2e; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 12.5px; color: #3a3a3a; }
+    .footer-bottom a { font-size: 12.5px; color: #444444; text-decoration: none; margin-left: 20px; transition: color 0.2s; }
+    .footer-bottom a:hover { color: #7c6af7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .workflows-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 80px 20px 60px; }
+      .hero h1 { font-size: 36px; letter-spacing: -1px; }
+      .hero-sub { font-size: 16px; }
+      .workflows, .how-it-works, .tech-stack, .why-us, .industries, .contact { padding: 64px 20px; }
+      .workflows-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .industry-grid { grid-template-columns: 1fr; }
+      .contact-details-grid { grid-template-columns: 1fr; }
+      .stats-bar { gap: 32px; padding: 32px 20px; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom a { margin-left: 10px; }
+      .credentials { padding: 18px 20px; }
+      footer { padding: 40px 20px 24px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- ── MODAL OVERLAY ── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModalBtn()">&#10005;</button>
+    <span class="modal-icon" id="mIcon"></span>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-subtitle" id="mSubtitle"></div>
+    <div class="modal-section">
+      <h4>What We Automate</h4>
+      <ul class="modal-list" id="mList"></ul>
+    </div>
+    <div class="modal-section">
+      <h4>Technologies Used</h4>
+      <div class="modal-tags" id="mTags"></div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-result">
+        <div class="result-label">&#10003; Business Result</div>
+        <p id="mResult"></p>
+      </div>
+    </div>
+    <div class="modal-cta">
+      <a href="mailto:aethelincsystems@gmail.com?subject=Enquiry: Automation Workflow" class="modal-btn-primary">&#9993; Email Us About This</a>
+      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="modal-btn-wa">&#128172; WhatsApp Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
 <nav>
-  <div class="logo">Aethelinc Systems</div>
-  <div>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+  <a class="logo" href="#hero"><span class="logo-dot"></span>Aethelinc Systems</a>
+  <div class="nav-links">
+    <a href="#workflows">Workflows</a>
+    <a href="#how-it-works">Process</a>
+    <a href="#tech-stack">Tech Stack</a>
+    <a href="#industries">Industries</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#contact" class="nav-cta">Free Audit &#8594;</a>
   </div>
 </nav>
 
-<section class="hero">
-  <h1>Automate Your Business.<br><span>Scale Without Limits.</span></h1>
-  <p>We build intelligent automation workflows using N8N, Supabase, and AI — so your team focuses on growth, not manual work.</p>
-  <a href="#contact" class="btn">Get Free Automation Audit</a>
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-badge"><span class="badge-dot"></span> MSME Registered &bull; Ludhiana, Punjab, India &bull; Serving Global Clients</div>
+  <h1>Your Business.<br /><span>Automated. Scaled.</span><br />Unstoppable.</h1>
+  <p class="hero-sub">We engineer enterprise-grade automation workflows using N8N, Supabase, and AI — eliminating manual processes so your business runs 24/7 without you.</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn-primary">&#128197; Book Free Automation Audit</a>
+    <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">&#128172; WhatsApp: +91-91151 12824</a>
+    <a href="#workflows" class="btn-outline">View Our Workflows &#8595;</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> MSME Registered India</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> 100% Cloud-Based</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> 24/7 Uptime Monitored</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> Fixed Project Pricing</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> Global Clients Served</div>
+  </div>
 </section>
 
-<section class="services" id="services">
-  <h2>What We Build For You</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>N8N Workflow Automation</h3>
-      <p>Custom automation pipelines connecting your apps, CRMs, databases, and APIs — zero manual effort required.</p>
-    </div>
-    <div class="card">
-      <h3>AI Chatbot Integration</h3>
-      <p>Typebot-powered intelligent chatbots for lead capture, customer support, and WhatsApp automation.</p>
-    </div>
-    <div class="card">
-      <h3>Supabase Backend Systems</h3>
-      <p>Real-time databases, authentication, and cloud storage built on Supabase for your business operations.</p>
-    </div>
-    <div class="card">
-      <h3>Cloud Infrastructure Setup</h3>
-      <p>Full deployment on Render, Docker, and cloud platforms with UptimeRobot monitoring — 99.9% uptime guaranteed.</p>
+<!-- ── STATS BAR ── -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Automation Workflows</div></div>
+  <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">System Uptime</div></div>
+  <div class="stat-item"><div class="stat-number">48hr</div><div class="stat-label">Delivery Turnaround</div></div>
+  <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Hours Saved Per Week</div></div>
+  <div class="stat-item"><div class="stat-number">&#8377;0</div><div class="stat-label">Hidden Charges</div></div>
+</div>
+
+<!-- ── WORKFLOWS ── -->
+<section class="workflows" id="workflows">
+  <div class="section-wrap">
+    <div class="section-label">Our Automation Workflows</div>
+    <h2 class="section-title">8 Workflows That Transform Businesses</h2>
+    <p class="section-subtitle">Click any workflow to see exactly what we build, what tools we use, and what results you get.</p>
+    <div class="workflows-grid">
+
+      <div class="workflow-card" onclick="openModal(0)">
+        <div class="wf-number">WORKFLOW 01</div>
+        <span class="wf-icon">&#9881;&#65039;</span>
+        <h3>Lead Capture &amp; CRM Automation</h3>
+        <p>Automatically capture leads from website, WhatsApp, and social media — push to CRM, send follow-up emails, and alert your sales team in real time.</p>
+        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Typebot</span><span class="wf-tag">Supabase</span><span class="wf-tag">WhatsApp API</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(1)">
+        <div class="wf-number">WORKFLOW 02</div>
+        <span class="wf-icon">&#128172;</span>
+        <h3>WhatsApp Business Automation</h3>
+        <p>Auto-reply to customer queries, send order confirmations, invoices, appointment reminders, and broadcast campaigns via WhatsApp — zero manual effort.</p>
+        <div class="wf-tags"><span class="wf-tag">WhatsApp Cloud API</span><span class="wf-tag">N8N</span><span class="wf-tag">Typebot</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(2)">
+        <div class="wf-number">WORKFLOW 03</div>
+        <span class="wf-icon">&#128203;</span>
+        <h3>Invoice &amp; Payment Automation</h3>
+        <p>Auto-generate GST-compliant invoices, send payment links via Razorpay, track payment status, and trigger thank-you messages on successful payment.</p>
+        <div class="wf-tags"><span class="wf-tag">Razorpay</span><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span><span class="wf-tag">Gmail</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(3)">
+        <div class="wf-number">WORKFLOW 04</div>
+        <span class="wf-icon">&#129302;</span>
+        <h3>AI Customer Support Bot</h3>
+        <p>Deploy a 24/7 AI chatbot that answers FAQs, qualifies leads, books appointments, and escalates complex queries — all without human intervention.</p>
+        <div class="wf-tags"><span class="wf-tag">Typebot</span><span class="wf-tag">OpenAI</span><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(4)">
+        <div class="wf-number">WORKFLOW 05</div>
+        <span class="wf-icon">&#128202;</span>
+        <h3>Data Pipeline &amp; Reporting Automation</h3>
+        <p>Pull data from multiple sources, transform and clean it automatically, and deliver real-time dashboards and scheduled reports to your email or Slack.</p>
+        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span><span class="wf-tag">Google Sheets</span><span class="wf-tag">PostgreSQL</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(5)">
+        <div class="wf-number">WORKFLOW 06</div>
+        <span class="wf-icon">&#128274;</span>
+        <h3>Employee Onboarding Automation</h3>
+        <p>Automate the entire HR onboarding flow — welcome emails, document collection, account creation, task assignment, and training schedule delivery.</p>
+        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Gmail</span><span class="wf-tag">Google Drive</span><span class="wf-tag">Supabase</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(6)">
+        <div class="wf-number">WORKFLOW 07</div>
+        <span class="wf-icon">&#128shopping_bags;&#127873;</span>
+        <h3>E-commerce Order &amp; Inventory Automation</h3>
+        <p>Sync orders from your store to your warehouse, auto-update inventory levels, trigger dispatch notifications, and manage returns — fully automated.</p>
+        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span><span class="wf-tag">Webhooks</span><span class="wf-tag">WhatsApp API</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
+      <div class="workflow-card" onclick="openModal(7)">
+        <div class="wf-number">WORKFLOW 08</div>
+        <span class="wf-icon">&#128279;</span>
+        <h3>Multi-App Systems Integration</h3>
+        <p>Connect any two or more software systems — Google Workspace, Notion, Razorpay, Slack, Tally, Zoho — via custom API integrations built on N8N.</p>
+        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">REST API</span><span class="wf-tag">Webhooks</span><span class="wf-tag">JSON</span></div>
+        <div class="wf-learn">View Full Workflow Details &#8594;</div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="creds" id="contact">
-  <h2>Ready to Automate?</h2>
-  <p style="color:#aaa; margin-top:12px; font-size:16px;">Contact us for a free 30-minute automation audit.</p>
-  <br>
-  <a href="mailto:hello@aethelincsystems.com" class="btn">Email Us Now</a>
-  <p>Ludhiana, Punjab, India &nbsp;|&nbsp; MSME Registered</p>
+<!-- ── HOW IT WORKS ── -->
+<section class="how-it-works" id="how-it-works">
+  <div class="section-wrap">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">From Audit to Automation in 4 Steps</h2>
+    <p class="section-subtitle">A clear, proven process that delivers working automation — on time, on budget, with zero surprises.</p>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <h3>Free Audit Call</h3>
+        <p>We map your current manual processes, identify bottlenecks, and calculate exactly how many hours automation will save you each week.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <h3>Proposal &amp; Scope</h3>
+        <p>You receive a fixed-price proposal with exact deliverables, timeline, and tools used — no vague hourly billing, no hidden costs.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <h3>Build &amp; Test</h3>
+        <p>We design, build, and rigorously test your automation workflows — with live demos before handover so you see exactly what was built.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <h3>Deploy &amp; Support</h3>
+        <p>Your automation goes live on cloud infrastructure with 24/7 monitoring. We provide full documentation and ongoing support.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ── TECH STACK ── -->
+<section class="tech-stack" id="tech-stack">
+  <div class="section-wrap">
+    <div class="section-label">Technology Stack</div>
+    <h2 class="section-title">Enterprise-Grade Tools. Production-Tested.</h2>
+    <p class="section-subtitle">Every tool in our stack is battle-tested, cloud-native, and running live in our own production environment.</p>
+    <div class="tech-grid">
+      <div class="tech-badge"><span class="tech-dot"></span>N8N Automation</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Supabase</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Typebot</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Render Cloud</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Docker</div>
+      <div class="tech-badge"><span class="tech-dot"></span>UptimeRobot</div>
+      <div class="tech-badge"><span class="tech-dot"></span>GitHub</div>
+      <div class="tech-badge"><span class="tech-dot"></span>WhatsApp Cloud API</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Razorpay</div>
+      <div class="tech-badge"><span class="tech-dot"></span>REST APIs</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Webhooks</div>
+      <div class="tech-badge"><span class="tech-dot"></span>PostgreSQL</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Node.js</div>
+      <div class="tech-badge"><span class="tech-dot"></span>OpenAI API</div>
+      <div class="tech-badge"><span class="tech-dot"></span>Google Workspace APIs</div>
+      <div class="tech-badge"><span class="tech-dot"></span>JSON / HTTP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INDUSTRIES ── -->
+<section class="industries" id="industries">
+  <div class="section-wrap">
+    <div class="section-label">Industries We Serve</div>
+    <h2 class="section-title">Built for Every Business Type</h2>
+    <p class="section-subtitle">We have built automation workflows for businesses across these industries — with proven results.</p>
+    <div class="industry-grid">
+      <div class="industry-card"><span class="industry-icon">&#127981;</span><div><h3>Manufacturing &amp; Production</h3><p>Order tracking, inventory sync, supplier communication automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#128201;</span><div><h3>Real Estate &amp; Construction</h3><p>Lead follow-up, site visit scheduling, document collection automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#128657;</span><div><h3>Logistics &amp; Distribution</h3><p>Dispatch alerts, delivery tracking, fleet communication automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#127973;</span><div><h3>Healthcare &amp; Clinics</h3><p>Appointment booking, patient reminders, report delivery automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#128722;</span><div><h3>E-commerce &amp; Retail</h3><p>Order processing, inventory updates, customer support automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#128188;</span><div><h3>Professional Services</h3><p>Client onboarding, invoice generation, document workflow automation</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-us" id="why-us">
+  <div class="section-wrap">
+    <div class="section-label">Why Aethelinc Systems</div>
+    <h2 class="section-title">Not Promises. Proof.</h2>
+    <p class="section-subtitle">We are automation specialists with a live production stack — not a generic IT company making proposals.</p>
+    <div class="why-grid">
+      <div class="why-card"><span class="why-icon">&#9881;&#65039;</span><h3>Live Production Stack</h3><p>Our entire automation infrastructure is live, tested, and running in production on Render, Supabase, and Docker — right now.</p></div>
+      <div class="why-card"><span class="why-icon">&#127470;&#127475;</span><h3>India-Based, Global-Ready</h3><p>MSME registered in Ludhiana, Punjab. We serve clients across India, US, UK, UAE, and Australia with full documentation.</p></div>
+      <div class="why-card"><span class="why-icon">&#128274;</span><h3>Secure by Default</h3><p>All systems use Supabase row-level security, HTTPS encryption, and are monitored 24/7 via UptimeRobot with instant alerts.</p></div>
+      <div class="why-card"><span class="why-icon">&#128176;</span><h3>Fixed Price, Zero Surprises</h3><p>Every project is quoted at a fixed price upfront. You know the exact cost before we start. No hourly billing. No surprise invoices.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2>Ready to <span>Automate</span><br />Your Business?</h2>
+    <p>Book a free 30-minute automation audit. No commitment. No cost. Just clarity on how automation can transform your operations and save you 20+ hours per week.</p>
+    <div class="contact-buttons">
+      <div class="contact-row">
+        <a href="mailto:aethelincsystems@gmail.com?subject=Free Automation Audit Request" class="btn-email">&#9993; aethelincsystems@gmail.com</a>
+        <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="btn-wa-large">&#128172; WhatsApp Us</a>
+      </div>
+      <div class="contact-row">
+        <a href="tel:+919115112824" class="btn-phone">&#128222; Call: +91-91151 12824</a>
+      </div>
+    </div>
+    <div class="contact-details-grid">
+      <div class="contact-detail-item">
+        <h4>Contact</h4>
+        <p>
+          <a href="mailto:aethelincsystems@gmail.com">aethelincsystems@gmail.com</a><br />
+          <a href="tel:+919115112824">+91-91151 12824</a><br />
+          <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer">WhatsApp: +91-91151 12824</a>
+        </p>
+      </div>
+      <div class="contact-detail-item">
+        <h4>Location</h4>
+        <p>
+          Ludhiana, Punjab, India<br />
+          Serving clients globally<br />
+          Mon–Sat: 9:00 AM – 7:00 PM IST
+        </p>
+      </div>
+      <div class="contact-detail-item">
+        <h4>Business Hours</h4>
+        <p>
+          Monday – Friday: 9AM – 7PM<br />
+          Saturday: 10AM – 5PM<br />
+          Sunday: Closed
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CREDENTIALS ── */
+<div class="credentials">
+  <div class="credentials-inner">
+    <div class="cred-item"><span>Aethelinc Systems</span></div>
+    <div class="cred-sep">&bull;</div>
+    <div class="cred-item">MSME Registered &bull; Govt. of India</div>
+    <div class="cred-sep">&bull;</div>
+    <div class="cred-item">Udyam: <span>UDYAM-PB-XX-XXXXXXXX</span></div>
+    <div class="cred-sep">&bull;</div>
+    <div class="cred-item">Class 42 IT Services</div>
+    <div class="cred-sep">&bull;</div>
+    <div class="cred-item">Ludhiana, Punjab, India</div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
 <footer>
-  &copy; 2025 Aethelinc Systems. All rights reserved. | Ludhiana, Punjab, India
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="logo" href="#hero" style="font-size:17px;"><span class="logo-dot"></span>Aethelinc Systems</a>
+      <p>Enterprise AI automation workflows. N8N, Supabase, Typebot. Ludhiana, Punjab, India. Serving businesses globally.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Workflows</h4>
+      <a href="#workflows" onclick="openModal(0);return false;">Lead Capture Automation</a>
+      <a href="#workflows" onclick="openModal(1);return false;">WhatsApp Automation</a>
+      <a href="#workflows" onclick="openModal(2);return false;">Invoice Automation</a>
+      <a href="#workflows" onclick="openModal(3);return false;">AI Support Bot</a>
+      <a href="#workflows" onclick="openModal(4);return false;">Data Pipeline</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#how-it-works">Our Process</a>
+      <a href="#tech-stack">Tech Stack</a>
+      <a href="#industries">Industries</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:aethelincsystems@gmail.com">aethelincsystems@gmail.com</a>
+      <a href="tel:+919115112824">+91-91151 12824</a>
+      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Aethelinc Systems. All rights reserved. Ludhiana, Punjab, India.</p>
+    <div>
+      <a href="#hero">Home</a>
+      <a href="#workflows">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+const workflows = [
+  {
+    icon: "⚙️",
+    title: "Lead Capture & CRM Automation",
+    subtitle: "Automatically capture every lead from every channel — website forms, WhatsApp, Instagram DMs, chatbots — and push them instantly to your CRM with zero manual data entry.",
+    list: [
+      "Capture leads from website forms, Typebot chatbots, WhatsApp, and social media simultaneously",
+      "Auto-create contact records in your CRM or Supabase database with full lead details",
+      "Send instant personalised welcome email to every new lead within seconds of capture",
+      "Alert your sales team via WhatsApp or Slack with lead details and contact info",
+      "Score and tag leads automatically based on their responses and source",
+      "Schedule automatic follow-up sequences at Day 1, Day 3, Day 7 without manual effort"
+    ],
+    tags: ["N8N", "Typebot", "Supabase", "WhatsApp Cloud API", "Gmail", "PostgreSQL"],
+    result: "Businesses using this workflow report 100% lead capture rate (zero leads lost), 3x faster response time, and 40% higher conversion rate compared to manual follow-up."
+  },
+  {
+    icon: "💬",
+    title: "WhatsApp Business Automation",
+    subtitle: "Transform your WhatsApp Business number into a 24/7 automated customer communication engine — handling inquiries, orders, confirmations, and reminders without human intervention.",
+    list: [
+      "Auto-reply to customer inquiries instantly with relevant product or service information",
+      "Send order confirmation, dispatch notification, and delivery updates automatically",
+      "Broadcast promotional campaigns to customer segments with personalised messages",
+      "Handle appointment booking, rescheduling, and reminders via WhatsApp chatbot",
+      "Collect customer feedback and reviews automatically after service completion",
+      "Escalate complex queries to a human agent with full conversation context"
+    ],
+    tags: ["WhatsApp Cloud API", "N8N", "Typebot", "Supabase", "Meta Business Platform"],
+    result: "Clients save 6–8 hours daily on WhatsApp customer support. Response time drops from hours to under 10 seconds. Customer satisfaction scores increase by an average of 45%."
+  },
+  {
+    icon: "📋",
+    title: "Invoice & Payment Automation",
+    subtitle: "Eliminate manual invoicing forever. Automatically generate GST-compliant invoices, send payment links, track payment status, and reconcile accounts — all triggered by events in your workflow.",
+    list: [
+      "Auto-generate professional GST-compliant invoices when an order is confirmed or project milestone is reached",
+      "Send invoice with Razorpay payment link directly to client via email and WhatsApp",
+      "Monitor payment status in real time and send automated payment reminders at Day 3, Day 7, Day 14",
+      "Trigger thank-you message and receipt delivery immediately on successful payment",
+      "Update your accounting records and Supabase database automatically on payment",
+      "Generate weekly and monthly payment summary reports delivered to your email"
+    ],
+    tags: ["Razorpay", "N8N", "Supabase", "Gmail", "WhatsApp API", "Google Sheets"],
+    result: "Clients eliminate 4–6 hours of manual invoicing per week. Payment collection time reduces by 60%. Late payment rate drops significantly with automated reminders."
+  },
+  {
+    icon: "🤖",
+    title: "AI Customer Support Bot",
+    subtitle: "Deploy a fully trained AI chatbot that answers customer questions, qualifies leads, books appointments, and handles objections — operating 24 hours a day, 7 days a week, on your website and WhatsApp.",
+    list: [
+      "Answer frequently asked questions instantly using AI trained on your business knowledge base",
+      "Qualify incoming leads by asking targeted questions and scoring responses automatically",
+      "Book appointments and sync them to your Google Calendar without human involvement",
+      "Handle product inquiries, pricing questions, and service comparisons intelligently",
+      "Collect customer contact details and push them to your CRM in real time",
+      "Escalate unresolved queries to a human agent with full conversation history and context"
+    ],
+    tags: ["Typebot", "OpenAI API", "N8N", "Supabase", "WhatsApp Cloud API", "Google Calendar"],
+    result: "Clients handle 80% of customer queries without any human intervention. Support costs drop by 65%. Leads generated outside business hours increase by 200%."
+  },
+  {
+    icon: "📊",
+    title: "Data Pipeline & Reporting Automation",
+    subtitle: "Stop manually compiling reports from multiple systems. Automatically pull, clean, transform, and deliver real-time business intelligence dashboards and scheduled reports to your inbox.",
+    list: [
+      "Connect and pull data from multiple sources — Google Sheets, databases, APIs, CRM, e-commerce platforms",
+      "Clean, transform, and standardise data automatically on a scheduled basis",
+      "Build real-time dashboards that update automatically with your latest business metrics",
+      "Deliver scheduled daily, weekly, or monthly reports to email or Slack automatically",
+      "Alert key stakeholders when metrics cross critical thresholds — low stock, missed targets",
+      "Archive and backup all business data to Supabase with automated retention policies"
+    ],
+    tags: ["N8N", "Supabase", "PostgreSQL", "Google Sheets", "Slack", "REST APIs"],
+    result: "Business owners get real-time visibility into their operations in under 10 seconds. Manual report generation time drops from 3–4 hours to zero. Decision-making speed increases significantly."
+  },
+  {
+    icon: "🔐",
+    title: "Employee Onboarding Automation",
+    subtitle: "Transform your HR onboarding from a manual, error-prone process into a smooth, automated experience — from offer letter to first day, every step handled automatically.",
+    list: [
+      "Trigger automated welcome email sequence the moment a new hire is added to your system",
+      "Send document collection forms and track submission status automatically",
+      "Create employee accounts across all company software tools automatically",
+      "Assign onboarding tasks to relevant team members with automatic deadline reminders",
+      "Deliver training schedule, company handbook, and resources on a timed basis",
+      "Send Day 30, Day 60, Day 90 check-in surveys to the new employee automatically"
+    ],
+    tags: ["N8N", "Gmail", "Google Drive", "Supabase", "Google Workspace APIs", "Slack"],
+    result: "HR teams save 8–12 hours per new hire. New employee time-to-productivity reduces by 35%. Zero documents missed or delayed. Consistent experience for every new team member."
+  },
+  {
+    icon: "🛒",
+    title: "E-commerce Order & Inventory Automation",
+    subtitle: "Run your e-commerce operations on complete autopilot — from order placement to delivery confirmation, with real-time inventory management and customer communication handled automatically.",
+    list: [
+      "Sync new orders from your store to warehouse management system in real time via webhooks",
+      "Automatically update inventory levels across all sales channels when stock changes",
+      "Send order confirmation, packing, dispatch, and delivery notifications to customers via WhatsApp",
+      "Trigger reorder alerts when stock falls below your defined minimum threshold",
+      "Automate return and refund request handling with customer communication",
+      "Generate daily sales summary reports with inventory status delivered to your phone"
+    ],
+    tags: ["N8N", "Supabase", "Webhooks", "WhatsApp API", "Razorpay", "PostgreSQL"],
+    result: "E-commerce businesses eliminate manual order processing entirely. Inventory discrepancies drop to near zero. Customer communication happens in real time. Operations scale without adding staff."
+  },
+  {
+    icon: "🔗",
+    title: "Multi-App Systems Integration",
+    subtitle: "If you use two or more software tools that don't talk to each other, we build the bridge. Custom API integrations that make your entire software ecosystem work as one connected system.",
+    list: [
+      "Connect Google Workspace, Notion, Tally, Zoho, Slack, and any app with an API",
+      "Build two-way data sync between your existing tools — no data duplication or manual transfer",
+      "Create custom triggers that fire actions across multiple systems simultaneously",
+      "Migrate data between platforms cleanly with automated transformation and validation",
+      "Build custom internal tools and admin dashboards connected to your live data",
+      "Document every integration fully with architecture diagrams and runbooks"
+    ],
+    tags: ["N8N", "REST API", "Webhooks", "JSON", "OAuth 2.0", "Supabase", "Node.js"],
+    result: "Businesses eliminate tool-switching and manual data transfer completely. Teams work faster with all tools connected. Custom integrations that would cost lakhs from agencies are delivered at a fraction of the cost."
+  }
+];
+
+function openModal(index) {
+  const w = workflows[index];
+  document.getElementById('mIcon').textContent = w.icon;
+  document.getElementById('mTitle').textContent = w.title;
+  document.getElementById('mSubtitle').textContent = w.subtitle;
+  const list = document.getElementById('mList');
+  list.innerHTML = '';
+  w.list.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+  const tags = document.getElementById('mTags');
+  tags.innerHTML = '';
+  w.tags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'modal-tag';
+    span.textContent = tag;
+    tags.appendChild(span);
+  });
+  document.getElementById('mResult').textContent = w.result;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(event) {
+  if (event.target === document.getElementById('modalOverlay')) {
+    closeModalBtn();
+  }
+}
+
+function closeModalBtn() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModalBtn();
+});
+</script>
 
 </body>
 </html>
