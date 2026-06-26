@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Aethelinc Systems — Enterprise AI automation workflows using N8N, Supabase, and Typebot. Based in Ludhiana, Punjab, India. Serving global clients." />
-  <meta name="keywords" content="automation, N8N, Supabase, AI automation, workflow automation, Ludhiana, India, Typebot, business process automation, enterprise automation" />
+  <meta name="description" content="Aethelinc Systems — Enterprise AI automation workflows using n8n, Supabase, and Typebot. Based in Ludhiana, Punjab, India. Serving global clients." />
+  <meta name="keywords" content="automation, n8n, Supabase, AI automation, workflow automation, Ludhiana, India, Typebot, business process automation, enterprise automation, CRM automation, sales automation, WhatsApp automation" />
   <meta name="author" content="Aethelinc Systems" />
   <meta property="og:title" content="Aethelinc Systems | Enterprise AI Automation" />
-  <meta property="og:description" content="We build enterprise-grade automation workflows. N8N, Supabase, AI — so your business scales without manual effort." />
+  <meta property="og:description" content="We build enterprise-grade AI automation workflows using n8n, Supabase, and Typebot — so your business scales without manual effort." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aethelinc-systems.vercel.app" />
   <title>Aethelinc Systems | Enterprise AI Automation Workflows</title>
@@ -117,7 +117,7 @@
 
     /* ── TECH STACK ── */
     .tech-stack { padding: 96px 56px; }
-    .tech-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .tech-grid { display: grid; grid-template-columns: repeat(6, auto); gap: 12px; justify-content: center; }
     .tech-badge { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 9px; padding: 11px 22px; font-size: 13.5px; font-weight: 600; color: #aaaaaa; transition: border-color 0.2s, color 0.2s, transform 0.2s; cursor: default; display: flex; align-items: center; gap: 8px; }
     .tech-badge:hover { border-color: #7c6af7; color: #ffffff; transform: translateY(-2px); }
     .tech-dot { width: 6px; height: 6px; background: #7c6af7; border-radius: 50%; }
@@ -185,6 +185,7 @@
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .steps-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-top { grid-template-columns: 1fr 1fr; }
+      .tech-grid { grid-template-columns: repeat(4, auto); }
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
@@ -204,6 +205,7 @@
       .footer-bottom a { margin-left: 10px; }
       .credentials { padding: 18px 20px; }
       footer { padding: 40px 20px 24px; }
+      .tech-grid { grid-template-columns: repeat(2, auto); }
     }
   </style>
 </head>
@@ -254,10 +256,10 @@
 <section class="hero" id="hero">
   <div class="hero-badge"><span class="badge-dot"></span> MSME Registered &bull; Ludhiana, Punjab, India &bull; Serving Global Clients</div>
   <h1>Your Business.<br /><span>Automated. Orchestrated.</span><br />Built to Scale.</h1>
-  <p class="hero-sub">We engineer enterprise-grade automation workflows using N8N, Supabase, and AI — eliminating manual processes so your business runs 24/7 without you.</p>
+  <p class="hero-sub">We engineer enterprise-grade AI automation workflows using n8n, Supabase, and Typebot &mdash; eliminating manual processes so your business runs 24/7 without you.</p>
   <div class="hero-buttons">
     <a href="#contact" class="btn-primary">&#128197; Book Free Automation Audit</a>
-    <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">&#128172; WhatsApp: +91-91151 12824</a>
+    <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">&#128172; WhatsApp: +91 91151 12824</a>
     <a href="#workflows" class="btn-outline">View Our Workflows &#8595;</a>
   </div>
   <div class="hero-trust">
@@ -273,7 +275,7 @@
 <div class="stats-bar">
   <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Automation Workflows</div></div>
   <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">System Uptime</div></div>
-  <div class="stat-item"><div class="stat-number">48hr</div><div class="stat-label">Delivery Turnaround</div></div>
+  <div class="stat-item"><div class="stat-number">48-Hour</div><div class="stat-label">Delivery Turnaround</div></div>
   <div class="stat-item"><div class="stat-number">20+</div><div class="stat-label">Hours Saved Per Week</div></div>
   <div class="stat-item"><div class="stat-number">&#8377;0</div><div class="stat-label">Hidden Charges</div></div>
 </div>
@@ -289,9 +291,9 @@
       <div class="workflow-card" onclick="openModal(0)">
         <div class="wf-number">WORKFLOW 01</div>
         <span class="wf-icon">&#9881;&#65039;</span>
-        <h3>Sales Enquiry &amp; CRM Automation</h3>
-        <p>Automatically capture leads from website, WhatsApp, and social media — push to CRM, send follow-up emails, and alert your sales team in real time.</p>
-        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Typebot</span><span class="wf-tag">Supabase</span><span class="wf-tag">WhatsApp API</span></div>
+        <h3>CRM &amp; Sales Automation</h3>
+        <p>Automatically capture leads from website, WhatsApp, and social media &mdash; push to CRM, send follow-up emails, and alert your sales team in real time.</p>
+        <div class="wf-tags"><span class="wf-tag">n8n</span><span class="wf-tag">Typebot</span><span class="wf-tag">Supabase</span><span class="wf-tag">WhatsApp API</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -299,8 +301,8 @@
         <div class="wf-number">WORKFLOW 02</div>
         <span class="wf-icon">&#128172;</span>
         <h3>WhatsApp Business Automation</h3>
-        <p>Auto-reply to customer queries, send order confirmations, invoices, appointment reminders, and broadcast campaigns via WhatsApp — zero manual effort.</p>
-        <div class="wf-tags"><span class="wf-tag">WhatsApp Cloud API</span><span class="wf-tag">N8N</span><span class="wf-tag">Typebot</span></div>
+        <p>Auto-reply to customer queries, send order confirmations, invoices, appointment reminders, and broadcast campaigns via WhatsApp &mdash; zero manual effort.</p>
+        <div class="wf-tags"><span class="wf-tag">WhatsApp Cloud API</span><span class="wf-tag">n8n</span><span class="wf-tag">Typebot</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -309,7 +311,7 @@
         <span class="wf-icon">&#128203;</span>
         <h3>Invoice &amp; Payment Automation</h3>
         <p>Auto-generate GST-compliant invoices, send payment links via Razorpay, track payment status, and trigger thank-you messages on successful payment.</p>
-        <div class="wf-tags"><span class="wf-tag">Razorpay</span><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span><span class="wf-tag">Gmail</span></div>
+        <div class="wf-tags"><span class="wf-tag">Razorpay</span><span class="wf-tag">n8n</span><span class="wf-tag">Supabase</span><span class="wf-tag">Gmail</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -317,8 +319,8 @@
         <div class="wf-number">WORKFLOW 04</div>
         <span class="wf-icon">&#129302;</span>
         <h3>AI Customer Support Bot</h3>
-        <p>Deploy a 24/7 AI chatbot that answers FAQs, qualifies leads, books appointments, and escalates complex queries — all without human intervention.</p>
-        <div class="wf-tags"><span class="wf-tag">Typebot</span><span class="wf-tag">OpenAI</span><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span></div>
+        <p>Deploy a 24/7 AI chatbot that answers FAQs, qualifies leads, books appointments, and escalates complex queries &mdash; all without human intervention.</p>
+        <div class="wf-tags"><span class="wf-tag">Typebot</span><span class="wf-tag">OpenAI</span><span class="wf-tag">n8n</span><span class="wf-tag">Supabase</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -327,16 +329,16 @@
         <span class="wf-icon">&#128202;</span>
         <h3>Data Pipeline &amp; Reporting Automation</h3>
         <p>Pull data from multiple sources, transform and clean it automatically, and deliver real-time dashboards and scheduled reports to your email or Slack.</p>
-        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span><span class="wf-tag">Google Sheets</span><span class="wf-tag">PostgreSQL</span></div>
+        <div class="wf-tags"><span class="wf-tag">n8n</span><span class="wf-tag">Supabase</span><span class="wf-tag">Google Sheets</span><span class="wf-tag">PostgreSQL</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
       <div class="workflow-card" onclick="openModal(5)">
         <div class="wf-number">WORKFLOW 06</div>
-        <span class="wf-icon">🪪</span>
+        <span class="wf-icon">&#129706;</span>
         <h3>Employee Onboarding Automation</h3>
-        <p>Automate the entire HR onboarding flow — welcome emails, document collection, account creation, task assignment, and training schedule delivery.</p>
-        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Gmail</span><span class="wf-tag">Google Drive</span><span class="wf-tag">Supabase</span></div>
+        <p>Automate the entire HR onboarding flow &mdash; welcome emails, document collection, account creation, task assignment, and training schedule delivery.</p>
+        <div class="wf-tags"><span class="wf-tag">n8n</span><span class="wf-tag">Gmail</span><span class="wf-tag">Google Drive</span><span class="wf-tag">Supabase</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -344,8 +346,8 @@
         <div class="wf-number">WORKFLOW 07</div>
         <span class="wf-icon">&#128230;</span>
         <h3>E-commerce Order &amp; Inventory Automation</h3>
-        <p>Sync orders from your store to your warehouse, auto-update inventory levels, trigger dispatch notifications, and manage returns — fully automated.</p>
-        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">Supabase</span><span class="wf-tag">Webhooks</span><span class="wf-tag">WhatsApp API</span></div>
+        <p>Sync orders from your store to your warehouse, auto-update inventory levels, trigger dispatch notifications, and manage returns &mdash; fully automated.</p>
+        <div class="wf-tags"><span class="wf-tag">n8n</span><span class="wf-tag">Supabase</span><span class="wf-tag">Webhooks</span><span class="wf-tag">WhatsApp API</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -353,8 +355,8 @@
         <div class="wf-number">WORKFLOW 08</div>
         <span class="wf-icon">&#128279;</span>
         <h3>Multi-App Systems Integration</h3>
-        <p>Connect any two or more software systems — Google Workspace, Notion, Razorpay, Slack, Tally, Zoho — via custom API integrations built on N8N.</p>
-        <div class="wf-tags"><span class="wf-tag">N8N</span><span class="wf-tag">REST API</span><span class="wf-tag">Webhooks</span><span class="wf-tag">JSON</span></div>
+        <p>Connect any two or more software systems &mdash; Google Workspace, Notion, Razorpay, Slack, Tally, Zoho &mdash; via custom API integrations built on n8n.</p>
+        <div class="wf-tags"><span class="wf-tag">n8n</span><span class="wf-tag">REST API</span><span class="wf-tag">Webhooks</span><span class="wf-tag">JSON</span></div>
         <div class="wf-learn">View Full Workflow Details &#8594;</div>
       </div>
 
@@ -367,7 +369,7 @@
   <div class="section-wrap">
     <div class="section-label">Our Process</div>
     <h2 class="section-title">From Audit to Automation in 4 Steps</h2>
-    <p class="section-subtitle">A clear, proven process that delivers working automation — on time, on budget, with zero surprises.</p>
+    <p class="section-subtitle">A clear, proven process that delivers working automation &mdash; on time, on budget, with zero surprises.</p>
     <div class="steps-grid">
       <div class="step-item">
         <div class="step-number">1</div>
@@ -377,12 +379,12 @@
       <div class="step-item">
         <div class="step-number">2</div>
         <h3>Proposal &amp; Scope</h3>
-        <p>You receive a fixed-price proposal with exact deliverables, timeline, and tools used — no vague hourly billing, no hidden costs.</p>
+        <p>You receive a fixed-price proposal with exact deliverables, timeline, and tools used &mdash; no vague hourly billing, no hidden costs.</p>
       </div>
       <div class="step-item">
         <div class="step-number">3</div>
         <h3>Build &amp; Test</h3>
-        <p>We design, build, and rigorously test your automation workflows — with live demos before handover so you see exactly what was built.</p>
+        <p>We design, build, and rigorously test your automation workflows &mdash; with live demos before handover so you see exactly what was built.</p>
       </div>
       <div class="step-item">
         <div class="step-number">4</div>
@@ -400,7 +402,7 @@
     <h2 class="section-title">Enterprise-Grade Tools. Production-Tested.</h2>
     <p class="section-subtitle">Every tool in our stack is battle-tested, cloud-native, and running live in our own production environment.</p>
     <div class="tech-grid">
-      <div class="tech-badge"><span class="tech-dot"></span>N8N Automation</div>
+      <div class="tech-badge"><span class="tech-dot"></span>n8n Automation</div>
       <div class="tech-badge"><span class="tech-dot"></span>Supabase</div>
       <div class="tech-badge"><span class="tech-dot"></span>Typebot</div>
       <div class="tech-badge"><span class="tech-dot"></span>Render Cloud</div>
@@ -425,11 +427,11 @@
   <div class="section-wrap">
     <div class="section-label">Industries We Serve</div>
     <h2 class="section-title">Built for Every Business Type</h2>
-    <p class="section-subtitle">We have built automation workflows for businesses across these industries — with proven results.</p>
+    <p class="section-subtitle">We have built automation workflows for businesses across these industries &mdash; with proven results.</p>
     <div class="industry-grid">
       <div class="industry-card"><span class="industry-icon">&#127981;</span><div><h3>Manufacturing &amp; Production</h3><p>Order tracking, inventory sync, supplier communication automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#128201;</span><div><h3>Real Estate &amp; Construction</h3><p>Lead follow-up, site visit scheduling, document collection automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#128657;</span><div><h3>Logistics &amp; Distribution</h3><p>Dispatch alerts, delivery tracking, fleet communication automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#127970;</span><div><h3>Real Estate &amp; Construction</h3><p>Lead follow-up, site visit scheduling, document collection automation</p></div></div>
+      <div class="industry-card"><span class="industry-icon">&#128666;</span><div><h3>Logistics &amp; Distribution</h3><p>Dispatch alerts, delivery tracking, fleet communication automation</p></div></div>
       <div class="industry-card"><span class="industry-icon">&#127973;</span><div><h3>Healthcare &amp; Clinics</h3><p>Appointment booking, patient reminders, report delivery automation</p></div></div>
       <div class="industry-card"><span class="industry-icon">&#128722;</span><div><h3>E-commerce &amp; Retail</h3><p>Order processing, inventory updates, customer support automation</p></div></div>
       <div class="industry-card"><span class="industry-icon">&#128188;</span><div><h3>Professional Services</h3><p>Client onboarding, invoice generation, document workflow automation</p></div></div>
@@ -446,7 +448,7 @@
     <div class="why-grid">
       <div class="why-card"><span class="why-icon">&#9881;&#65039;</span><h3>Live Production Stack</h3><p>Our entire automation infrastructure is live, tested, and running in production on Render, Supabase, and Docker.</p></div>
       <div class="why-card"><span class="why-icon">&#127470;&#127475;</span><h3>India-Based, Global-Ready</h3><p>MSME-registered in Ludhiana, Punjab. We serve clients across India, the US, the UK, the UAE, and Australia with full compliance and documentation.</p></div>
-      <div class="why-card"><span class="why-icon">&#128274;</span><h3>Secure by Default</h3><p>All systems utilize Supabase row-level security and HTTPS encryption, monitored 24/7 via UptimeRobot with instant alerts.</p></div>
+      <div class="why-card"><span class="why-icon">&#128274;</span><h3>Secure by Default</h3><p>All systems use Supabase row-level security and HTTPS encryption, monitored 24/7 via UptimeRobot with instant alerts.</p></div>
       <div class="why-card"><span class="why-icon">&#129309;</span><h3>Fixed Price, Zero Surprises</h3><p>Every project is quoted at a fixed price upfront. You know the exact cost before we start&mdash;no hourly billing, no surprise invoices.</p></div>
     </div>
   </div>
@@ -464,7 +466,7 @@
         <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="btn-wa-large">&#128172; WhatsApp Us</a>
       </div>
       <div class="contact-row">
-        <a href="tel:+919115112824" class="btn-phone">&#128222; Call: +91-91151 12824</a>
+        <a href="tel:+919115112824" class="btn-phone">&#128222; Call: +91 91151 12824</a>
       </div>
     </div>
     <div class="contact-details-grid">
@@ -472,8 +474,8 @@
         <h4>Contact</h4>
         <p>
           <a href="mailto:aethelincsystems@gmail.com">aethelincsystems@gmail.com</a><br />
-          <a href="tel:+919115112824">+91-91151 12824</a><br />
-          <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer">WhatsApp: +91-91151 12824</a>
+          <a href="tel:+919115112824">+91 91151 12824</a><br />
+          <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer">WhatsApp: +91 91151 12824</a>
         </p>
       </div>
       <div class="contact-detail-item">
@@ -481,14 +483,14 @@
         <p>
           Ludhiana, Punjab, India<br />
           Serving clients globally<br />
-          Mon–Sat: 9:00 AM – 7:00 PM IST
+          Mon&ndash;Sat: 9:00 AM &ndash; 7:00 PM IST
         </p>
       </div>
       <div class="contact-detail-item">
         <h4>Business Hours</h4>
         <p>
-          Monday – Friday: 9AM – 7PM<br />
-          Saturday: 10AM – 5PM<br />
+          Monday &ndash; Friday: 9:00 AM &ndash; 7:00 PM IST<br />
+          Saturday: 10:00 AM &ndash; 5:00 PM IST<br />
           Sunday: Closed
         </p>
       </div>
@@ -496,16 +498,16 @@
   </div>
 </section>
 
-<!-- ── CREDENTIALS ── */
+<!-- ── CREDENTIALS ── -->
 <div class="credentials">
   <div class="credentials-inner">
     <div class="cred-item"><span>Aethelinc Systems</span></div>
     <div class="cred-sep">&bull;</div>
     <div class="cred-item">MSME Registered &bull; Govt. of India</div>
     <div class="cred-sep">&bull;</div>
-    <div class="cred-item">Udyam: <span>UDYAM-PB-XX-XXXXXXXX</span></div>
+    <div class="cred-item">Udyam: <span>MSME Registered</span></div>
     <div class="cred-sep">&bull;</div>
-    <div class="cred-item">Class 42 IT Services</div>
+    <div class="cred-item">Class 42 &mdash; IT Services</div>
     <div class="cred-sep">&bull;</div>
     <div class="cred-item">Ludhiana, Punjab, India</div>
   </div>
@@ -516,11 +518,11 @@
   <div class="footer-top">
     <div class="footer-brand">
       <a class="logo" href="#hero" style="font-size:17px;"><span class="logo-dot"></span>Aethelinc Systems</a>
-      <p>Enterprise AI automation workflows. N8N, Supabase, Typebot. Ludhiana, Punjab, India. Serving businesses globally.</p>
+      <p>Enterprise AI automation workflows. n8n, Supabase, Typebot. Ludhiana, Punjab, India. Serving businesses globally.</p>
     </div>
     <div class="footer-col">
       <h4>Workflows</h4>
-      <a href="#workflows" onclick="openModal(0);return false;">CRM Workflow Automation</a>
+      <a href="#workflows" onclick="openModal(0);return false;">CRM &amp; Sales Automation</a>
       <a href="#workflows" onclick="openModal(1);return false;">WhatsApp Automation</a>
       <a href="#workflows" onclick="openModal(2);return false;">Invoice Automation</a>
       <a href="#workflows" onclick="openModal(3);return false;">AI Support Bot</a>
@@ -537,7 +539,7 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="mailto:aethelincsystems@gmail.com">aethelincsystems@gmail.com</a>
-      <a href="tel:+919115112824">+91-91151 12824</a>
+      <a href="tel:+919115112824">+91 91151 12824</a>
       <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
     </div>
   </div>
@@ -554,7 +556,7 @@
 <script>
 const workflows = [
   {
-    icon: "⚙️",
+    icon: "&#9881;&#65039;",
     title: "CRM Automation & Sales Automation",
     subtitle: "Automatically manage enquiries from every channel — website forms, WhatsApp, Instagram DMs, chatbots — and push them instantly to your CRM with zero manual data entry.",
     list: [
@@ -565,11 +567,11 @@ const workflows = [
       "Score and tag leads automatically based on their responses and source",
       "Schedule automatic follow-up sequences at Day 1, Day 3, Day 7 without manual effort"
     ],
-    tags: ["N8N", "Typebot", "Supabase", "WhatsApp Cloud API", "Gmail", "PostgreSQL"],
-    result: "Businesses using this workflow report 100% sales enquiry rate (zero leads lost), 3x faster response time, and 40% higher conversion rate compared to manual follow-up."
+    tags: ["n8n", "Typebot", "Supabase", "WhatsApp Cloud API", "Gmail", "PostgreSQL"],
+    result: "Businesses using this workflow report 100% lead capture rate (zero leads lost), 3x faster response time, and 40% higher conversion rate compared to manual follow-up."
   },
   {
-    icon: "💬",
+    icon: "&#128172;",
     title: "WhatsApp Business Automation",
     subtitle: "Transform your WhatsApp Business number into a 24/7 automated customer communication engine — handling inquiries, orders, confirmations, and reminders without human intervention.",
     list: [
@@ -580,26 +582,26 @@ const workflows = [
       "Collect customer feedback and reviews automatically after service completion",
       "Escalate complex queries to a human agent with full conversation context"
     ],
-    tags: ["WhatsApp Cloud API", "N8N", "Typebot", "Supabase", "Meta Business Platform"],
+    tags: ["WhatsApp Cloud API", "n8n", "Typebot", "Supabase", "Meta Business Platform"],
     result: "Clients save 6–8 hours daily on WhatsApp customer support. Response time drops from hours to under 10 seconds. Customer satisfaction scores increase by an average of 45%."
   },
   {
-    icon: "📋",
+    icon: "&#128203;",
     title: "Invoice & Payment Automation",
     subtitle: "Eliminate manual invoicing forever. Automatically generate GST-compliant invoices, send payment links, track payment status, and reconcile accounts — all triggered by events in your workflow.",
     list: [
-      "Auto-generate professional GST-compliant invoices when an order is confirmed or project milestone is reached",
+      "Auto-generate professional GST-compliant invoices when an order is confirmed or a project milestone is reached",
       "Send invoice with Razorpay payment link directly to client via email and WhatsApp",
       "Monitor payment status in real time and send automated payment reminders at Day 3, Day 7, Day 14",
       "Trigger thank-you message and receipt delivery immediately on successful payment",
       "Update your accounting records and Supabase database automatically on payment",
       "Generate weekly and monthly payment summary reports delivered to your email"
     ],
-    tags: ["Razorpay", "N8N", "Supabase", "Gmail", "WhatsApp API", "Google Sheets"],
+    tags: ["Razorpay", "n8n", "Supabase", "Gmail", "WhatsApp API", "Google Sheets"],
     result: "Clients eliminate 4–6 hours of manual invoicing per week. Payment collection time reduces by 60%. Late payment rate drops significantly with automated reminders."
   },
   {
-    icon: "🤖",
+    icon: "&#129302;",
     title: "AI Customer Support Bot",
     subtitle: "Deploy a fully trained AI chatbot that answers customer questions, qualifies leads, books appointments, and handles objections — operating 24 hours a day, 7 days a week, on your website and WhatsApp.",
     list: [
@@ -610,11 +612,11 @@ const workflows = [
       "Collect customer contact details and push them to your CRM in real time",
       "Escalate unresolved queries to a human agent with full conversation history and context"
     ],
-    tags: ["Typebot", "OpenAI API", "N8N", "Supabase", "WhatsApp Cloud API", "Google Calendar"],
+    tags: ["Typebot", "OpenAI API", "n8n", "Supabase", "WhatsApp Cloud API", "Google Calendar"],
     result: "Clients handle 80% of customer queries without any human intervention. Support costs drop by 65%. Leads generated outside business hours increase by 200%."
   },
   {
-    icon: "📊",
+    icon: "&#128202;",
     title: "Data Pipeline & Reporting Automation",
     subtitle: "Stop manually compiling reports from multiple systems. Automatically pull, clean, transform, and deliver real-time business intelligence dashboards and scheduled reports to your inbox.",
     list: [
@@ -623,13 +625,13 @@ const workflows = [
       "Build real-time dashboards that update automatically with your latest business metrics",
       "Deliver scheduled daily, weekly, or monthly reports to email or Slack automatically",
       "Alert key stakeholders when metrics cross critical thresholds — low stock, missed targets",
-      "Archive and backup all business data to Supabase with automated retention policies"
+      "Archive and back up all business data to Supabase with automated retention policies"
     ],
-    tags: ["N8N", "Supabase", "PostgreSQL", "Google Sheets", "Slack", "REST APIs"],
+    tags: ["n8n", "Supabase", "PostgreSQL", "Google Sheets", "Slack", "REST APIs"],
     result: "Business owners get real-time visibility into their operations in under 10 seconds. Manual report generation time drops from 3–4 hours to zero. Decision-making speed increases significantly."
   },
   {
-    icon: "🪪",
+    icon: "&#129706;",
     title: "Employee Onboarding Automation",
     subtitle: "Transform your HR onboarding from a manual, error-prone process into a smooth, automated experience — from offer letter to first day, every step handled automatically.",
     list: [
@@ -640,11 +642,11 @@ const workflows = [
       "Deliver training schedule, company handbook, and resources on a timed basis",
       "Send Day 30, Day 60, Day 90 check-in surveys to the new employee automatically"
     ],
-    tags: ["N8N", "Gmail", "Google Drive", "Supabase", "Google Workspace APIs", "Slack"],
+    tags: ["n8n", "Gmail", "Google Drive", "Supabase", "Google Workspace APIs", "Slack"],
     result: "HR teams save 8–12 hours per new hire. New employee time-to-productivity reduces by 35%. Zero documents missed or delayed. Consistent experience for every new team member."
   },
   {
-    icon: "🛒",
+    icon: "&#128230;",
     title: "E-commerce Order & Inventory Automation",
     subtitle: "Run your e-commerce operations on complete autopilot — from order placement to delivery confirmation, with real-time inventory management and customer communication handled automatically.",
     list: [
@@ -655,11 +657,11 @@ const workflows = [
       "Automate return and refund request handling with customer communication",
       "Generate daily sales summary reports with inventory status delivered to your phone"
     ],
-    tags: ["N8N", "Supabase", "Webhooks", "WhatsApp API", "Razorpay", "PostgreSQL"],
+    tags: ["n8n", "Supabase", "Webhooks", "WhatsApp API", "Razorpay", "PostgreSQL"],
     result: "E-commerce businesses eliminate manual order processing entirely. Inventory discrepancies drop to near zero. Customer communication happens in real time. Operations scale without adding staff."
   },
   {
-    icon: "🔗",
+    icon: "&#128279;",
     title: "Multi-App Systems Integration",
     subtitle: "If you use two or more software tools that don't talk to each other, we build the bridge. Custom API integrations that make your entire software ecosystem work as one connected system.",
     list: [
@@ -670,14 +672,14 @@ const workflows = [
       "Build custom internal tools and admin dashboards connected to your live data",
       "Document every integration fully with architecture diagrams and runbooks"
     ],
-    tags: ["N8N", "REST API", "Webhooks", "JSON", "OAuth 2.0", "Supabase", "Node.js"],
+    tags: ["n8n", "REST API", "Webhooks", "JSON", "OAuth 2.0", "Supabase", "Node.js"],
     result: "Businesses eliminate tool-switching and manual data transfer completely. Teams work faster with all tools connected. Custom integrations that would cost lakhs from agencies are delivered at a fraction of the cost."
   }
 ];
 
 function openModal(index) {
   const w = workflows[index];
-  document.getElementById('mIcon').textContent = w.icon;
+  document.getElementById('mIcon').innerHTML = w.icon;
   document.getElementById('mTitle').textContent = w.title;
   document.getElementById('mSubtitle').textContent = w.subtitle;
   const list = document.getElementById('mList');
