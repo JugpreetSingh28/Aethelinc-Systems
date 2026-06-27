@@ -134,11 +134,39 @@
     /* ── INDUSTRIES ── */
     .industries { padding: 96px 56px; }
     .industry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .industry-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 12px; padding: 24px 22px; display: flex; align-items: center; gap: 16px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; cursor: pointer; }
-    .industry-card:hover { border-color: #7c6af7; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,106,247,0.15); }
+    .industry-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 12px; padding: 24px 22px; display: flex; align-items: center; gap: 16px; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s; cursor: pointer; position: relative; overflow: hidden; }
+    .industry-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#7c6af7,#a78bfa); opacity:0; transition:opacity 0.25s; }
+    .industry-card:hover { border-color: #7c6af7; transform: translateY(-4px); box-shadow: 0 10px 32px rgba(124,106,247,0.16); }
+    .industry-card:hover::before { opacity:1; }
     .industry-icon { font-size: 28px; flex-shrink: 0; }
-    .industry-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: #ffffff; }
+    .industry-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
     .industry-card p { font-size: 12.5px; color: #666666; line-height: 1.5; }
+    .industry-learn { font-size: 11.5px; color: #7c6af7; font-weight: 600; margin-top: 6px; display: flex; align-items: center; gap: 5px; }
+
+    /* ── INDUSTRY MODAL (separate from workflow modal) ── */
+    .ind-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.78); z-index: 10001; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(7px); }
+    .ind-modal-overlay.active { display: flex; }
+    .ind-modal-box { background: #0f0f1e; border: 1px solid #2a2a3e; border-radius: 18px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 42px; position: relative; animation: modalIn 0.25s ease; }
+    .ind-modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; border-radius: 50%; background: #1a1a2e; border: none; color: #aaaaaa; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+    .ind-modal-close:hover { background: #2a2a3e; color: #ffffff; }
+    .ind-modal-icon { font-size: 42px; margin-bottom: 14px; display: block; }
+    .ind-modal-title { font-size: 25px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .ind-modal-subtitle { font-size: 15px; color: #888888; margin-bottom: 28px; line-height: 1.65; }
+    .ind-modal-section { margin-bottom: 22px; }
+    .ind-modal-section h4 { font-size: 12.5px; font-weight: 700; color: #7c6af7; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+    .ind-modal-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .ind-modal-list li { font-size: 14px; color: #cccccc; display: flex; align-items: flex-start; gap: 10px; line-height: 1.65; }
+    .ind-modal-list li::before { content:'→'; color:#7c6af7; font-weight:700; flex-shrink:0; margin-top:1px; }
+    .ind-modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ind-modal-tag { font-size: 12px; background: #1a1a2e; border: 1px solid #2a2a3e; color: #a78bfa; padding: 5px 12px; border-radius: 6px; font-weight: 600; }
+    .ind-modal-result { background: linear-gradient(135deg, #0d1f0d, #0a1a0a); border: 1px solid #1a3a1a; border-radius: 10px; padding: 18px 20px; }
+    .ind-modal-result .result-label { font-size: 11px; font-weight: 700; color: #22c55e; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .ind-modal-result p { font-size: 14px; color: #86efac; line-height: 1.65; }
+    .ind-modal-savings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+    .ind-saving-item { background: #0a0a14; border: 1px solid #1a1a2e; border-radius: 10px; padding: 14px 16px; text-align: center; }
+    .ind-saving-number { font-size: 22px; font-weight: 900; background: linear-gradient(135deg,#7c6af7,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom: 4px; }
+    .ind-saving-label { font-size: 11px; color: #666666; line-height: 1.4; }
+    .ind-modal-cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
 
     /* ── CONTACT ── */
     .contact { background: #0a0a14; padding: 96px 56px; border-top: 1px solid #1a1a2e; }
@@ -210,6 +238,38 @@
   </style>
 </head>
 <body>
+
+<!-- ── INDUSTRY MODAL OVERLAY ── -->
+<div class="ind-modal-overlay" id="indModalOverlay" onclick="closeIndModal(event)">
+  <div class="ind-modal-box" id="indModalBox">
+    <button class="ind-modal-close" onclick="closeIndModalBtn()">&#10005;</button>
+    <span class="ind-modal-icon" id="imIcon"></span>
+    <div class="ind-modal-title" id="imTitle"></div>
+    <div class="ind-modal-subtitle" id="imSubtitle"></div>
+    <div class="ind-modal-section">
+      <h4>Key Metrics</h4>
+      <div class="ind-modal-savings" id="imSavings"></div>
+    </div>
+    <div class="ind-modal-section">
+      <h4>What We Automate For You</h4>
+      <ul class="ind-modal-list" id="imList"></ul>
+    </div>
+    <div class="ind-modal-section">
+      <h4>Technologies Used</h4>
+      <div class="ind-modal-tags" id="imTags"></div>
+    </div>
+    <div class="ind-modal-section">
+      <div class="ind-modal-result">
+        <div class="result-label">&#10003; Business Result</div>
+        <p id="imResult"></p>
+      </div>
+    </div>
+    <div class="ind-modal-cta">
+      <a href="mailto:aethelincsystems@gmail.com?subject=Enquiry: Industry Automation" class="modal-btn-primary">&#9993; Email Us About This</a>
+      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="modal-btn-wa">&#128172; WhatsApp Now</a>
+    </div>
+  </div>
+</div>
 
 <!-- ── MODAL OVERLAY ── -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
@@ -429,46 +489,52 @@
     <h2 class="section-title">Built for Every Business Type</h2>
     <p class="section-subtitle">We have built automation workflows for businesses across these industries &mdash; with proven results.</p>
     <div class="industry-grid">
-      <div class="industry-card" onclick="openModal(8)">
+      <div class="industry-card" onclick="openIndustryModal(0)">
         <span class="industry-icon">&#127981;</span>
         <div>
           <h3>Manufacturing &amp; Production</h3>
-          <p>Order tracking, inventory sync, supplier communication automation</p>
+          <p>Order tracking, inventory sync, supplier &amp; dispatch automation</p>
+          <div class="industry-learn">See full automation details &#8594;</div>
         </div>
       </div>
-      <div class="industry-card" onclick="openModal(9)">
+      <div class="industry-card" onclick="openIndustryModal(1)">
         <span class="industry-icon">&#127970;</span>
         <div>
           <h3>Real Estate &amp; Construction</h3>
-          <p>Lead follow-up, site visit scheduling, document collection automation</p>
+          <p>Lead follow-up, site visit scheduling, document automation</p>
+          <div class="industry-learn">See full automation details &#8594;</div>
         </div>
       </div>
-      <div class="industry-card" onclick="openModal(10)">
+      <div class="industry-card" onclick="openIndustryModal(2)">
         <span class="industry-icon">&#128666;</span>
         <div>
           <h3>Logistics &amp; Distribution</h3>
-          <p>Dispatch alerts, delivery tracking, fleet communication automation</p>
+          <p>Dispatch alerts, delivery tracking, fleet communication</p>
+          <div class="industry-learn">See full automation details &#8594;</div>
         </div>
       </div>
-      <div class="industry-card" onclick="openModal(11)">
+      <div class="industry-card" onclick="openIndustryModal(3)">
         <span class="industry-icon">&#127973;</span>
         <div>
           <h3>Healthcare &amp; Clinics</h3>
-          <p>Appointment booking, patient reminders, report delivery automation</p>
+          <p>Appointment booking, patient reminders, report delivery</p>
+          <div class="industry-learn">See full automation details &#8594;</div>
         </div>
       </div>
-      <div class="industry-card" onclick="openModal(12)">
+      <div class="industry-card" onclick="openIndustryModal(4)">
         <span class="industry-icon">&#128722;</span>
         <div>
           <h3>E-commerce &amp; Retail</h3>
-          <p>Order processing, inventory updates, customer support automation</p>
+          <p>Order processing, inventory updates, customer support</p>
+          <div class="industry-learn">See full automation details &#8594;</div>
         </div>
       </div>
-      <div class="industry-card" onclick="openModal(13)">
+      <div class="industry-card" onclick="openIndustryModal(5)">
         <span class="industry-icon">&#128188;</span>
         <div>
           <h3>Professional Services</h3>
-          <p>Client onboarding, invoice generation, document workflow automation</p>
+          <p>Client onboarding, invoice generation, document workflows</p>
+          <div class="industry-learn">See full automation details &#8594;</div>
         </div>
       </div>
     </div>
@@ -703,84 +769,6 @@ const workflows = [
     ],
     tags: ["n8n", "REST API", "Webhooks", "JSON", "OAuth 2.0", "Supabase", "Node.js"],
     result: "Businesses eliminate tool-switching and manual data transfer completely. Teams work faster with all tools connected. Custom integrations that would cost lakhs from agencies are delivered at a fraction of the cost."
-  },
-  {
-    icon: "&#127981;",
-    title: "Manufacturing & Production Automation",
-    subtitle: "Transform your manufacturing facility into a connected, data-driven operation — orchestrating inventory, suppliers, and production lines without human data entry.",
-    list: [
-      "Sync real-time inventory levels across all warehouse and production databases",
-      "Auto-trigger supplier reorder requests when raw materials hit minimum thresholds",
-      "Route production delay alerts instantly to floor managers and clients",
-      "Generate automated shift performance and daily yield reports"
-    ],
-    tags: ["n8n", "Supabase", "Typebot", "Webhooks", "ERP APIs"],
-    result: "Production teams save 25+ hours weekly on manual stock checks. Supply chain bottlenecks are reduced by 40% through instant vendor communication."
-  },
-  {
-    icon: "&#127970;",
-    title: "Real Estate & Construction Automation",
-    subtitle: "Convert your real estate agency into a 24/7 client acquisition engine — instantly filtering, routing, and managing high-value leads with zero manual delay.",
-    list: [
-      "Capture inquiries from property portals and automatically qualify them by budget",
-      "Route premium, verified leads instantly to agents via WhatsApp or Gmail",
-      "Schedule site visits automatically with dynamic calendar syncing",
-      "Collect client KYC and property documentation via automated workflows"
-    ],
-    tags: ["n8n", "Supabase", "Typebot", "WhatsApp Cloud API", "CRM APIs"],
-    result: "Lead response time drops from hours to sub-10 seconds. Agencies handle 10x the inquiry volume without increasing sales headcount."
-  },
-  {
-    icon: "&#128666;",
-    title: "Logistics & Distribution Automation",
-    subtitle: "Upgrade your supply chain with end-to-end operational visibility — automating dispatch tracking, driver communication, and client delivery alerts.",
-    list: [
-      "Push automated dispatch alerts and route details directly to driver devices",
-      "Send real-time tracking updates and ETA modifications to waiting clients",
-      "Flag transit delays instantly and escalate to logistics managers",
-      "Auto-generate digital proof-of-delivery documents and final invoices"
-    ],
-    tags: ["n8n", "Supabase", "Typebot", "REST APIs", "Google Workspace"],
-    result: "Dispatchers save 30+ hours weekly on routine check-in calls. Client satisfaction increases by 50% due to proactive, transparent tracking."
-  },
-  {
-    icon: "&#127973;",
-    title: "Healthcare & Clinic Automation",
-    subtitle: "Deploy a HIPAA-compliant, digital-first patient management system — handling appointments, automated reminders, and secure document delivery automatically.",
-    list: [
-      "Process patient appointment bookings and synchronize clinic calendars 24/7",
-      "Dispatch automated pre-appointment instructions and WhatsApp reminders",
-      "Deliver lab reports and post-consultation documents securely to patients",
-      "Collect post-visit feedback and route critical medical escalations instantly"
-    ],
-    tags: ["n8n", "Supabase", "Typebot", "WhatsApp Cloud API", "PostgreSQL"],
-    result: "Clinics reduce costly patient \"no-show\" rates by up to 80%. Administrative staff save 15+ hours weekly on manual booking logs."
-  },
-  {
-    icon: "&#128722;",
-    title: "E-commerce & Retail Automation",
-    subtitle: "Power your retail ecosystem with hands-off synchronization — connecting your storefront, warehouse, and customer support channels for instant fulfillment.",
-    list: [
-      "Sync order data from storefronts directly to warehouse fulfillment systems",
-      "Update multi-channel inventory counts instantly to prevent overselling",
-      "Trigger automated packing, dispatch, and transit notifications to buyers",
-      "Resolve Tier-1 customer queries 24/7 using AI-driven support bots"
-    ],
-    tags: ["n8n", "Supabase", "Typebot", "OpenAI API", "Webhooks"],
-    result: "Stores scale order volume during peak sales instantly. Customer support ticket volume drops by 60% via automated AI resolutions."
-  },
-  {
-    icon: "&#128188;",
-    title: "Professional Services Automation",
-    subtitle: "Streamline your agency or consultancy operations — automating client onboarding, dynamic document generation, and zero-friction billing architectures.",
-    list: [
-      "Deploy frictionless client onboarding sequences and data collection forms",
-      "Auto-generate custom service agreements and NDAs based on client inputs",
-      "Issue GST-compliant invoices and track payment statuses automatically",
-      "Trigger internal project setup and task assignments upon payment receipt"
-    ],
-    tags: ["n8n", "Supabase", "Razorpay API", "Typebot", "Google Workspace"],
-    result: "Time-to-payment is accelerated by 40%. Agencies save 20+ hours weekly on contract drafting and administrative follow-ups."
   }
 ];
 
@@ -820,8 +808,180 @@ function closeModalBtn() {
   document.body.style.overflow = '';
 }
 
+
+// ── INDUSTRY DATA ──
+const industries = [
+  {
+    icon: "&#127981;",
+    title: "Manufacturing & Production Automation",
+    subtitle: "Eliminate the manual bottlenecks that slow down your production floor. We connect your order system, inventory, supplier communication, and dispatch operations into one automated pipeline — so your team focuses on production, not paperwork.",
+    savings: [
+      { number: "15+ hrs", label: "Saved per week on manual data entry" },
+      { number: "Zero", label: "Orders lost or duplicated" },
+      { number: "3×", label: "Faster supplier response cycle" }
+    ],
+    list: [
+      "Auto-capture purchase orders from email or WhatsApp and log them directly into your inventory system",
+      "Trigger low-stock alerts to purchase team when raw material falls below defined thresholds",
+      "Send automated dispatch notifications to clients via WhatsApp with tracking details and ETA",
+      "Sync supplier invoices to your accounting system automatically — no manual entry, no errors",
+      "Generate daily production summary reports delivered to owner's WhatsApp or email every morning",
+      "Automate payment follow-ups to clients with overdue outstanding invoices via WhatsApp"
+    ],
+    tags: ["n8n", "Supabase", "WhatsApp Cloud API", "Gmail", "PostgreSQL", "Webhooks", "Google Sheets"],
+    result: "Manufacturing businesses save 15+ hours per week on manual data work. Order processing errors drop to near zero. Clients receive real-time dispatch updates without any staff involvement. Owners get daily business snapshots without asking anyone."
+  },
+  {
+    icon: "&#127970;",
+    title: "Real Estate & Construction Automation",
+    subtitle: "Never lose a property enquiry again. We automate the complete lead-to-site-visit pipeline — capturing every enquiry from WhatsApp, portals, and your website, following up automatically, and managing document collection — so you close more deals with the same team.",
+    savings: [
+      { number: "100%", label: "Lead capture — zero enquiries lost" },
+      { number: "5 min", label: "Average follow-up time vs hours manually" },
+      { number: "40%", label: "More site visits booked from same lead volume" }
+    ],
+    list: [
+      "Capture leads from 99acres, MagicBricks, Instagram, WhatsApp, and website forms into one central database",
+      "Send instant personalised property brochure and details to every new enquiry within 60 seconds",
+      "Auto-schedule site visit follow-ups at Day 1, Day 3, and Day 7 via WhatsApp with one-click booking",
+      "Collect KYC documents, agreement signatures, and payment proofs from clients via automated form flows",
+      "Alert sales team on WhatsApp instantly when a hot lead opens a brochure or revisits the website",
+      "Generate weekly pipeline reports — total leads, site visits booked, deals in progress — delivered automatically"
+    ],
+    tags: ["n8n", "Typebot", "WhatsApp Cloud API", "Supabase", "Gmail", "Google Calendar", "REST APIs"],
+    result: "Real estate teams report 100% lead capture rate with zero manual tracking. Site visit bookings increase by 35–40% from the same lead volume. Document collection time reduces from 2 weeks to 2 days. Agents spend 100% of their time selling, not following up manually."
+  },
+  {
+    icon: "&#128666;",
+    title: "Logistics & Distribution Automation",
+    subtitle: "Keep every shipment, every driver, and every client informed — without a single manual phone call or WhatsApp message typed by hand. We automate your entire dispatch-to-delivery communication chain so your operations run faster with fewer staff hours.",
+    savings: [
+      { number: "8+ hrs", label: "Daily saved on customer status calls" },
+      { number: "Real-time", label: "Delivery status updates to clients" },
+      { number: "60%", label: "Reduction in missed or delayed dispatch alerts" }
+    ],
+    list: [
+      "Auto-send dispatch confirmation to client via WhatsApp the moment a shipment leaves your facility",
+      "Trigger real-time delivery status updates at key milestones — dispatched, in transit, out for delivery, delivered",
+      "Alert your operations team automatically if a delivery is delayed beyond the expected window",
+      "Automate Proof of Delivery collection — request photo confirmation from driver and log it to database",
+      "Send automated payment reminders to clients linked to delivery confirmation — collect faster, chase less",
+      "Generate daily dispatch and delivery performance reports for ops managers without manual compilation"
+    ],
+    tags: ["n8n", "WhatsApp Cloud API", "Supabase", "PostgreSQL", "Webhooks", "Gmail", "Google Sheets"],
+    result: "Logistics businesses eliminate 8+ hours of daily manual status communication. Clients receive real-time updates without calling your office. Delivery disputes reduce by 70% due to automated Proof of Delivery records. Cash collection accelerates because payment reminders trigger automatically on delivery."
+  },
+  {
+    icon: "&#127973;",
+    title: "Healthcare & Clinic Automation",
+    subtitle: "Give your patients a seamless experience while your staff handles zero manual scheduling. We automate the full patient journey — from appointment booking to reminders, prescription follow-ups, and report delivery — so your clinic runs efficiently even on your busiest days.",
+    savings: [
+      { number: "90%", label: "Reduction in no-show appointments" },
+      { number: "Zero", label: "Manual reminder calls needed" },
+      { number: "3× faster", label: "New patient registration and data entry" }
+    ],
+    list: [
+      "Let patients book appointments 24/7 via WhatsApp chatbot — no receptionist needed after hours",
+      "Send automated appointment reminders at 24 hours and 2 hours before the scheduled time via WhatsApp",
+      "Collect new patient registration forms, medical history, and consent documents automatically before the visit",
+      "Deliver lab reports, prescription PDFs, and post-consultation instructions to patients via WhatsApp automatically",
+      "Trigger follow-up messages after consultation to check on patient recovery and book next visit",
+      "Auto-generate daily appointment schedules and send to doctors' WhatsApp every morning before clinic opens"
+    ],
+    tags: ["n8n", "Typebot", "WhatsApp Cloud API", "Supabase", "Gmail", "Google Calendar", "PostgreSQL"],
+    result: "Clinics using this system see appointment no-show rates drop by 85–90% due to automated reminders. Reception staff time spent on manual calls reduces by 70%. Patient satisfaction improves because they receive reports and instructions instantly via WhatsApp. Doctors arrive with full schedules already prepared."
+  },
+  {
+    icon: "&#128722;",
+    title: "E-commerce & Retail Automation",
+    subtitle: "Run your online and offline store on complete autopilot. From order confirmation to delivery, from inventory alerts to customer review collection — every operational task is automated so you can focus on growing sales, not managing operations manually.",
+    savings: [
+      { number: "100%", label: "Automated order-to-delivery communication" },
+      { number: "Zero", label: "Manual inventory tracking errors" },
+      { number: "45%", label: "Increase in repeat purchases via follow-up automation" }
+    ],
+    list: [
+      "Send instant order confirmation with invoice to customer via WhatsApp and email the moment payment is received",
+      "Trigger dispatch notification with tracking link automatically when order is shipped from warehouse",
+      "Sync inventory levels across all channels — website, WhatsApp catalogue, and physical store — in real time",
+      "Alert purchasing team automatically when any product stock falls below the minimum reorder threshold",
+      "Send automated review request to customer 3 days after successful delivery to collect feedback and ratings",
+      "Deliver daily sales summary — total orders, revenue, top products, pending shipments — to owner's WhatsApp each morning"
+    ],
+    tags: ["n8n", "Supabase", "WhatsApp Cloud API", "Razorpay", "Webhooks", "PostgreSQL", "Google Sheets"],
+    result: "E-commerce businesses eliminate all manual order communication — customers stay informed at every stage without a single manual message. Inventory stockouts reduce to near zero. Review collection automation increases Google and product ratings significantly. Owners get complete business visibility in under 30 seconds every morning."
+  },
+  {
+    icon: "&#128188;",
+    title: "Professional Services Automation",
+    subtitle: "For CA firms, law offices, consultancies, IELTS institutes, training academies, and agencies — we automate your complete client lifecycle. From first enquiry to proposal, onboarding, invoice collection, and renewal — every step runs without manual intervention.",
+    savings: [
+      { number: "10+ hrs", label: "Saved per week on admin and follow-ups" },
+      { number: "60%", label: "Faster invoice payment collection" },
+      { number: "2×", label: "Client onboarding speed with zero paperwork delays" }
+    ],
+    list: [
+      "Capture enquiries from website, WhatsApp, and social media and send personalised service brochure instantly",
+      "Trigger automated proposal delivery and follow-up sequence after initial consultation call",
+      "Collect onboarding documents, signed agreements, and payment confirmation from new clients automatically",
+      "Generate and send GST-compliant invoices automatically on project milestone or monthly retainer date",
+      "Send automated payment reminders at Day 3, Day 7, and Day 14 — eliminate manual payment chasing completely",
+      "Trigger renewal reminders 30 days before contract expiry with one-click re-engagement option via WhatsApp"
+    ],
+    tags: ["n8n", "Typebot", "WhatsApp Cloud API", "Razorpay", "Supabase", "Gmail", "Google Drive", "PostgreSQL"],
+    result: "Professional service firms save 10+ hours per week on admin and follow-up tasks. Invoice collection speed increases by 60% due to automated payment reminders. Client onboarding time drops from days to hours. Renewal rates improve because every client is reminded automatically — no deal falls through the cracks."
+  }
+];
+
+function openIndustryModal(index) {
+  const d = industries[index];
+  document.getElementById('imIcon').innerHTML = d.icon;
+  document.getElementById('imTitle').textContent = d.title;
+  document.getElementById('imSubtitle').textContent = d.subtitle;
+  // Savings
+  const sav = document.getElementById('imSavings');
+  sav.innerHTML = '';
+  d.savings.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'ind-saving-item';
+    div.innerHTML = '<div class="ind-saving-number">' + s.number + '</div><div class="ind-saving-label">' + s.label + '</div>';
+    sav.appendChild(div);
+  });
+  // List
+  const list = document.getElementById('imList');
+  list.innerHTML = '';
+  d.list.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+  // Tags
+  const tags = document.getElementById('imTags');
+  tags.innerHTML = '';
+  d.tags.forEach(tag => {
+    const span = document.createElement('span');
+    span.className = 'ind-modal-tag';
+    span.textContent = tag;
+    tags.appendChild(span);
+  });
+  document.getElementById('imResult').textContent = d.result;
+  document.getElementById('indModalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeIndModal(event) {
+  if (event.target === document.getElementById('indModalOverlay')) {
+    closeIndModalBtn();
+  }
+}
+
+function closeIndModalBtn() {
+  document.getElementById('indModalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModalBtn();
+  if (e.key === 'Escape') { closeModalBtn(); closeIndModalBtn(); }
 });
 </script>
 
