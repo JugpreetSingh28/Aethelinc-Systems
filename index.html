@@ -134,10 +134,10 @@
     /* ── INDUSTRIES ── */
     .industries { padding: 96px 56px; }
     .industry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .industry-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 12px; padding: 24px 22px; display: flex; align-items: center; gap: 16px; transition: border-color 0.2s; }
-    .industry-card:hover { border-color: #7c6af7; }
+    .industry-card { background: #0f0f1e; border: 1px solid #1a1a2e; border-radius: 12px; padding: 24px 22px; display: flex; align-items: center; gap: 16px; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+    .industry-card:hover { border-color: #7c6af7; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,106,247,0.15); }
     .industry-icon { font-size: 28px; flex-shrink: 0; }
-    .industry-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .industry-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: #ffffff; }
     .industry-card p { font-size: 12.5px; color: #666666; line-height: 1.5; }
 
     /* ── CONTACT ── */
@@ -429,12 +429,48 @@
     <h2 class="section-title">Built for Every Business Type</h2>
     <p class="section-subtitle">We have built automation workflows for businesses across these industries &mdash; with proven results.</p>
     <div class="industry-grid">
-      <div class="industry-card"><span class="industry-icon">&#127981;</span><div><h3>Manufacturing &amp; Production</h3><p>Order tracking, inventory sync, supplier communication automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#127970;</span><div><h3>Real Estate &amp; Construction</h3><p>Lead follow-up, site visit scheduling, document collection automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#128666;</span><div><h3>Logistics &amp; Distribution</h3><p>Dispatch alerts, delivery tracking, fleet communication automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#127973;</span><div><h3>Healthcare &amp; Clinics</h3><p>Appointment booking, patient reminders, report delivery automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#128722;</span><div><h3>E-commerce &amp; Retail</h3><p>Order processing, inventory updates, customer support automation</p></div></div>
-      <div class="industry-card"><span class="industry-icon">&#128188;</span><div><h3>Professional Services</h3><p>Client onboarding, invoice generation, document workflow automation</p></div></div>
+      <div class="industry-card" onclick="openModal(8)">
+        <span class="industry-icon">&#127981;</span>
+        <div>
+          <h3>Manufacturing &amp; Production</h3>
+          <p>Order tracking, inventory sync, supplier communication automation</p>
+        </div>
+      </div>
+      <div class="industry-card" onclick="openModal(9)">
+        <span class="industry-icon">&#127970;</span>
+        <div>
+          <h3>Real Estate &amp; Construction</h3>
+          <p>Lead follow-up, site visit scheduling, document collection automation</p>
+        </div>
+      </div>
+      <div class="industry-card" onclick="openModal(10)">
+        <span class="industry-icon">&#128666;</span>
+        <div>
+          <h3>Logistics &amp; Distribution</h3>
+          <p>Dispatch alerts, delivery tracking, fleet communication automation</p>
+        </div>
+      </div>
+      <div class="industry-card" onclick="openModal(11)">
+        <span class="industry-icon">&#127973;</span>
+        <div>
+          <h3>Healthcare &amp; Clinics</h3>
+          <p>Appointment booking, patient reminders, report delivery automation</p>
+        </div>
+      </div>
+      <div class="industry-card" onclick="openModal(12)">
+        <span class="industry-icon">&#128722;</span>
+        <div>
+          <h3>E-commerce &amp; Retail</h3>
+          <p>Order processing, inventory updates, customer support automation</p>
+        </div>
+      </div>
+      <div class="industry-card" onclick="openModal(13)">
+        <span class="industry-icon">&#128188;</span>
+        <div>
+          <h3>Professional Services</h3>
+          <p>Client onboarding, invoice generation, document workflow automation</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -667,6 +703,84 @@ const workflows = [
     ],
     tags: ["n8n", "REST API", "Webhooks", "JSON", "OAuth 2.0", "Supabase", "Node.js"],
     result: "Businesses eliminate tool-switching and manual data transfer completely. Teams work faster with all tools connected. Custom integrations that would cost lakhs from agencies are delivered at a fraction of the cost."
+  },
+  {
+    icon: "&#127981;",
+    title: "Manufacturing & Production Automation",
+    subtitle: "Transform your manufacturing facility into a connected, data-driven operation — orchestrating inventory, suppliers, and production lines without human data entry.",
+    list: [
+      "Sync real-time inventory levels across all warehouse and production databases",
+      "Auto-trigger supplier reorder requests when raw materials hit minimum thresholds",
+      "Route production delay alerts instantly to floor managers and clients",
+      "Generate automated shift performance and daily yield reports"
+    ],
+    tags: ["n8n", "Supabase", "Typebot", "Webhooks", "ERP APIs"],
+    result: "Production teams save 25+ hours weekly on manual stock checks. Supply chain bottlenecks are reduced by 40% through instant vendor communication."
+  },
+  {
+    icon: "&#127970;",
+    title: "Real Estate & Construction Automation",
+    subtitle: "Convert your real estate agency into a 24/7 client acquisition engine — instantly filtering, routing, and managing high-value leads with zero manual delay.",
+    list: [
+      "Capture inquiries from property portals and automatically qualify them by budget",
+      "Route premium, verified leads instantly to agents via WhatsApp or Gmail",
+      "Schedule site visits automatically with dynamic calendar syncing",
+      "Collect client KYC and property documentation via automated workflows"
+    ],
+    tags: ["n8n", "Supabase", "Typebot", "WhatsApp Cloud API", "CRM APIs"],
+    result: "Lead response time drops from hours to sub-10 seconds. Agencies handle 10x the inquiry volume without increasing sales headcount."
+  },
+  {
+    icon: "&#128666;",
+    title: "Logistics & Distribution Automation",
+    subtitle: "Upgrade your supply chain with end-to-end operational visibility — automating dispatch tracking, driver communication, and client delivery alerts.",
+    list: [
+      "Push automated dispatch alerts and route details directly to driver devices",
+      "Send real-time tracking updates and ETA modifications to waiting clients",
+      "Flag transit delays instantly and escalate to logistics managers",
+      "Auto-generate digital proof-of-delivery documents and final invoices"
+    ],
+    tags: ["n8n", "Supabase", "Typebot", "REST APIs", "Google Workspace"],
+    result: "Dispatchers save 30+ hours weekly on routine check-in calls. Client satisfaction increases by 50% due to proactive, transparent tracking."
+  },
+  {
+    icon: "&#127973;",
+    title: "Healthcare & Clinic Automation",
+    subtitle: "Deploy a HIPAA-compliant, digital-first patient management system — handling appointments, automated reminders, and secure document delivery automatically.",
+    list: [
+      "Process patient appointment bookings and synchronize clinic calendars 24/7",
+      "Dispatch automated pre-appointment instructions and WhatsApp reminders",
+      "Deliver lab reports and post-consultation documents securely to patients",
+      "Collect post-visit feedback and route critical medical escalations instantly"
+    ],
+    tags: ["n8n", "Supabase", "Typebot", "WhatsApp Cloud API", "PostgreSQL"],
+    result: "Clinics reduce costly patient \"no-show\" rates by up to 80%. Administrative staff save 15+ hours weekly on manual booking logs."
+  },
+  {
+    icon: "&#128722;",
+    title: "E-commerce & Retail Automation",
+    subtitle: "Power your retail ecosystem with hands-off synchronization — connecting your storefront, warehouse, and customer support channels for instant fulfillment.",
+    list: [
+      "Sync order data from storefronts directly to warehouse fulfillment systems",
+      "Update multi-channel inventory counts instantly to prevent overselling",
+      "Trigger automated packing, dispatch, and transit notifications to buyers",
+      "Resolve Tier-1 customer queries 24/7 using AI-driven support bots"
+    ],
+    tags: ["n8n", "Supabase", "Typebot", "OpenAI API", "Webhooks"],
+    result: "Stores scale order volume during peak sales instantly. Customer support ticket volume drops by 60% via automated AI resolutions."
+  },
+  {
+    icon: "&#128188;",
+    title: "Professional Services Automation",
+    subtitle: "Streamline your agency or consultancy operations — automating client onboarding, dynamic document generation, and zero-friction billing architectures.",
+    list: [
+      "Deploy frictionless client onboarding sequences and data collection forms",
+      "Auto-generate custom service agreements and NDAs based on client inputs",
+      "Issue GST-compliant invoices and track payment statuses automatically",
+      "Trigger internal project setup and task assignments upon payment receipt"
+    ],
+    tags: ["n8n", "Supabase", "Razorpay API", "Typebot", "Google Workspace"],
+    result: "Time-to-payment is accelerated by 40%. Agencies save 20+ hours weekly on contract drafting and administrative follow-ups."
   }
 ];
 
