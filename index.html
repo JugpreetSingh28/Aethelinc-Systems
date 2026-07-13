@@ -436,211 +436,126 @@
     </div>
   </div>
   <div class="hero-visual reveal">
-    <div class="hero-graph-card">
-      <div class="hgc-head">
-        <div class="hgc-title">Aethelinc Engine Studio v1.0.4</div>
-        <div class="hgc-status">
-          <span class="pulse-dot"></span>LIVE WORKFLOW
-        </div>
+  <div class="hero-graph-card">
+    <div class="hgc-head">
+      <span class="hgc-title" style="font-size: 11px; opacity: 0.6; font-family: 'Space Grotesk', sans-serif;">Aethelinc Engine v1.0</span>
+      <div class="hgc-status">
+        <span class="status-dot-live" style="width: 6px; height: 6px; background-color: #00ff66; border-radius: 50%; display: inline-block; margin-right: 6px; box-shadow: 0 0 8px #00ff66; animate: pulse 2s infinite;"></span>
+        <span style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: #00ff66;">LIVE WORKFLOW</span>
       </div>
-      <style>
-        .hero-graph-card {
-          background: #0a0a14;
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 14px;
-          padding: 24px;
-          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.05);
-          width: 100%;
-          box-sizing: border-box;
-        }
-        .hgc-head {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 24px;
-          padding-bottom: 14px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .hgc-title {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: 11px;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          color: rgba(255, 255, 255, 0.4);
-          font-weight: 600;
-        }
-        .hgc-status {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: 11px;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          color: #10b981;
-          font-weight: 700;
-        }
-        .pulse-dot {
-          width: 7px;
-          height: 7px;
-          background-color: #10b981;
-          border-radius: 50%;
-          box-shadow: 0 0 8px #10b981;
-          animation: hgcPulse 2s infinite ease-in-out;
-        }
-        @keyframes hgcPulse {
-          0% { transform: scale(0.85); opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
-          50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-          100% { transform: scale(0.85); opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-        .wf-node {
-          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease;
-        }
-        .wf-node:hover {
-          transform: translateY(-2px);
-          filter: brightness(1.25);
-        }
-        .wf-edge {
-          stroke: rgba(255, 255, 255, 0.12);
-          stroke-width: 2;
-          fill: none;
-        }
-        .wf-edge-active {
-          stroke-width: 2;
-          fill: none;
-          stroke-dasharray: 6 5;
-          animation: flowPath 25s linear infinite;
-        }
-        @keyframes flowPath {
-          to { stroke-dashoffset: -1000; }
-        }
-        .node-txt-main {
-          font-family: 'Inter', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          fill: #ffffff;
-        }
-        .node-txt-sub {
-          font-family: 'Inter', sans-serif;
-          font-size: 10px;
-          font-weight: 400;
-          fill: rgba(255, 255, 255, 0.45);
-        }
-      </style>
-      <svg viewBox="0 0 820 480" width="100%" height="100%" style="overflow: visible;">
-        <defs>
-          <linearGradient id="grad-active" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.8"/>
-            <stop offset="50%" stop-color="#a855f7" stop-opacity="0.8"/>
-            <stop offset="100%" stop-color="#10b981" stop-opacity="0.8"/>
-          </linearGradient>
-          <filter id="node-glow" x="-10%" y="-10%" width="120%" height="120%">
-            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
-          </filter>
-        </defs>
+    </div>
 
-        <path class="wf-edge" d="M 170 236 C 185 236, 185 236, 200 236" />
-        <path class="wf-edge-active" stroke="url(#grad-active)" d="M 170 236 C 185 236, 185 236, 200 236" />
+    <style>
+      @keyframes pulse {
+        0% { opacity: 0.4; }
+        50% { opacity: 1; }
+        100% { opacity: 0.4; }
+      }
+      .wf-node {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        background: #0d0d18;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      }
+      .wf-node:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.4);
+      }
+      .wf-node svg {
+        width: 20px;
+        height: 20px;
+        color: #fff;
+      }
+      .wf-label {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        color: rgba(255,255,255,0.6);
+        white-space: nowrap;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      .wf-node-upper {
+        background: rgba(10, 10, 18, 0.8);
+        border: 1px dashed rgba(255, 255, 255, 0.3);
+      }
+    </style>
 
-        <path class="wf-edge" d="M 350 236 C 365 236, 365 236, 380 236" />
-        <path class="wf-edge-active" stroke="url(#grad-active)" d="M 350 236 C 365 236, 365 236, 380 236" />
+    <div class="hgc-body" style="position: relative; width: 100%; height: 320px; background: radial-gradient(circle at center, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 16px 16px;">
+      
+      <div class="wf-node wf-node-upper" style="top: 25px; left: 35%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.982-5.03c1.119-.627 1.768-1.785 1.768-3.07a11.972 11.972 0 00-4.117-8.913m-2.479 14.152l-2.435-1.545L3.98 21l.711-5.305m3.71-.3a11.97 11.97 0 01-4.117-8.913m2.479 14.152A12.03 12.03 0 013 12c0-2.316.655-4.479 1.8-6.32l11.4 14.152z" /></svg>
+        <div class="wf-label">Model</div>
+      </div>
 
-        <path class="wf-edge" d="M 375 122 C 375 165, 420 165, 420 210" />
-        <path class="wf-edge-active" stroke="#8b5cf6" d="M 375 122 C 375 165, 420 165, 420 210" />
+      <div class="wf-node wf-node-upper" style="top: 25px; left: 65%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.6-5.84a14.954 14.954 0 015.84-2.58v4.8M6 18H4a2 2 0 01-2-2v-2a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2z" /></svg>
+        <div class="wf-label">Memory</div>
+      </div>
 
-        <path class="wf-edge" d="M 535 122 C 535 165, 490 165, 490 210" />
-        <path class="wf-edge-active" stroke="#ec4899" d="M 535 122 C 535 165, 490 165, 490 210" />
+      <div class="wf-node" style="top: 140px; left: 8%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+        <div class="wf-label">Webhook</div>
+      </div>
 
-        <path class="wf-edge" d="M 530 236 C 580 236, 580 136, 630 136" />
-        <path class="wf-edge-active" stroke="#10b981" d="M 530 236 C 580 236, 580 136, 630 136" />
+      <div class="wf-node" style="top: 140px; left: 24%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>
+        <div class="wf-label">Router</div>
+      </div>
 
-        <path class="wf-edge" d="M 530 236 C 580 236, 580 236, 630 236" />
-        <path class="wf-edge-active" stroke="#22c55e" d="M 530 236 C 580 236, 580 236, 630 236" />
+      <div class="wf-node" style="top: 90px; left: 42%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" /></svg>
+        <div class="wf-label">Supabase</div>
+      </div>
 
-        <path class="wf-edge" d="M 530 236 C 580 236, 580 336, 630 336" />
-        <path class="wf-edge-active" stroke="#f59e0b" d="M 530 236 C 580 236, 580 336, 630 336" />
+      <div class="wf-node" style="top: 190px; left: 42%; border-color: var(--accent); box-shadow: 0 0 14px rgba(255,255,255,0.1);">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25M19.5 3H4.5A1.5 1.5 0 003 4.5v10.5A1.5 1.5 0 004.5 16h15a1.5 1.5 0 001.5-1.5V4.5A1.5 1.5 0 0019.5 3z" /></svg>
+        <div class="wf-label" style="color: #fff; font-weight:600;">AI Agent</div>
+      </div>
 
-        <path class="wf-edge" d="M 530 236 C 580 236, 580 426, 630 426" />
-        <path class="wf-edge-active" stroke="#ef4444" d="M 530 236 C 580 236, 580 426, 630 426" />
+      <div class="wf-node" style="top: 90px; left: 62%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9c0-4.556 4.03-8.25 9-9c0 4.556-4.03 8.25-9 8.25a8.986 8.986 0 01-4.562-1.235L3 18.75l1.3-4.14A8.952 8.952 0 013 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>
+        <div class="wf-label">WhatsApp</div>
+      </div>
 
-        <g class="wf-node" transform="translate(20, 210)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#e11d48"/>
-          <text class="node-txt-main" x="16" y="22">Typebot Hook</text>
-          <text class="node-txt-sub" x="16" y="38">Lead Submitted</text>
-          <circle cx="150" cy="26" r="4" fill="#131322" stroke="#e11d48" stroke-width="2"/>
-        </g>
+      <div class="wf-node" style="top: 190px; left: 62%;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0l-7.5-4.615a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+        <div class="wf-label">Gmail</div>
+      </div>
 
-        <g class="wf-node" transform="translate(200, 210)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#ff6c37"/>
-          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#ff6c37" stroke-width="2"/>
-          <text class="node-txt-main" x="16" y="22">n8n Webhook</text>
-          <text class="node-txt-sub" x="16" y="38">Catch Data Payload</text>
-          <circle cx="150" cy="26" r="4" fill="#131322" stroke="#ff6c37" stroke-width="2"/>
-        </g>
+      <div class="wf-node" style="top: 140px; left: 82%; border-color: rgba(0,255,102,0.3);">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <div class="wf-label">Complete</div>
+      </div>
 
-        <g class="wf-node" transform="translate(380, 210)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#16162d" stroke="rgba(2,132,199,0.3)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#0284c7"/>
-          <circle cx="0" cy="26" r="4" fill="#16162d" stroke="#0284c7" stroke-width="2"/>
-          <text class="node-txt-main" x="16" y="22">AI Agent Node</text>
-          <text class="node-txt-sub" x="16" y="38">Core Orchestrator</text>
-          <circle cx="40" cy="0" r="4" fill="#16162d" stroke="#8b5cf6" stroke-width="2"/>
-          <circle cx="110" cy="0" r="4" fill="#16162d" stroke="#ec4899" stroke-width="2"/>
-          <circle cx="150" cy="26" r="4" fill="#16162d" stroke="#0284c7" stroke-width="2"/>
-        </g>
-
-        <g class="wf-node" transform="translate(300, 70)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#8b5cf6"/>
-          <text class="node-txt-main" x="16" y="22">Model</text>
-          <text class="node-txt-sub" x="16" y="38">gpt-4o-mini engine</text>
-          <circle cx="75" cy="52" r="4" fill="#131322" stroke="#8b5cf6" stroke-width="2"/>
-        </g>
-
-        <g class="wf-node" transform="translate(460, 70)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#ec4899"/>
-          <text class="node-txt-main" x="16" y="22">Memory</text>
-          <text class="node-txt-sub" x="16" y="38">Window Buffer Sync</text>
-          <circle cx="75" cy="52" r="4" fill="#131322" stroke="#ec4899" stroke-width="2"/>
-        </g>
-
-        <g class="wf-node" transform="translate(630, 110)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#10b981"/>
-          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#10b981" stroke-width="2"/>
-          <text class="node-txt-main" x="16" y="22">Supabase DB</text>
-          <text class="node-txt-sub" x="16" y="38">Upsert Profile</text>
-        </g>
-
-        <g class="wf-node" transform="translate(630, 210)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#22c55e"/>
-          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#22c55e" stroke-width="2"/>
-          <text class="node-txt-main" x="16" y="22">WhatsApp API</text>
-          <text class="node-txt-sub" x="16" y="38">Instant Notification</text>
-        </g>
-
-        <g class="wf-node" transform="translate(630, 310)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#f59e0b"/>
-          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#f59e0b" stroke-width="2"/>
-          <text class="node-txt-main" x="16" y="22">Invoice Engine</text>
-          <text class="node-txt-sub" x="16" y="38">Generate Statements</text>
-        </g>
-
-        <g class="wf-node" transform="translate(630, 400)" filter="url(#node-glow)">
-          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
-          <rect width="4" height="52" rx="2" fill="#ef4444"/>
-          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#ef4444" stroke-width="2"/>
-          <text class="node-txt-main" x="16" y="22">Gmail SMTP</text>
-          <text class="node-txt-sub" x="16" y="38">Send Confirmation</text>
-        </g>
+      <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+        <path d="M M35% 49 Q 35% 140 42% 214" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+        <path d="M M65% 49 Q 65% 140 45% 214" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+        
+        <path d="M 12% 164 L 24% 164" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+        <path d="M 28% 164 Q 32% 114 42% 114" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+        <path d="M 28% 164 Q 32% 214 42% 214" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+        
+        <path d="M 46% 114 Q 54% 114 62% 114" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+        <path d="M 46% 214 Q 54% 214 62% 214" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+        
+        <path d="M 66% 114 Q 74% 114 82% 164" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+        <path d="M 66% 214 Q 74% 214 82% 164" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
       </svg>
     </div>
   </div>
+</div>
 </section>
 
 <div class="stats-bar reveal">
