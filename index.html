@@ -436,89 +436,77 @@
     </div>
   </div>
   <div class="hero-visual reveal">
-  <div class="hero-graph-card">
-    <div class="hgc-head">
-      <div class="dots"><span></span><span></span><span></span></div>
+  <style>
+    .flow-line {
+      stroke-dasharray: 8;
+      animation: dash 1.5s linear infinite;
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -20; }
+    }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; fill: #ffffff; }
+  </style>
+  
+  <div class="hero-graph-card" style="background: #0f1014; border: 1px solid #2d2d3a; border-radius: 16px; overflow: hidden; position: relative;">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: rgba(255,255,255,0.03);">
+      <span style="font-family: sans-serif; color: #888; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Workflow Automation</span>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 8px; height: 8px; background: #25D366; border-radius: 50%; box-shadow: 0 0 8px #25D366;"></span>
+        <span style="font-family: sans-serif; color: #fff; font-size: 12px; font-weight: 500;">LIVE WORKFLOW</span>
+      </div>
     </div>
-    <svg viewBox="0 0 950 450" width="100%" height="100%">
+
+    <svg viewBox="0 0 950 450" width="100%" height="auto">
       <defs>
         <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.3" />
-          <stop offset="50%" stop-color="#6366f1" stop-opacity="1" />
-          <stop offset="100%" stop-color="#ec4899" stop-opacity="0.3" />
+          <stop offset="0%" stop-color="#6366f1" />
+          <stop offset="100%" stop-color="#ec4899" />
         </linearGradient>
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
       </defs>
-      <g transform="translate(0, 0)">
-        
-        <g stroke="url(#lineGrad)" stroke-width="3" fill="none">
-          <path d="M 110 220 L 220 220" />
-          
-          <path d="M 280 220 C 350 220, 350 120, 420 120" />
-          
-          <path d="M 480 120 L 600 120" />
-          
-          <path d="M 660 120 L 780 120" />
-          
-          <path d="M 280 220 C 350 220, 350 320, 420 320" />
-          
-          <path d="M 480 320 L 600 320" />
-        </g>
 
-        <g transform="translate(50, 190)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#25D366" filter="url(#glow)"/>
-          <path d="M25 22h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1h-1c-1.7 0-3.2.7-4.4 1.9-1.2 1.2-1.9 2.7-1.9 4.4v1c0 .6.4 1 1 1h2c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-2c-3.9 0-7-3.1-7-7v-2c0-3.9 3.1-7 7-7z" fill="#fff" transform="translate(2,3) scale(0.8)"/>
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">WhatsApp In</text>
-        </g>
+      <g stroke="url(#lineGrad)" stroke-width="3" fill="none" stroke-linecap="round">
+        <path d="M 120 225 L 230 225" class="flow-line" />
+        <path d="M 290 225 C 350 225, 350 120, 410 120" class="flow-line" />
+        <path d="M 470 120 L 590 120" class="flow-line" />
+        <path d="M 650 120 L 770 120" class="flow-line" />
+        <path d="M 290 225 C 350 225, 350 330, 410 330" class="flow-line" />
+        <path d="M 470 330 L 590 330" class="flow-line" />
+      </g>
 
-        <g transform="translate(220, 190)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#1e2128" />
-          <path d="M30 18 c 2 4, 6 8, 10 10 c -4 2, -8 6, -10 10 c -2 -4, -6 -8, -10 -10 c 4 -2, 8 -6, 10 -10 z" fill="#1A73E8" filter="url(#glow)"/>
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Gemini LLM</text>
-        </g>
-
-        <g transform="translate(420, 90)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#1e2128" />
-          <circle cx="30" cy="30" r="14" fill="#3ECF8E" filter="url(#glow)"/>
-          <path d="M30 20 L36 30 L30 40 L24 30 Z" fill="#fff" />
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Supabase DB</text>
-        </g>
-
-        <g transform="translate(600, 90)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#1e2128" />
-          <rect x="18" y="18" width="24" height="24" rx="2" fill="#34A853" filter="url(#glow)"/>
-          <path d="M22 24 h16 v2 h-16 z M22 28 h16 v2 h-16 z" fill="#fff" />
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Google Sheets</text>
-        </g>
-
-        <g transform="translate(780, 90)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#1e2128" />
-          <path d="M16 20 h28 v20 h-28 z" fill="#fff" />
-          <path d="M16 20 l14 10 l14 -10" stroke="#EA4335" stroke-width="3" fill="none" filter="url(#glow)"/>
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Gmail Notif</text>
-        </g>
-
-        <g transform="translate(420, 290)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#0055FF" filter="url(#glow)"/>
-          <text x="30" y="36" font-family="sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">R</text>
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Razorpay API</text>
-        </g>
-
-        <g transform="translate(600, 290)">
-          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
-          <circle cx="30" cy="30" r="18" fill="#25D366" filter="url(#glow)"/>
-          <path d="M25 22h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1h-1c-1.7 0-3.2.7-4.4 1.9-1.2 1.2-1.9 2.7-1.9 4.4v1c0 .6.4 1 1 1h2c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-2c-3.9 0-7-3.1-7-7v-2c0-3.9 3.1-7 7-7z" fill="#fff" transform="translate(2,3) scale(0.8)"/>
-          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">WA Reply</text>
-        </g>
+      <g transform="translate(60, 195)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#25D366" stroke-width="2" />
+        <circle cx="30" cy="30" r="15" fill="#25D366"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">WhatsApp</text>
+      </g>
+      <g transform="translate(230, 195)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#4285F4" stroke-width="2" />
+        <circle cx="30" cy="30" r="15" fill="#4285F4"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">Gemini LLM</text>
+      </g>
+      <g transform="translate(410, 90)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#3ECF8E" stroke-width="2" />
+        <circle cx="30" cy="30" r="15" fill="#3ECF8E"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">Supabase</text>
+      </g>
+      <g transform="translate(590, 90)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#34A853" stroke-width="2" />
+        <rect x="18" y="18" width="24" height="24" fill="#fff" rx="2"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">Sheets</text>
+      </g>
+      <g transform="translate(770, 90)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#EA4335" stroke-width="2" />
+        <circle cx="30" cy="30" r="15" fill="#EA4335"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">Gmail</text>
+      </g>
+      <g transform="translate(410, 300)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#0055FF" stroke-width="2" />
+        <circle cx="30" cy="30" r="15" fill="#0055FF"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">Razorpay</text>
+      </g>
+      <g transform="translate(590, 300)">
+        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#25D366" stroke-width="2" />
+        <circle cx="30" cy="30" r="15" fill="#25D366"/>
+        <text x="30" y="85" text-anchor="middle" class="node-text">WA Reply</text>
       </g>
     </svg>
   </div>
