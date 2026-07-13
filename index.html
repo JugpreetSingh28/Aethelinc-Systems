@@ -443,12 +443,12 @@
       border-radius: 20px;
       padding: 0;
       box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8), 0 0 45px rgba(74, 222, 128, 0.05);
-      transform: translateY(-40px);
+      /* Removed translateY to fix top/bottom alignment on main page */
+      margin: 20px auto; 
       overflow: hidden;
       position: relative;
       width: 100%;
-      max-width: 1150px;
-      margin: 0 auto;
+      max-width: 1200px;
     }
     .hgc-head {
       display: flex;
@@ -458,18 +458,12 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       background: rgba(255, 255, 255, 0.015);
     }
-    .mac-dots { 
-      display: flex; 
-      gap: 10px; 
-    }
-    .mac-dot { 
-      width: 14px; 
-      height: 14px; 
-      border-radius: 50%; 
-    }
+    .mac-dots { display: flex; gap: 10px; }
+    .mac-dot { width: 14px; height: 14px; border-radius: 50%; }
     .mac-dot:nth-child(1) { background: #ff5f56; }
     .mac-dot:nth-child(2) { background: #ffbd2e; }
     .mac-dot:nth-child(3) { background: #27c93f; }
+    
     .live-badge {
       display: flex;
       align-items: center;
@@ -493,47 +487,64 @@
       70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(74, 222, 128, 0); }
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
     }
+
     .workflow-canvas {
       position: relative;
       width: 100%;
       aspect-ratio: 2 / 1;
       background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.5px, transparent 1.5px);
-      background-size: 28px 28px;
+      background-size: 30px 30px;
     }
+    
+    /* 100% Round Shape Nodes */
     .wf-node {
       position: absolute;
       background: #141720;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px;
-      padding: 18px 26px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px; /* Fully rounded ends */
+      padding: 12px 28px 12px 12px;
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
       transform: translate(-50%, -50%);
       z-index: 2;
       box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
+    }
+    .wf-node.upper-node {
+      padding: 8px 20px 8px 8px;
+      border: 1px dashed #4ade80;
+      background: rgba(20, 23, 32, 0.9);
     }
     .wf-node:hover {
       border-color: #4ade80;
-      transform: translate(-50%, -55%);
       box-shadow: 0 20px 50px rgba(74,222,128,0.15);
     }
+    
     .wf-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
+      border-radius: 50%; /* Circular icons to match rounded nodes */
+    }
+    .upper-node .wf-icon {
+      width: 32px;
+      height: 32px;
     }
     .wf-text {
       color: #ffffff;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 17px;
       white-space: nowrap;
     }
+    .upper-node .wf-text {
+      font-size: 14px;
+      color: #4ade80;
+    }
+
     .wf-svg-layer {
       position: absolute;
       top: 0;
@@ -546,17 +557,17 @@
     .path-static {
       fill: none;
       stroke: rgba(255, 255, 255, 0.08);
-      stroke-width: 5;
+      stroke-width: 4;
     }
     .path-animated {
       fill: none;
       stroke: #4ade80;
-      stroke-width: 5;
-      stroke-dasharray: 16 16;
+      stroke-width: 4;
+      stroke-dasharray: 12 12;
       animation: dash-flow 1s linear infinite;
     }
     @keyframes dash-flow {
-      to { stroke-dashoffset: -32; }
+      to { stroke-dashoffset: -24; }
     }
   </style>
 
@@ -575,53 +586,84 @@
 
     <div class="workflow-canvas">
       
-      <div class="wf-node" style="left: 12%; top: 50%;">
+      <div class="wf-node" style="left: 10%; top: 55%;">
         <div class="wf-icon" style="background: #e91e63;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M3 15h6"/><path d="M6 12v6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M3 15h6"/><path d="M6 12v6"/></svg>
         </div>
-        <div class="wf-text">Webhook</div>
+        <div class="wf-text">New Lead</div>
       </div>
 
-      <div class="wf-node" style="left: 32%; top: 50%;">
+      <div class="wf-node" style="left: 28%; top: 55%;">
         <div class="wf-icon" style="background: #f59e0b;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><path d="M3 12h5l4-6h9"/><path d="M8 12l4 6h9"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M3 12h5l4-6h9"/><path d="M8 12l4 6h9"/></svg>
         </div>
-        <div class="wf-text">Data Router</div>
+        <div class="wf-text">n8n Router</div>
       </div>
 
-      <div class="wf-node" style="left: 56%; top: 20%;">
+      <div class="wf-node" style="left: 50%; top: 55%;">
         <div class="wf-icon" style="background: #10a37f;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 7.1"/><path d="M12 12l9.9 4.9"/></svg>
         </div>
-        <div class="wf-text">OpenAI Agent</div>
+        <div class="wf-text">Agentic Core</div>
       </div>
 
-      <div class="wf-node" style="left: 56%; top: 80%;">
+      <div class="wf-node upper-node" style="left: 40%; top: 25%;">
+        <div class="wf-icon" style="background: rgba(74, 222, 128, 0.2);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <div class="wf-text">Memory</div>
+      </div>
+
+      <div class="wf-node upper-node" style="left: 60%; top: 25%;">
+        <div class="wf-icon" style="background: rgba(74, 222, 128, 0.2);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="wf-text">LLM Model</div>
+      </div>
+
+      <div class="wf-node" style="left: 75%; top: 25%;">
         <div class="wf-icon" style="background: #3ecf8e;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
         </div>
-        <div class="wf-text">Supabase Vector</div>
+        <div class="wf-text">Supabase DB</div>
       </div>
 
-      <div class="wf-node" style="left: 82%; top: 50%;">
+      <div class="wf-node" style="left: 75%; top: 55%;">
         <div class="wf-icon" style="background: #25D366;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
-        <div class="wf-text">WhatsApp API</div>
+        <div class="wf-text">WhatsApp</div>
       </div>
 
-      <svg class="wf-svg-layer" viewBox="0 0 1000 500" preserveAspectRatio="none">
-        <path class="path-static" d="M 120 250 L 320 250" />
-        <path class="path-static" d="M 320 250 C 440 250, 440 100, 560 100" />
-        <path class="path-static" d="M 320 250 C 440 250, 440 400, 560 400" />
-        <path class="path-static" d="M 560 100 C 690 100, 690 250, 820 250" />
-        <path class="path-static" d="M 560 400 C 690 400, 690 250, 820 250" />
+      <div class="wf-node" style="left: 75%; top: 85%;">
+        <div class="wf-icon" style="background: #0052cc;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <div class="wf-text">CRM Output</div>
+      </div>
 
-        <path class="path-animated" d="M 120 250 L 320 250" />
-        <path class="path-animated" d="M 320 250 C 440 250, 440 100, 560 100" />
-        <path class="path-animated" d="M 320 250 C 440 250, 440 400, 560 400" />
-        <path class="path-animated" d="M 560 100 C 690 100, 690 250, 820 250" />
-        <path class="path-animated" d="M 560 400 C 690 400, 690 250, 820 250" />
+      <div class="wf-node" style="left: 92%; top: 55%;">
+        <div class="wf-icon" style="background: #7c3aed;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="wf-text">Done</div>
+      </div>
+
+      <svg class="wf-svg-layer" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <path class="path-static" d="M 120 330 L 336 330" /> <path class="path-static" d="M 336 330 L 600 330" /> <path class="path-static" d="M 600 330 C 600 250, 480 200, 480 150" /> <path class="path-static" d="M 600 330 C 600 250, 720 200, 720 150" /> <path class="path-static" d="M 600 330 C 750 330, 750 150, 900 150" /> <path class="path-static" d="M 600 330 L 900 330" /> <path class="path-static" d="M 600 330 C 750 330, 750 510, 900 510" /> <path class="path-static" d="M 900 150 C 1000 150, 1000 330, 1104 330" />
+        <path class="path-static" d="M 900 330 L 1104 330" />
+        <path class="path-static" d="M 900 510 C 1000 510, 1000 330, 1104 330" />
+
+        <path class="path-animated" d="M 120 330 L 336 330" />
+        <path class="path-animated" d="M 336 330 L 600 330" />
+        <path class="path-animated" d="M 600 330 C 600 250, 480 200, 480 150" />
+        <path class="path-animated" d="M 600 330 C 600 250, 720 200, 720 150" />
+        <path class="path-animated" d="M 600 330 C 750 330, 750 150, 900 150" />
+        <path class="path-animated" d="M 600 330 L 900 330" />
+        <path class="path-animated" d="M 600 330 C 750 330, 750 510, 900 510" />
+        <path class="path-animated" d="M 900 150 C 1000 150, 1000 330, 1104 330" />
+        <path class="path-animated" d="M 900 330 L 1104 330" />
+        <path class="path-animated" d="M 900 510 C 1000 510, 1000 330, 1104 330" />
       </svg>
     </div>
   </div>
