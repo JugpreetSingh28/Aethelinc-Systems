@@ -435,84 +435,117 @@
       <div class="trust-item"><span class="tick">&#10003;</span> Fixed Project Pricing</div>
     </div>
   </div>
-  <div class="canvas-wrapper">
-    <style>
-        .canvas-wrapper { background: #0f0f12; padding: 40px; border-radius: 12px; font-family: 'Segoe UI', sans-serif; position: relative; width: 100%; max-width: 900px; }
-        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
-        .title-sm { color: #fff; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; opacity: 0.9; }
-        .live-badge-sm { color: #00ff88; font-size: 10px; font-weight: 700; border: 1px solid #00ff88; padding: 2px 8px; border-radius: 4px; }
-        
-        .node-container { position: relative; height: 350px; }
-        .node { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
-        .circle { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 0 20px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); }
-        .label { color: #aaa; font-size: 11px; margin-top: 10px; font-weight: 400; }
-        
-        /* Node Colors */
-        .green-glow { border-color: #00ff88; box-shadow: 0 0 15px rgba(0, 255, 136, 0.4); }
-        .red-glow { border-color: #ff4444; box-shadow: 0 0 15px rgba(255, 68, 68, 0.4); }
-        .cyan-glow { border-color: #00e5ff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.4); }
-        .blue-glow { border-color: #2979ff; box-shadow: 0 0 15px rgba(41, 121, 255, 0.4); }
-        .orange-glow { border-color: #ff9100; box-shadow: 0 0 15px rgba(255, 145, 0, 0.4); }
-        
-        .connections { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-        path { fill: none; stroke-width: 3px; stroke-opacity: 0.5; }
-    </style>
+  <div class="hero-visual reveal">
+    <div class="hero-graph-card">
+      <div class="hgc-head">
+        <span class="hgc-title" style="font-size:10px;">WHATSAPP LEAD AI AUTOMATION</span>
+        <span class="hgc-live" style="font-size:10.5px;">&#9679; LIVE WORKFLOW</span>
+      </div>
+      <svg class="hero-graph" viewBox="0 0 1024 560" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrCyan" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2dd4ee"/></marker>
+          <marker id="arrBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3b7bff"/></marker>
+          <marker id="arrGold" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#f5c95f"/></marker>
+          <radialGradient id="rgGreen" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#123322"/><stop offset="100%" stop-color="#0a1810"/></radialGradient>
+          <radialGradient id="rgRed" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#341a1e"/><stop offset="100%" stop-color="#180c0e"/></radialGradient>
+          <radialGradient id="rgCyan" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#0f2e35"/><stop offset="100%" stop-color="#08181c"/></radialGradient>
+          <radialGradient id="rgGray" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#26263a"/><stop offset="100%" stop-color="#121220"/></radialGradient>
+          <radialGradient id="rgBlue" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#122040"/><stop offset="100%" stop-color="#0a1224"/></radialGradient>
+          <radialGradient id="rgGold" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#3a3010"/><stop offset="100%" stop-color="#1c1608"/></radialGradient>
+          <radialGradient id="rgOrange" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#3a2210"/><stop offset="100%" stop-color="#1c1008"/></radialGradient>
+          <filter id="wfGlowSoft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
 
-    <div class="header-top">
-        <div class="title-sm">WHATSAPP LEAD AI AUTOMATION</div>
-        <div class="live-badge-sm">LIVE WORKFLOW</div>
+        <!-- connector lines -->
+        <g fill="none">
+          <path d="M177,310 L268,310" stroke="#2dd4ee" stroke-width="2.4" marker-end="url(#arrCyan)"/>
+          <path d="M337,310 C420,310 420,225 487,205" stroke="#2dd4ee" stroke-width="2.4" marker-end="url(#arrCyan)"/>
+          <path d="M337,310 C420,310 420,400 486,418" stroke="#2dd4ee" stroke-width="2.4" marker-end="url(#arrCyan)"/>
+          <path d="M448,132 C462,150 478,168 498,180" stroke="#5a5a72" stroke-width="1.4" stroke-dasharray="2,5"/>
+          <path d="M595,132 C578,150 560,168 543,182" stroke="#5a5a72" stroke-width="1.4" stroke-dasharray="2,5"/>
+          <path d="M556,196 L676,195" stroke="#3b7bff" stroke-width="2.4" marker-end="url(#arrBlue)"/>
+          <path d="M753,195 L872,195" stroke="#f5c95f" stroke-width="2.4" marker-end="url(#arrGold)"/>
+          <path d="M554,424 L709,424" stroke="#f5c95f" stroke-width="2.4" marker-end="url(#arrGold)"/>
+        </g>
+        <circle cx="616" cy="195.5" r="4" fill="#e8e8f2" filter="url(#wfGlowSoft)"/>
+
+        <!-- MODEL -->
+        <circle cx="450" cy="108" r="27" fill="url(#rgGray)" stroke="#6a6a85" stroke-width="1.6" filter="url(#wfGlowSoft)"/>
+        <text x="450" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700" fill="#c7c7dd" letter-spacing="0.5">MODEL</text>
+
+        <!-- MEMORY -->
+        <circle cx="593" cy="108" r="27" fill="url(#rgGray)" stroke="#6a6a85" stroke-width="1.6" filter="url(#wfGlowSoft)"/>
+        <text x="593" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="700" fill="#c7c7dd" letter-spacing="0.5">MEMORY</text>
+
+        <!-- WhatsApp Trigger -->
+        <circle cx="145" cy="310" r="32" fill="url(#rgGreen)" stroke="#2FE871" stroke-width="2" filter="url(#wfGlowSoft)"/>
+        <circle cx="145" cy="310" r="16" fill="#25D366"/>
+        <path d="M139,304c0-2 1-3 2-3h2c1 0 1 .5 1.5 1.5l1 2.5c.3.7 0 1.2-.5 1.7l-1 1c1 2 3 4 5 5l1-1c.5-.5 1-.8 1.7-.5l2.5 1c1 .5 1.5.5 1.5 1.5v2c0 1-1 2-3 2-4.5 0-11-6.5-11-11z" fill="#fff" transform="translate(0,0) scale(1)"/>
+
+        <!-- n8n Router -->
+        <circle cx="305" cy="310" r="32" fill="url(#rgRed)" stroke="#ff5d6c" stroke-width="2" filter="url(#wfGlowSoft)"/>
+        <g stroke="#ff5d6c" stroke-width="2" fill="#ff5d6c">
+          <circle cx="296" cy="299" r="3.4"/><circle cx="296" cy="321" r="3.4"/><circle cx="315" cy="310" r="3.4"/>
+          <line x1="298.5" y1="301" x2="312.5" y2="308" stroke-width="1.6"/>
+          <line x1="298.5" y1="319" x2="312.5" y2="312" stroke-width="1.6"/>
+        </g>
+
+        <!-- App / Gemini -->
+        <circle cx="521" cy="196" r="34" fill="url(#rgCyan)" stroke="#2dd4ee" stroke-width="2" filter="url(#wfGlowSoft)"/>
+        <path d="M521,180c8,0 14,6 14,13 0,5-3,9-7,11l2,7-6-4c-1,.2-2,.3-3,.3-8,0-14-6-14-13s6-14 14-14z" fill="none" stroke="#2dd4ee" stroke-width="1.8"/>
+        <text x="521" y="216" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#2dd4ee" letter-spacing="0.5">App</text>
+
+        <!-- Razorpay API -->
+        <circle cx="718" cy="195" r="34" fill="url(#rgBlue)" stroke="#3b7bff" stroke-width="2" filter="url(#wfGlowSoft)"/>
+        <path d="M723,181 L707,201 L717,201 L713,213 L731,192 L720,192 Z" fill="#3b7bff"/>
+
+        <!-- Send Pay Link & Reply -->
+        <circle cx="918" cy="195" r="38" fill="url(#rgGold)" stroke="#f5c95f" stroke-width="2.2" filter="url(#wfGlowSoft)"/>
+        <circle cx="918" cy="195" r="18" fill="#25D366"/>
+        <path d="M911,188c0-2 1-3 2-3h2c1 0 1 .5 1.5 1.5l1.2 2.8c.3.7 0 1.2-.5 1.7l-1.1 1.1c1.1 2.2 3.2 4.3 5.4 5.4l1.1-1.1c.5-.5 1-.8 1.7-.5l2.8 1.2c1 .5 1.5.5 1.5 1.5v2c0 1-1 2-3 2-5 0-12-7-12-11.6z" fill="#fff"/>
+
+        <!-- Google Sheets -->
+        <circle cx="521" cy="424" r="32" fill="url(#rgGreen)" stroke="#34A853" stroke-width="2" filter="url(#wfGlowSoft)"/>
+        <rect x="507" y="410" width="28" height="28" rx="2" fill="none" stroke="#34A853" stroke-width="1.8"/>
+        <line x1="507" y1="419" x2="535" y2="419" stroke="#34A853" stroke-width="1.4"/>
+        <line x1="507" y1="429" x2="535" y2="429" stroke="#34A853" stroke-width="1.4"/>
+        <line x1="517" y1="410" x2="517" y2="438" stroke="#34A853" stroke-width="1.4"/>
+        <line x1="527" y1="410" x2="527" y2="438" stroke="#34A853" stroke-width="1.4"/>
+
+        <!-- Email Notification -->
+        <circle cx="751" cy="424" r="34" fill="url(#rgOrange)" stroke="#ff8a4c" stroke-width="2" filter="url(#wfGlowSoft)"/>
+        <rect x="734" y="412" width="34" height="24" rx="2" fill="none" stroke="#ff8a4c" stroke-width="1.8"/>
+        <path d="M734,413 L751,426 L768,413" fill="none" stroke="#ff8a4c" stroke-width="1.8"/>
+
+        <!-- tags -->
+        <g font-family="Inter, sans-serif" font-size="12.5" font-weight="700" fill="#e4e4f2">
+          <rect x="83" y="350" width="124" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="99" cy="363" r="4" fill="#5a5a75"/><text x="112" y="367">WhatsApp Trigger</text>
+
+          <rect x="247" y="350" width="116" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="263" cy="363" r="4" fill="#ff5d6c"/><text x="276" y="367">n8n Router</text>
+
+          <rect x="459" y="236" width="124" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="475" cy="249" r="4" fill="#5a5a75"/><text x="488" y="253">Gemini LLM</text>
+
+          <rect x="656" y="236" width="124" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="672" cy="249" r="4" fill="#3b7bff"/><text x="685" y="253">Razorpay API</text>
+
+          <rect x="855" y="236" width="180" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="871" cy="249" r="4" fill="#5a5a75"/><text x="884" y="253">Send Pay Link &amp; Reply</text>
+
+          <rect x="459" y="464" width="130" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="475" cy="477" r="4" fill="#5a5a75"/><text x="488" y="481">Google Sheets</text>
+
+          <rect x="656" y="464" width="164" height="26" rx="13" fill="#12121f" stroke="#242438"/>
+          <circle cx="672" cy="477" r="4" fill="#5a5a75"/><text x="685" y="481">Email Notification</text>
+        </g>
+
+        <!-- decorative sparkle -->
+        <path d="M985,470 l6,16 16,6 -16,6 -6,16 -6,-16 -16,-6 16,-6z" fill="#3a3a52" opacity="0.6"/>
+      </svg>
     </div>
-
-    <div class="node-container">
-        <!-- SVG CONNECTIONS -->
-        <svg class="connections">
-            <path d="M 80 180 C 150 180, 150 180, 220 180" stroke="#00ff88" />
-            <path d="M 280 180 C 350 180, 350 100, 420 100" stroke="#00ff88" />
-            <path d="M 280 180 C 350 180, 350 260, 420 260" stroke="#00e5ff" />
-            <path d="M 480 100 L 580 100" stroke="#2979ff" />
-            <path d="M 640 100 L 740 100" stroke="#ff9100" />
-            <path d="M 480 260 L 580 260" stroke="#ff9100" />
-        </svg>
-
-        <!-- NODES -->
-        <div class="node" style="top: 150px; left: 30px;">
-            <div class="circle green-glow">💬</div>
-            <div class="label">WhatsApp Trigger</div>
-        </div>
-        <div class="node" style="top: 150px; left: 230px;">
-            <div class="circle red-glow">🔄</div>
-            <div class="label">n8n Router</div>
-        </div>
-        <div class="node" style="top: 20px; left: 380px;">
-            <div class="circle" style="width: 40px; height: 40px; font-size: 12px; border: 1px solid #555;">M</div>
-            <div class="label" style="margin-top: 4px;">MODEL</div>
-        </div>
-        <div class="node" style="top: 20px; left: 460px;">
-            <div class="circle" style="width: 40px; height: 40px; font-size: 12px; border: 1px solid #555;">M</div>
-            <div class="label" style="margin-top: 4px;">MEMORY</div>
-        </div>
-        <div class="node" style="top: 70px; left: 420px;">
-            <div class="circle cyan-glow">🧠</div>
-            <div class="label">Gemini LLM</div>
-        </div>
-        <div class="node" style="top: 70px; left: 620px;">
-            <div class="circle blue-glow">⚡</div>
-            <div class="label">Razorpay API</div>
-        </div>
-        <div class="node" style="top: 70px; left: 780px;">
-            <div class="circle orange-glow">📞</div>
-            <div class="label">Send Pay Link</div>
-        </div>
-        <div class="node" style="top: 230px; left: 420px;">
-            <div class="circle green-glow">📊</div>
-            <div class="label">Google Sheets</div>
-        </div>
-        <div class="node" style="top: 230px; left: 620px;">
-            <div class="circle orange-glow">✉️</div>
-            <div class="label">Email Notification</div>
-        </div>
-    </div>
-</div>
+  </div>
 </section>
 
 <div class="stats-bar reveal">
