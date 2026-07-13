@@ -436,250 +436,211 @@
     </div>
   </div>
   <div class="hero-visual reveal">
-  <style>
-    .hero-graph-card {
-      background: #090b10;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      padding: 0;
-      box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.9), 0 0 50px rgba(74, 222, 128, 0.06);
-      margin: 40px auto; /* Balanced top and bottom margins to display perfectly centered on main page load */
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      box-sizing: border-box;
-    }
-    .hgc-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 26px 36px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.015);
-    }
-    .mac-dots { display: flex; gap: 10px; }
-    .mac-dot { width: 14px; height: 14px; border-radius: 50%; }
-    .mac-dot:nth-child(1) { background: #ff5f56; }
-    .mac-dot:nth-child(2) { background: #ffbd2e; }
-    .mac-dot:nth-child(3) { background: #27c93f; }
-    
-    .live-badge {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #4ade80;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 800;
-      font-size: 20px; /* Highly visible top right text */
-      letter-spacing: 1.5px;
-    }
-    .pulse-circle {
-      width: 14px;
-      height: 14px;
-      background: #4ade80;
-      border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.8);
-      animation: pulse-green 2s infinite;
-    }
-    @keyframes pulse-green {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.8); }
-      70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(74, 222, 128, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
-    }
-
-    .workflow-canvas {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 2 / 1;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px);
-      background-size: 32px 32px;
-    }
-    
-    /* 100% Round Pill-Shaped Workflow Nodes */
-    .wf-node {
-      position: absolute;
-      background: #12151e;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 60px; /* Absolute round shape setup */
-      padding: 14px 32px 14px 14px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .wf-node:hover {
-      border-color: #4ade80;
-      transform: translate(-50%, -52%);
-      box-shadow: 0 25px 50px rgba(74, 222, 128, 0.18);
-    }
-
-    /* Dashed Accent for System Core Components */
-    .wf-node.upper-node {
-      padding: 10px 24px 10px 10px;
-      border: 1px dashed rgba(74, 222, 128, 0.6);
-      background: rgba(14, 17, 26, 0.95);
-    }
-    
-    /* High Visibility Larger Icon and Text Layouts */
-    .wf-icon {
-      width: 52px; /* Increased logo size */
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-    .upper-node .wf-icon {
-      width: 38px;
-      height: 38px;
-    }
-    .wf-text {
-      color: #ffffff;
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 19px; /* Highly clear and readable name size */
-      white-space: nowrap;
-      letter-spacing: -0.3px;
-    }
-    .upper-node .wf-text {
-      font-size: 15px;
-      color: #4ade80;
-    }
-
-    .wf-svg-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .path-static {
-      fill: none;
-      stroke: rgba(255, 255, 255, 0.06);
-      stroke-width: 5;
-    }
-    .path-animated {
-      fill: none;
-      stroke: #4ade80;
-      stroke-width: 5;
-      stroke-dasharray: 14 14;
-      animation: dash-flow 0.8s linear infinite;
-    }
-    @keyframes dash-flow {
-      to { stroke-dashoffset: -28; }
-    }
-  </style>
-
-  <div class="hero-graph-card">
-    <div class="hgc-head">
-      <div class="mac-dots">
-        <div class="mac-dot"></div>
-        <div class="mac-dot"></div>
-        <div class="mac-dot"></div>
-      </div>
-      <div class="live-badge">
-        <div class="pulse-circle"></div>
-        LIVE WORKFLOW
-      </div>
-    </div>
-
-    <div class="workflow-canvas">
-      
-      <div class="wf-node" style="left: 8%; top: 50%;">
-        <div class="wf-icon" style="background: #e91e63;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="M3 15h6"/><path d="M6 12v6"/></svg>
+    <div class="hero-graph-card">
+      <div class="hgc-head">
+        <div class="hgc-title">Aethelinc Engine Studio v1.0.4</div>
+        <div class="hgc-status">
+          <span class="pulse-dot"></span>LIVE WORKFLOW
         </div>
-        <div class="wf-text">Webhook</div>
       </div>
+      <style>
+        .hero-graph-card {
+          background: #0a0a14;
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 14px;
+          padding: 24px;
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .hgc-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 24px;
+          padding-bottom: 14px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hgc-title {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          color: rgba(255, 255, 255, 0.4);
+          font-weight: 600;
+        }
+        .hgc-status {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          color: #10b981;
+          font-weight: 700;
+        }
+        .pulse-dot {
+          width: 7px;
+          height: 7px;
+          background-color: #10b981;
+          border-radius: 50%;
+          box-shadow: 0 0 8px #10b981;
+          animation: hgcPulse 2s infinite ease-in-out;
+        }
+        @keyframes hgcPulse {
+          0% { transform: scale(0.85); opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+          50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+          100% { transform: scale(0.85); opacity: 0.6; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .wf-node {
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease;
+        }
+        .wf-node:hover {
+          transform: translateY(-2px);
+          filter: brightness(1.25);
+        }
+        .wf-edge {
+          stroke: rgba(255, 255, 255, 0.12);
+          stroke-width: 2;
+          fill: none;
+        }
+        .wf-edge-active {
+          stroke-width: 2;
+          fill: none;
+          stroke-dasharray: 6 5;
+          animation: flowPath 25s linear infinite;
+        }
+        @keyframes flowPath {
+          to { stroke-dashoffset: -1000; }
+        }
+        .node-txt-main {
+          font-family: 'Inter', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          fill: #ffffff;
+        }
+        .node-txt-sub {
+          font-family: 'Inter', sans-serif;
+          font-size: 10px;
+          font-weight: 400;
+          fill: rgba(255, 255, 255, 0.45);
+        }
+      </style>
+      <svg viewBox="0 0 820 480" width="100%" height="100%" style="overflow: visible;">
+        <defs>
+          <linearGradient id="grad-active" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.8"/>
+            <stop offset="50%" stop-color="#a855f7" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#10b981" stop-opacity="0.8"/>
+          </linearGradient>
+          <filter id="node-glow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.5"/>
+          </filter>
+        </defs>
 
-      <div class="wf-node" style="left: 26%; top: 50%;">
-        <div class="wf-icon" style="background: #f59e0b;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><path d="M3 12h5l4-6h9"/><path d="M8 12l4 6h9"/></svg>
-        </div>
-        <div class="wf-text">Data Router</div>
-      </div>
+        <path class="wf-edge" d="M 170 236 C 185 236, 185 236, 200 236" />
+        <path class="wf-edge-active" stroke="url(#grad-active)" d="M 170 236 C 185 236, 185 236, 200 236" />
 
-      <div class="wf-node" style="left: 48%; top: 50%;">
-        <div class="wf-icon" style="background: #10a37f;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 7.1"/><path d="M12 12l9.9 4.9"/></svg>
-        </div>
-        <div class="wf-text">Agentic Core</div>
-      </div>
+        <path class="wf-edge" d="M 350 236 C 365 236, 365 236, 380 236" />
+        <path class="wf-edge-active" stroke="url(#grad-active)" d="M 350 236 C 365 236, 365 236, 380 236" />
 
-      <div class="wf-node upper-node" style="left: 40%; top: 18%;">
-        <div class="wf-icon" style="background: rgba(74, 222, 128, 0.15);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-        </div>
-        <div class="wf-text">Memory</div>
-      </div>
+        <path class="wf-edge" d="M 375 122 C 375 165, 420 165, 420 210" />
+        <path class="wf-edge-active" stroke="#8b5cf6" d="M 375 122 C 375 165, 420 165, 420 210" />
 
-      <div class="wf-node upper-node" style="left: 56%; top: 18%;">
-        <div class="wf-icon" style="background: rgba(74, 222, 128, 0.15);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        </div>
-        <div class="wf-text">LLM Model</div>
-      </div>
+        <path class="wf-edge" d="M 535 122 C 535 165, 490 165, 490 210" />
+        <path class="wf-edge-active" stroke="#ec4899" d="M 535 122 C 535 165, 490 165, 490 210" />
 
-      <div class="wf-node" style="left: 72%; top: 25%;">
-        <div class="wf-icon" style="background: #3ecf8e;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-        </div>
-        <div class="wf-text">Supabase DB</div>
-      </div>
+        <path class="wf-edge" d="M 530 236 C 580 236, 580 136, 630 136" />
+        <path class="wf-edge-active" stroke="#10b981" d="M 530 236 C 580 236, 580 136, 630 136" />
 
-      <div class="wf-node" style="left: 72%; top: 50%;">
-        <div class="wf-icon" style="background: #25D366;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        </div>
-        <div class="wf-text">WhatsApp</div>
-      </div>
+        <path class="wf-edge" d="M 530 236 C 580 236, 580 236, 630 236" />
+        <path class="wf-edge-active" stroke="#22c55e" d="M 530 236 C 580 236, 580 236, 630 236" />
 
-      <div class="wf-node" style="left: 72%; top: 75%;">
-        <div class="wf-icon" style="background: #0052cc;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        </div>
-        <div class="wf-text">CRM Sync</div>
-      </div>
+        <path class="wf-edge" d="M 530 236 C 580 236, 580 336, 630 336" />
+        <path class="wf-edge-active" stroke="#f59e0b" d="M 530 236 C 580 236, 580 336, 630 336" />
 
-      <div class="wf-node" style="left: 92%; top: 50%;">
-        <div class="wf-icon" style="background: #7c3aed;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:26px;height:26px;"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="wf-text">Complete</div>
-      </div>
+        <path class="wf-edge" d="M 530 236 C 580 236, 580 426, 630 426" />
+        <path class="wf-edge-active" stroke="#ef4444" d="M 530 236 C 580 236, 580 426, 630 426" />
 
-      <svg class="wf-svg-layer" viewBox="0 0 1200 600" preserveAspectRatio="none">
-        <path class="path-static" d="M 96 300 L 312 300" />
-        <path class="path-static" d="M 312 300 L 576 300" />
-        <path class="path-static" d="M 576 300 C 576 220, 480 200, 480 108" />
-        <path class="path-static" d="M 576 300 C 576 220, 672 200, 672 108" />
-        <path class="path-static" d="M 576 300 C 700 300, 700 150, 864 150" />
-        <path class="path-static" d="M 576 300 L 864 300" />
-        <path class="path-static" d="M 576 300 C 700 300, 700 450, 864 450" />
-        <path class="path-static" d="M 864 150 C 980 150, 980 300, 1104 300" />
-        <path class="path-static" d="M 864 300 L 1104 300" />
-        <path class="path-static" d="M 864 450 C 980 450, 980 300, 1104 300" />
+        <g class="wf-node" transform="translate(20, 210)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#e11d48"/>
+          <text class="node-txt-main" x="16" y="22">Typebot Hook</text>
+          <text class="node-txt-sub" x="16" y="38">Lead Submitted</text>
+          <circle cx="150" cy="26" r="4" fill="#131322" stroke="#e11d48" stroke-width="2"/>
+        </g>
 
-        <path class="path-animated" d="M 96 300 L 312 300" />
-        <path class="path-animated" d="M 312 300 L 576 300" />
-        <path class="path-animated" d="M 576 300 C 576 220, 480 200, 480 108" />
-        <path class="path-animated" d="M 576 300 C 576 220, 672 200, 672 108" />
-        <path class="path-animated" d="M 576 300 C 700 300, 700 150, 864 150" />
-        <path class="path-animated" d="M 576 300 L 864 300" />
-        <path class="path-animated" d="M 576 300 C 700 300, 700 450, 864 450" />
-        <path class="path-animated" d="M 864 150 C 980 150, 980 300, 1104 300" />
-        <path class="path-animated" d="M 864 300 L 1104 300" />
-        <path class="path-animated" d="M 864 450 C 980 450, 980 300, 1104 300" />
+        <g class="wf-node" transform="translate(200, 210)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#ff6c37"/>
+          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#ff6c37" stroke-width="2"/>
+          <text class="node-txt-main" x="16" y="22">n8n Webhook</text>
+          <text class="node-txt-sub" x="16" y="38">Catch Data Payload</text>
+          <circle cx="150" cy="26" r="4" fill="#131322" stroke="#ff6c37" stroke-width="2"/>
+        </g>
+
+        <g class="wf-node" transform="translate(380, 210)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#16162d" stroke="rgba(2,132,199,0.3)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#0284c7"/>
+          <circle cx="0" cy="26" r="4" fill="#16162d" stroke="#0284c7" stroke-width="2"/>
+          <text class="node-txt-main" x="16" y="22">AI Agent Node</text>
+          <text class="node-txt-sub" x="16" y="38">Core Orchestrator</text>
+          <circle cx="40" cy="0" r="4" fill="#16162d" stroke="#8b5cf6" stroke-width="2"/>
+          <circle cx="110" cy="0" r="4" fill="#16162d" stroke="#ec4899" stroke-width="2"/>
+          <circle cx="150" cy="26" r="4" fill="#16162d" stroke="#0284c7" stroke-width="2"/>
+        </g>
+
+        <g class="wf-node" transform="translate(300, 70)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#8b5cf6"/>
+          <text class="node-txt-main" x="16" y="22">Model</text>
+          <text class="node-txt-sub" x="16" y="38">gpt-4o-mini engine</text>
+          <circle cx="75" cy="52" r="4" fill="#131322" stroke="#8b5cf6" stroke-width="2"/>
+        </g>
+
+        <g class="wf-node" transform="translate(460, 70)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#ec4899"/>
+          <text class="node-txt-main" x="16" y="22">Memory</text>
+          <text class="node-txt-sub" x="16" y="38">Window Buffer Sync</text>
+          <circle cx="75" cy="52" r="4" fill="#131322" stroke="#ec4899" stroke-width="2"/>
+        </g>
+
+        <g class="wf-node" transform="translate(630, 110)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#10b981"/>
+          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#10b981" stroke-width="2"/>
+          <text class="node-txt-main" x="16" y="22">Supabase DB</text>
+          <text class="node-txt-sub" x="16" y="38">Upsert Profile</text>
+        </g>
+
+        <g class="wf-node" transform="translate(630, 210)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#22c55e"/>
+          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#22c55e" stroke-width="2"/>
+          <text class="node-txt-main" x="16" y="22">WhatsApp API</text>
+          <text class="node-txt-sub" x="16" y="38">Instant Notification</text>
+        </g>
+
+        <g class="wf-node" transform="translate(630, 310)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#f59e0b"/>
+          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#f59e0b" stroke-width="2"/>
+          <text class="node-txt-main" x="16" y="22">Invoice Engine</text>
+          <text class="node-txt-sub" x="16" y="38">Generate Statements</text>
+        </g>
+
+        <g class="wf-node" transform="translate(630, 400)" filter="url(#node-glow)">
+          <rect width="150" height="52" rx="8" fill="#131322" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <rect width="4" height="52" rx="2" fill="#ef4444"/>
+          <circle cx="0" cy="26" r="4" fill="#131322" stroke="#ef4444" stroke-width="2"/>
+          <text class="node-txt-main" x="16" y="22">Gmail SMTP</text>
+          <text class="node-txt-sub" x="16" y="38">Send Confirmation</text>
+        </g>
       </svg>
     </div>
   </div>
-</div>
 </section>
 
 <div class="stats-bar reveal">
