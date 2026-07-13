@@ -541,50 +541,6 @@
   <div class="stat-item"><div class="stat-number"><span>&#8377;0</span></div><div class="stat-label">Hidden Charges</div></div>
 </div>
 
-.workflow-stage-wrap{position:relative;margin:0;perspective:1400px}
-.workflow-panel{position:relative;overflow:hidden;backdrop-filter:blur(18px);background:linear-gradient(145deg,rgba(9,14,28,.96),rgba(13,22,43,.88));border:1px solid rgba(255,255,255,.14);border-radius:28px;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08);transform:rotateX(10deg) rotateY(-12deg) translateZ(0);transform-style:preserve-3d}
-.workflow-panel:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(53,232,255,.18),transparent 34%),radial-gradient(circle at bottom left,rgba(120,92,255,.14),transparent 28%);pointer-events:none}
-.workflow-panel-head,.workflow-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}
-.workflow-kicker{display:inline-block;font-size:11px;letter-spacing:.22em;color:#8adfff;margin-bottom:6px;font-weight:700}
-.workflow-panel h3{margin:0;font-size:24px;line-height:1.1}
-.workflow-status{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(16,28,54,.75);border:1px solid rgba(90,220,160,.24);color:#dfffee;font-weight:700}
-.status-dot{width:10px;height:10px;border-radius:50%;background:#45e58b;box-shadow:0 0 0 0 rgba(69,229,139,.75);animation:statusPulse 1.8s infinite}
-@keyframes statusPulse{0%{box-shadow:0 0 0 0 rgba(69,229,139,.75)}70%{box-shadow:0 0 0 14px rgba(69,229,139,0)}100%{box-shadow:0 0 0 0 rgba(69,229,139,0)}}
-.workflow-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px;position:relative;z-index:1}
-.wf-node{position:relative;min-height:162px;padding:16px 14px 14px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 35px rgba(0,0,0,.28);transform:translateZ(30px)}
-.wf-badge{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#57dbff,#6e63ff);font-weight:800;font-size:13px;color:#081120;box-shadow:0 8px 20px rgba(71,169,255,.34)}
-.wf-icon{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
-.wf-icon img{width:32px;height:32px;filter:drop-shadow(0 10px 16px rgba(0,0,0,.32))}
-.wf-node h4{margin:12px 0 6px;font-size:15px}
-.wf-node p{margin:0;color:rgba(230,240,255,.76);font-size:13px;line-height:1.45}
-.wf-node-1{background:linear-gradient(145deg,rgba(37,211,102,.16),rgba(255,255,255,.05))}
-.wf-node-2{background:linear-gradient(145deg,rgba(103,58,183,.16),rgba(255,255,255,.05))}
-.wf-node-3{background:linear-gradient(145deg,rgba(234,75,113,.16),rgba(255,255,255,.05))}
-.wf-node-4{background:linear-gradient(145deg,rgba(65,41,145,.18),rgba(255,255,255,.05))}
-.wf-node-5{background:linear-gradient(145deg,rgba(255,122,89,.16),rgba(255,255,255,.05))}
-.wf-node-6{background:linear-gradient(145deg,rgba(12,36,81,.18),rgba(255,255,255,.05))}
-.wf-node-7{background:linear-gradient(145deg,rgba(62,207,142,.16),rgba(255,255,255,.05))}
-.wf-node-8{background:linear-gradient(145deg,rgba(234,67,53,.16),rgba(255,255,255,.05))}
-.wf-node{animation:floatNode 4.8s ease-in-out infinite}
-.wf-node:nth-child(2n){animation-delay:-1.8s}
-.wf-node:nth-child(3n){animation-delay:-3.1s}
-@keyframes floatNode{0%,100%{transform:translateY(0) translateZ(30px)}50%{transform:translateY(-8px) translateZ(30px)}}
-.workflow-footer{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
-.workflow-footer p{margin:0;color:rgba(230,240,255,.78)}
-.live-pulse{display:flex;align-items:flex-end;gap:5px;height:22px}
-.live-pulse span{width:5px;border-radius:999px;background:linear-gradient(180deg,#57dbff,#6e63ff);animation:bars 1.1s ease-in-out infinite}
-.live-pulse span:nth-child(1){height:8px}
-.live-pulse span:nth-child(2){height:18px;animation-delay:.15s}
-.live-pulse span:nth-child(3){height:12px;animation-delay:.3s}
-@keyframes bars{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
-.workflow-orb,.workflow-glow{position:absolute;pointer-events:none;filter:blur(4px)}
-.workflow-orb{border-radius:50%;opacity:.75}
-.workflow-orb-a{top:-18px;right:4%;width:160px;height:160px;background:radial-gradient(circle,rgba(89,220,255,.48),transparent 65%)}
-.workflow-orb-b{bottom:-8px;left:3%;width:180px;height:180px;background:radial-gradient(circle,rgba(117,97,255,.40),transparent 68%)}
-.workflow-glow{inset:10% 8% auto auto;width:280px;height:120px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);transform:rotate(-10deg)}
-@media (max-width:1100px){.workflow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workflow-panel{transform:none}}
-@media (max-width:640px){.workflow-grid{grid-template-columns:1fr}.workflow-panel-head,.workflow-footer{flex-direction:column;align-items:flex-start}}
-      
 <section class="roi section-wrap" style="margin-top:96px;">
   <div class="section-label reveal">The Automation Advantage</div>
   <h2 class="section-title reveal">Why Businesses Are Automating Right Now</h2>
