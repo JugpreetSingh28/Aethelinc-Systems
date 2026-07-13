@@ -438,83 +438,78 @@
   <div class="hero-visual reveal">
   <style>
     .flow-line {
-      stroke-dasharray: 6;
-      stroke-dashoffset: 0;
-      animation: flow 1.5s linear infinite;
+      stroke-dasharray: 10;
+      animation: dash 2s linear infinite;
     }
-    @keyframes flow {
-      from { stroke-dashoffset: 20; }
-      to { stroke-dashoffset: 0; }
-    }
-    .node-label { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff; }
-    .status-dot { animation: blink 1.5s infinite; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    @keyframes dash { to { stroke-dashoffset: -20; } }
+    .node-label { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: #ffffff; }
+    .status-dot { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
   </style>
-  
-  <div class="hero-graph-card" style="background: #0f1014; border: 1px solid #2d2d3a; border-radius: 20px; padding: 25px; position: relative; overflow: hidden;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-      <h3 style="color: #fff; font-family: 'Inter', sans-serif; margin: 0; font-size: 18px;">AI Agentic Automation</h3>
-      <div style="display: flex; align-items: center; gap: 8px; background: rgba(37, 211, 102, 0.1); padding: 6px 12px; border-radius: 20px;">
-        <span class="status-dot" style="width: 8px; height: 8px; background: #25D366; border-radius: 50%;"></span>
-        <span style="color: #25D366; font-family: sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">LIVE WORKFLOW</span>
+
+  <div class="hero-graph-card" style="background: #0a0a0f; border: 1px solid #2d2d3a; border-radius: 20px; overflow: hidden; padding: 30px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+      <h3 style="color: #fff; font-family: sans-serif; margin: 0;">Automation Workflow</h3>
+      <div style="display: flex; align-items: center; gap: 10px; background: #1a1a24; padding: 8px 15px; border-radius: 20px; border: 1px solid #333;">
+        <div class="status-dot" style="width: 10px; height: 10px; background: #25D366; border-radius: 50%;"></div>
+        <span style="color: #25D366; font-family: sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px;">LIVE WORKFLOW</span>
       </div>
     </div>
 
-    <svg viewBox="0 0 900 350" width="100%" height="auto">
-      <defs>
-        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#4f46e5" />
-          <stop offset="100%" stop-color="#ec4899" />
-        </linearGradient>
-      </defs>
-
-      <g stroke="url(#lineGrad)" stroke-width="4" fill="none" stroke-linecap="round">
-        <path d="M 80 175 L 200 175" class="flow-line" />
-        <path d="M 260 175 C 320 175, 320 80, 380 80" class="flow-line" />
-        <path d="M 440 80 L 560 80" class="flow-line" />
-        <path d="M 620 80 L 740 80" class="flow-line" />
-        <path d="M 260 175 C 320 175, 320 270, 380 270" class="flow-line" />
-        <path d="M 440 270 L 560 270" class="flow-line" />
+    <svg viewBox="0 0 1000 400" width="100%" height="auto">
+      <g stroke="#4f46e5" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M 120 200 L 250 200" class="flow-line" />
+        <path d="M 310 200 C 400 200, 400 100, 490 100" class="flow-line" />
+        <path d="M 310 200 C 400 200, 400 300, 490 300" class="flow-line" />
+        <path d="M 550 100 L 670 100" class="flow-line" />
+        <path d="M 730 100 L 850 100" class="flow-line" />
+        <path d="M 550 300 L 670 300" class="flow-line" />
       </g>
 
-      <g transform="translate(20, 145)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#25D366" stroke-width="2" />
-        <circle cx="30" cy="30" r="16" fill="#25D366"/>
-        <text x="30" y="88" text-anchor="middle" class="node-label">WhatsApp</text>
+      <g transform="translate(60, 160)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#25D366" stroke-width="3" />
+        <text x="40" y="52" font-size="30" text-anchor="middle">💬</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">WhatsApp</text>
       </g>
-      <g transform="translate(200, 145)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#4285F4" stroke-width="2" />
-        <circle cx="30" cy="30" r="16" fill="#4285F4"/>
-        <text x="30" y="88" text-anchor="middle" class="node-label">Gemini LLM</text>
+
+      <g transform="translate(250, 160)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#4285F4" stroke-width="3" />
+        <text x="40" y="52" font-size="30" text-anchor="middle">✨</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">Gemini AI</text>
       </g>
-      <g transform="translate(380, 50)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#3ECF8E" stroke-width="2" />
-        <circle cx="30" cy="30" r="16" fill="#3ECF8E"/>
-        <text x="30" y="88" text-anchor="middle" class="node-label">Supabase</text>
+
+      <g transform="translate(490, 60)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#3ECF8E" stroke-width="3" />
+        <text x="40" y="52" font-size="30" text-anchor="middle">💾</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">Supabase</text>
       </g>
-      <g transform="translate(560, 50)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#34A853" stroke-width="2" />
-        <rect x="18" y="18" width="24" height="24" rx="4" fill="#34A853"/>
-        <text x="30" y="88" text-anchor="middle" class="node-label">Sheets</text>
+
+      <g transform="translate(670, 60)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#34A853" stroke-width="3" />
+        <text x="40" y="52" font-size="30" text-anchor="middle">📊</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">Sheets</text>
       </g>
-      <g transform="translate(740, 50)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#EA4335" stroke-width="2" />
-        <circle cx="30" cy="30" r="16" fill="#EA4335"/>
-        <text x="30" y="88" text-anchor="middle" class="node-label">Gmail</text>
+
+      <g transform="translate(850, 60)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#EA4335" stroke-width="3" />
+        <text x="40" y="52" font-size="30" text-anchor="middle">📧</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">Gmail</text>
       </g>
-      <g transform="translate(380, 240)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#0055FF" stroke-width="2" />
-        <text x="30" y="38" text-anchor="middle" font-size="24" font-weight="900" fill="#fff">R</text>
-        <text x="30" y="88" text-anchor="middle" class="node-label">Razorpay</text>
+
+      <g transform="translate(490, 260)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#0055FF" stroke-width="3" />
+        <text x="40" y="55" font-family="sans-serif" font-weight="900" font-size="40" fill="#fff" text-anchor="middle">₹</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">Razorpay</text>
       </g>
-      <g transform="translate(560, 240)">
-        <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#25D366" stroke-width="2" />
-        <circle cx="30" cy="30" r="16" fill="#25D366"/>
-        <text x="30" y="88" text-anchor="middle" class="node-label">WA Reply</text>
+
+      <g transform="translate(670, 260)">
+        <rect width="80" height="80" rx="20" fill="#1e1e2d" stroke="#25D366" stroke-width="3" />
+        <text x="40" y="52" font-size="30" text-anchor="middle">📲</text>
+        <text x="40" y="110" text-anchor="middle" class="node-label">Reply</text>
       </g>
     </svg>
   </div>
-</div>
+</div></div>
 </section>
 
 <div class="stats-bar reveal">
