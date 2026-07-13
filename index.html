@@ -436,200 +436,106 @@
     </div>
   </div>
   <div class="hero-visual reveal">
-  <style>
-    .hero-graph-card {
-        background: #0d0d16;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        padding: 16px;
-        width: 100%;
-        max-width: 800px;
-        position: relative;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        overflow: hidden;
-        font-family: 'Space Grotesk', sans-serif;
-    }
-    .hgc-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        padding-bottom: 12px;
-        margin-bottom: 16px;
-    }
-    .wf-title {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-    }
-    .wf-dots {
-        width: 12px; height: 12px;
-        background: #3b82f6;
-        border-radius: 50%;
-    }
-    .live-badge {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: #10b981;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        background: rgba(16, 185, 129, 0.1);
-        padding: 4px 10px;
-        border-radius: 20px;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-    .live-pulse {
-        width: 6px; height: 6px;
-        background: #10b981;
-        border-radius: 50%;
-        box-shadow: 0 0 8px #10b981;
-        animation: pulse-dot 1.5s infinite;
-    }
-    @keyframes pulse-dot {
-        0% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.5); opacity: 0.5; }
-        100% { transform: scale(1); opacity: 1; }
-    }
-    .hgc-body {
-        position: relative;
-        height: 360px;
-        width: 100%;
-        background: #0a0a10;
-        border-radius: 8px;
-        background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-        background-size: 20px 20px;
-    }
-    .wf-node {
-        position: absolute;
-        width: 145px;
-        height: 48px;
-        background: #1a1a24;
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 24px;
-        display: flex;
-        align-items: center;
-        padding: 0 8px;
-        color: #e2e8f0;
-        font-size: 12px;
-        font-weight: 600;
-        z-index: 10;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        transition: border-color 0.3s;
-    }
-    .wf-node.upper { border-color: #8b5cf6; }
-    .wf-node.agent { border-color: #3b82f6; background: #172033; }
-    .wf-node.tool { border-color: #f59e0b; }
-    .wf-node.router { border-color: #10b981; }
-    .wf-icon-wrap {
-        width: 32px; height: 32px;
-        border-radius: 50%;
-        background: #252535;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 8px;
-        font-size: 14px;
-        flex-shrink: 0;
-    }
-    .wf-node.upper .wf-icon-wrap { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
-    .wf-node.agent .wf-icon-wrap { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-    .wf-node.tool .wf-icon-wrap { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-    .wf-node.router .wf-icon-wrap { background: rgba(16, 185, 129, 0.2); color: #10b981; }
-    
-    .wf-connections {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        z-index: 5;
-        pointer-events: none;
-    }
-    .wf-path {
-        fill: none;
-        stroke: rgba(255,255,255,0.1);
-        stroke-width: 2px;
-    }
-    .wf-path-live {
-        fill: none;
-        stroke: #3b82f6;
-        stroke-width: 2px;
-        stroke-dasharray: 8 8;
-        animation: flow 1.5s linear infinite;
-    }
-    .wf-path-live.orange { stroke: #f59e0b; }
-    .wf-path-live.purple { stroke: #8b5cf6; }
-    .wf-path-live.green { stroke: #10b981; }
-    @keyframes flow {
-        to { stroke-dashoffset: -16; }
-    }
-  </style>
-  <div class="hero-graph-card">
-    <div class="hgc-head">
-      <div class="wf-title"><div class="wf-dots"></div> B2B Agentic Workflow Setup</div>
-      <div class="live-badge"><div class="live-pulse"></div> LIVE WORKFLOW</div>
-    </div>
-    <div class="hgc-body">
-      <div class="wf-node" style="left: 20px; top: 156px;">
-        <div class="wf-icon-wrap">⚡</div><div>Webhook</div>
+    <div class="hero-graph-card">
+      <div class="hgc-head" style="align-items:flex-start;">
+        <div>
+          <span class="hgc-title">WHATSAPP LEAD AI AUTOMATION</span>
+          <svg width="130" height="34" viewBox="0 0 130 34" style="display:block;margin-top:6px;opacity:0.85;">
+            <g stroke="#3a3a55" stroke-width="1.2" fill="none">
+              <path d="M12,17 L32,17"/><path d="M32,17 C44,17 44,8 56,8"/><path d="M32,17 C44,17 44,26 56,26"/>
+              <path d="M68,8 C78,8 78,17 90,17"/><path d="M68,26 C78,26 78,17 90,17"/><path d="M90,17 L118,17"/>
+            </g>
+            <circle cx="12" cy="17" r="6" fill="#0e2a1c" stroke="#25D366" stroke-width="1.3"/>
+            <circle cx="32" cy="17" r="6" fill="#2a1414" stroke="#EA4B71" stroke-width="1.3"/>
+            <circle cx="56" cy="8" r="4.5" fill="#101020" stroke="#5a5a75" stroke-width="1.1"/>
+            <circle cx="56" cy="26" r="4.5" fill="#101020" stroke="#5a5a75" stroke-width="1.1"/>
+            <circle cx="68" cy="17" r="6" fill="#0b2830" stroke="#2dd4ee" stroke-width="1.3"/>
+            <circle cx="90" cy="17" r="6" fill="#0d1c33" stroke="#2563EB" stroke-width="1.3"/>
+            <circle cx="118" cy="17" r="6" fill="#2e2408" stroke="#F5B942" stroke-width="1.3"/>
+          </svg>
+        </div>
+        <span class="hgc-live" style="font-size:12px;">&#9679; LIVE WORKFLOW</span>
       </div>
-      <div class="wf-node agent" style="left: 250px; top: 156px;">
-        <div class="wf-icon-wrap">🤖</div><div>AI Agent</div>
-      </div>
-      <div class="wf-node router" style="left: 450px; top: 156px;">
-        <div class="wf-icon-wrap">🔀</div><div>Router</div>
-      </div>
-      <div class="wf-node" style="left: 620px; top: 110px;">
-        <div class="wf-icon-wrap">💬</div><div>WhatsApp API</div>
-      </div>
-      <div class="wf-node" style="left: 620px; top: 200px;">
-        <div class="wf-icon-wrap">📧</div><div>SMTP Out</div>
-      </div>
-      <div class="wf-node tool" style="left: 90px; top: 280px;">
-        <div class="wf-icon-wrap">🗄️</div><div>Postgres Data</div>
-      </div>
-      <div class="wf-node tool" style="left: 250px; top: 280px;">
-        <div class="wf-icon-wrap">🌐</div><div>HTTP Request</div>
-      </div>
+      <svg class="hero-graph" viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wfLineCyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2dd4ee" stop-opacity="0.85"/><stop offset="100%" stop-color="#2dd4ee" stop-opacity="0.35"/></linearGradient>
+          <linearGradient id="wfLineBlue" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2dd4ee" stop-opacity="0.7"/><stop offset="100%" stop-color="#3b7bff" stop-opacity="0.7"/></linearGradient>
+          <linearGradient id="wfLineGold" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b7bff" stop-opacity="0.6"/><stop offset="100%" stop-color="#f5b942" stop-opacity="0.85"/></linearGradient>
+          <radialGradient id="wfGreen" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#2FE871" stop-opacity="0.95"/><stop offset="100%" stop-color="#0b2a1c" stop-opacity="1"/></radialGradient>
+          <radialGradient id="wfRed" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#ff5d6c" stop-opacity="0.95"/><stop offset="100%" stop-color="#2e1418" stop-opacity="1"/></radialGradient>
+          <radialGradient id="wfCyan" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#2dd4ee" stop-opacity="0.95"/><stop offset="100%" stop-color="#0b2830" stop-opacity="1"/></radialGradient>
+          <radialGradient id="wfGray" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#6a6a85" stop-opacity="0.9"/><stop offset="100%" stop-color="#141420" stop-opacity="1"/></radialGradient>
+          <radialGradient id="wfBlue" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#3b7bff" stop-opacity="0.95"/><stop offset="100%" stop-color="#0d1c33" stop-opacity="1"/></radialGradient>
+          <radialGradient id="wfGold" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#f5c95f" stop-opacity="0.95"/><stop offset="100%" stop-color="#2e2408" stop-opacity="1"/></radialGradient>
+          <radialGradient id="wfOrange" cx="50%" cy="35%" r="65%"><stop offset="0%" stop-color="#ff8a4c" stop-opacity="0.95"/><stop offset="100%" stop-color="#2e1808" stop-opacity="1"/></radialGradient>
+          <filter id="wfShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.55"/></filter>
+          <filter id="wfGlow" x="-90%" y="-90%" width="280%" height="280%"><feGaussianBlur stdDeviation="3.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
 
-      <div class="wf-node upper" style="left: 170px; top: 30px;">
-        <div class="wf-icon-wrap">🧠</div><div>Chat Model</div>
-      </div>
-      <div class="wf-node upper" style="left: 330px; top: 30px;">
-        <div class="wf-icon-wrap">💾</div><div>Buffer Memory</div>
-      </div>
+        <!-- connecting lines -->
+        <g fill="none" filter="url(#wfShadow)">
+          <path id="wp1" d="M70,330 L190,330" stroke="url(#wfLineCyan)" stroke-width="2"/>
+          <path id="wp2" d="M190,330 C270,330 300,270 380,250" stroke="url(#wfLineCyan)" stroke-width="2"/>
+          <path id="wp3" d="M190,330 C270,330 300,370 380,380" stroke="url(#wfLineCyan)" stroke-width="2"/>
+          <path d="M330,150 C355,175 365,200 378,235" stroke="#4a4a68" stroke-width="1.4" stroke-dasharray="3,4"/>
+          <path d="M430,150 C405,175 395,200 382,235" stroke="#4a4a68" stroke-width="1.4" stroke-dasharray="3,4"/>
+          <path id="wp6" d="M380,250 L520,250" stroke="url(#wfLineBlue)" stroke-width="2"/>
+          <path id="wp7" d="M520,250 L650,250" stroke="url(#wfLineGold)" stroke-width="2"/>
+          <path id="wp8" d="M380,380 L550,380" stroke="url(#wfLineGold)" stroke-width="2"/>
+        </g>
 
-      <svg class="wf-connections">
-        <path class="wf-path" d="M 165 180 L 250 180"></path>
-        <path class="wf-path-live" d="M 165 180 L 250 180"></path>
-        
-        <path class="wf-path" d="M 242 78 C 242 120, 290 120, 290 156"></path>
-        <path class="wf-path-live purple" d="M 242 78 C 242 120, 290 120, 290 156"></path>
+        <!-- Model + Memory nodes -->
+        <g filter="url(#wfGlow)">
+          <circle cx="330" cy="150" r="24" fill="url(#wfGray)" stroke="#7a7a95" stroke-width="1.4"/>
+          <circle cx="430" cy="150" r="24" fill="url(#wfGray)" stroke="#7a7a95" stroke-width="1.4"/>
+        </g>
+        <text x="330" y="155" text-anchor="middle" class="flow-label" style="font-size:13px;">&#129504;</text>
+        <text x="430" y="155" text-anchor="middle" class="flow-label" style="font-size:13px;">&#128190;</text>
+        <text x="330" y="184" text-anchor="middle" class="flow-label-em" style="font-size:9.5px;letter-spacing:1px;">MODEL</text>
+        <text x="430" y="184" text-anchor="middle" class="flow-label-em" style="font-size:9.5px;letter-spacing:1px;">MEMORY</text>
 
-        <path class="wf-path" d="M 402 78 C 402 120, 355 120, 355 156"></path>
-        <path class="wf-path-live purple" d="M 402 78 C 402 120, 355 120, 355 156"></path>
+        <!-- main nodes -->
+        <g filter="url(#wfGlow)">
+          <circle cx="70" cy="330" r="30" fill="url(#wfGreen)" stroke="#2FE871" stroke-width="1.8"/>
+          <circle cx="190" cy="330" r="30" fill="url(#wfRed)" stroke="#ff5d6c" stroke-width="1.8"/>
+          <circle cx="380" cy="250" r="32" fill="url(#wfCyan)" stroke="#2dd4ee" stroke-width="1.8"/>
+          <circle cx="520" cy="250" r="28" fill="url(#wfBlue)" stroke="#3b7bff" stroke-width="1.8"/>
+          <circle cx="650" cy="250" r="30" fill="url(#wfGold)" stroke="#f5c95f" stroke-width="1.8"/>
+          <circle cx="380" cy="380" r="28" fill="url(#wfGreen)" stroke="#2FE871" stroke-width="1.8"/>
+          <circle cx="550" cy="380" r="28" fill="url(#wfOrange)" stroke="#ff8a4c" stroke-width="1.8"/>
+        </g>
 
-        <path class="wf-path" d="M 162 280 C 162 240, 290 240, 290 204"></path>
-        <path class="wf-path-live orange" d="M 162 280 C 162 240, 290 240, 290 204"></path>
+        <text x="70" y="337" text-anchor="middle" class="flow-label" style="font-size:18px;">&#128172;</text>
+        <text x="190" y="337" text-anchor="middle" class="flow-label" style="font-size:16px;">&#128279;</text>
+        <text x="380" y="258" text-anchor="middle" class="flow-label" style="font-size:20px;">&#129504;</text>
+        <text x="520" y="257" text-anchor="middle" class="flow-label" style="font-size:16px;">&#9889;</text>
+        <text x="650" y="257" text-anchor="middle" class="flow-label" style="font-size:17px;">&#128172;</text>
+        <text x="380" y="387" text-anchor="middle" class="flow-label" style="font-size:16px;">&#128203;</text>
+        <text x="550" y="387" text-anchor="middle" class="flow-label" style="font-size:16px;">&#9993;</text>
 
-        <path class="wf-path" d="M 322 280 L 322 204"></path>
-        <path class="wf-path-live orange" d="M 322 280 L 322 204"></path>
+        <text x="380" y="228" text-anchor="middle" class="flow-label-em" style="font-size:9.5px;letter-spacing:1px;">APP</text>
 
-        <path class="wf-path" d="M 395 180 L 450 180"></path>
-        <path class="wf-path-live" d="M 395 180 L 450 180"></path>
+        <!-- labels below nodes -->
+        <g class="flow-label-em">
+          <text x="70" y="372" text-anchor="middle" style="font-size:11px;">WhatsApp Trigger</text>
+          <text x="190" y="372" text-anchor="middle" style="font-size:11px;">n8n Router</text>
+          <text x="380" y="294" text-anchor="middle" style="font-size:11px;">Gemini LLM</text>
+          <text x="520" y="290" text-anchor="middle" style="font-size:11px;">Razorpay API</text>
+          <text x="650" y="292" text-anchor="middle" style="font-size:11px;">Send Pay Link &amp; Reply</text>
+          <text x="380" y="418" text-anchor="middle" style="font-size:11px;">Google Sheets</text>
+          <text x="550" y="418" text-anchor="middle" style="font-size:11px;">Email Notification</text>
+        </g>
 
-        <path class="wf-path" d="M 595 180 C 610 180, 600 134, 620 134"></path>
-        <path class="wf-path-live green" d="M 595 180 C 610 180, 600 134, 620 134"></path>
-
-        <path class="wf-path" d="M 595 180 C 610 180, 600 224, 620 224"></path>
-        <path class="wf-path-live green" d="M 595 180 C 610 180, 600 224, 620 224"></path>
+        <!-- animated live-run dots -->
+        <circle r="3.4" fill="#2dd4ee" filter="url(#wfGlow)"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#wp1"/></animateMotion></circle>
+        <circle r="3.4" fill="#2dd4ee" filter="url(#wfGlow)"><animateMotion dur="2.4s" begin="0.5s" repeatCount="indefinite"><mpath href="#wp2"/></animateMotion></circle>
+        <circle r="3.4" fill="#2dd4ee" filter="url(#wfGlow)"><animateMotion dur="2.4s" begin="0.9s" repeatCount="indefinite"><mpath href="#wp3"/></animateMotion></circle>
+        <circle r="3.4" fill="#3b7bff" filter="url(#wfGlow)"><animateMotion dur="1.8s" begin="1.3s" repeatCount="indefinite"><mpath href="#wp6"/></animateMotion></circle>
+        <circle r="3.4" fill="#f5c95f" filter="url(#wfGlow)"><animateMotion dur="1.8s" begin="1.6s" repeatCount="indefinite"><mpath href="#wp7"/></animateMotion></circle>
+        <circle r="3.4" fill="#f5c95f" filter="url(#wfGlow)"><animateMotion dur="2s" begin="1.7s" repeatCount="indefinite"><mpath href="#wp8"/></animateMotion></circle>
       </svg>
     </div>
   </div>
-</div>
 </section>
 
 <div class="stats-bar reveal">
