@@ -24,6 +24,7 @@
     --cyan:#2dd4ee; --emerald:#3ddc9b; --amber:#f5b942; --rose:#f2618a;
     --teal-green:#14b8a6;
     --whatsapp-green:#25D366;
+    --whatsapp-green-bright:#2FE871;
     --font-display:'Inter',sans-serif;
     --font-body:'Inter',sans-serif;
     --font-mono:'Inter',sans-serif;
@@ -85,8 +86,8 @@
   .btn-razorpay:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px rgba(15,76,245,0.75);}
 
   .hero{max-width:1280px;margin:0 auto;padding:96px 56px 40px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;}
-  .hero-badge{display:inline-flex;align-items:center;gap:9px;background:var(--surface);color:var(--whatsapp-green);font-family:var(--font-mono);font-size:12px;font-weight:700;padding:8px 18px;border-radius:20px;border:1px solid rgba(37,211,102,0.4);margin-bottom:28px;letter-spacing:0.3px;}
-  .hero-badge .badge-dot{background:var(--whatsapp-green);}
+  .hero-badge{display:inline-flex;align-items:center;gap:9px;background:var(--surface);color:var(--whatsapp-green-bright);font-family:var(--font-mono);font-size:12px;font-weight:700;padding:8px 18px;border-radius:20px;border:1px solid rgba(47,232,113,0.55);margin-bottom:28px;letter-spacing:0.3px;box-shadow:0 0 18px -6px rgba(47,232,113,0.35);}
+  .hero-badge .badge-dot{background:var(--whatsapp-green-bright);box-shadow:0 0 8px 1px rgba(47,232,113,0.7);}
   .badge-dot{width:6px;height:6px;background:var(--emerald);border-radius:50%;animation:pulse 1.6s infinite;flex-shrink:0;}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(1.4);}}
   .hero h1{font-family:var(--font-display);font-size:clamp(34px,4.6vw,56px);font-weight:800;line-height:1.08;margin-bottom:22px;letter-spacing:-1px;}
@@ -192,10 +193,12 @@
   .modal-result .result-label{font-family:var(--font-mono);font-size:10.5px;font-weight:800;color:var(--emerald);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;}
   .modal-result p{font-size:13.8px;color:#bcd4ff;line-height:1.65;}
   .modal-cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
-  .modal-btn{padding:12px 24px;border-radius:9px;font-weight:700;font-size:13.5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s;}
+  .modal-btn{padding:12px 24px;border-radius:9px;font-weight:700;font-size:13.5px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .2s;flex:1 1 200px;min-width:200px;}
   .modal-btn:hover{transform:translateY(-1px);}
   .modal-btn.primary{background:linear-gradient(135deg,var(--violet),var(--violet-dim));color:#fff;}
   .modal-btn.wa{background:#25D366;color:#fff;}
+  .modal-btn .btn-icon-wrap{width:16px;height:16px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;}
+  .modal-btn .btn-icon-wrap svg{width:100%;height:100%;display:block;}
 
   .how-it-works{background:var(--bg-soft);padding:96px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
   .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
@@ -377,8 +380,8 @@
     <div class="modal-section"><h4>Technologies Used</h4><div class="tech-showcase"><div class="modal-tags" id="mTags"></div></div></div>
     <div class="modal-section"><div class="modal-result"><div class="result-label">&#10003; Business Result</div><p id="mResult"></p></div></div>
     <div class="modal-cta">
-      <a href="mailto:aethelincsystems@gmail.com?subject=Enquiry: Automation Workflow" class="modal-btn primary">&#9993; Email Us About This</a>
-      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="modal-btn wa">&#128172; WhatsApp Now</a>
+      <a href="mailto:aethelincsystems@gmail.com?subject=Enquiry: Automation Workflow" class="modal-btn primary"><span class="btn-icon-wrap">&#9993;</span> Email Us About This</a>
+      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="modal-btn wa"><span class="btn-icon-wrap" id="waIconModal1"></span> WhatsApp Now</a>
     </div>
   </div>
 </div>
@@ -398,8 +401,8 @@
     <div class="modal-section"><h4>Technologies Used</h4><div class="tech-showcase"><div class="modal-tags" id="imTags"></div></div></div>
     <div class="modal-section"><div class="modal-result"><div class="result-label">&#10003; Business Result</div><p id="imResult"></p></div></div>
     <div class="modal-cta">
-      <a href="mailto:aethelincsystems@gmail.com?subject=Enquiry: Industry Automation" class="modal-btn primary">&#9993; Email Us About This</a>
-      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="modal-btn wa">&#128172; WhatsApp Now</a>
+      <a href="mailto:aethelincsystems@gmail.com?subject=Enquiry: Industry Automation" class="modal-btn primary"><span class="btn-icon-wrap">&#9993;</span> Email Us About This</a>
+      <a href="https://wa.me/919115112824" target="_blank" rel="noopener noreferrer" class="modal-btn wa"><span class="btn-icon-wrap" id="waIconModal2"></span> WhatsApp Now</a>
     </div>
   </div>
 </div>
@@ -434,101 +437,77 @@
   </div>
   <div class="hero-visual reveal">
     <div class="hero-graph-card">
-      <div class="workflow-stage-wrap" aria-label="Live WhatsApp workflow">
-  <div class="workflow-orb workflow-orb-a"></div>
-  <div class="workflow-orb workflow-orb-b"></div>
-  <div class="workflow-glow"></div>
-
-  <div class="workflow-panel">
-    <div class="workflow-panel-head">
-      <div>
-        <span class="workflow-kicker">LIVE WORKFLOW</span>
-        <h3>WhatsApp Lead Automation</h3>
+      <div class="hgc-head">
+        <span class="hgc-title">LIVE_WORKFLOW.n8n</span>
+        <span class="hgc-live"><span class="badge-dot"></span> RUNNING</span>
       </div>
-      <div class="workflow-status">
-        <span class="status-dot"></span>
-        Running
-      </div>
-    </div>
-
-    <div class="workflow-grid">
-      <article class="wf-node wf-node-1">
-        <div class="wf-badge">1</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo">
-        </div>
-        <h4>WhatsApp Enquiry</h4>
-        <p>New lead messages arrive instantly.</p>
-      </article>
-
-      <article class="wf-node wf-node-2">
-        <div class="wf-badge">2</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/googleforms/673AB7" alt="Form logo">
-        </div>
-        <h4>Qualification Form</h4>
-        <p>Capture name, service, city, and budget.</p>
-      </article>
-
-      <article class="wf-node wf-node-3">
-        <div class="wf-badge">3</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n logo">
-        </div>
-        <h4>n8n Router</h4>
-        <p>Branch by intent, source, and priority.</p>
-      </article>
-
-      <article class="wf-node wf-node-4">
-        <div class="wf-badge">4</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/openai/412991" alt="OpenAI logo">
-        </div>
-        <h4>AI Reply Draft</h4>
-        <p>Generate a helpful first response.</p>
-      </article>
-
-      <article class="wf-node wf-node-5">
-        <div class="wf-badge">5</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="CRM logo">
-        </div>
-        <h4>CRM Sync</h4>
-        <p>Store lead in pipeline automatically.</p>
-      </article>
-
-      <article class="wf-node wf-node-6">
-        <div class="wf-badge">6</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/razorpay/0C2451" alt="Razorpay logo">
-        </div>
-        <h4>Payment Link</h4>
-        <p>Send invoice or booking link on demand.</p>
-      </article>
-
-      <article class="wf-node wf-node-7">
-        <div class="wf-badge">7</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/supabase/3ECF8E" alt="Supabase logo">
-        </div>
-        <h4>Database Log</h4>
-        <p>Track replies, status, and conversions.</p>
-      </article>
-
-      <article class="wf-node wf-node-8">
-        <div class="wf-badge">8</div>
-        <div class="wf-icon">
-          <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Email logo">
-        </div>
-        <h4>Owner Alert</h4>
-        <p>Notify the sales team with a summary.</p>
-      </article>
-    </div>
-
-    <div class="workflow-footer">
-      <div class="live-pulse"><span></span><span></span><span></span></div>
-      <p>Auto-routing messages, replies, CRM updates, payment follow-up, and alerts in one clean flow.</p>
-    </div>
+      <svg class="hero-graph" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#2dd4ee" stop-opacity="0.4"/>
+          </linearGradient>
+          <radialGradient id="nodeGlowViolet" cx="50%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#1b1533" stop-opacity="1"/>
+          </radialGradient>
+          <radialGradient id="nodeGlowEmerald" cx="50%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#3ddc9b" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#0e2a24" stop-opacity="1"/>
+          </radialGradient>
+          <radialGradient id="nodeGlowNeutral" cx="50%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#2a2a44" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#101020" stop-opacity="1"/>
+          </radialGradient>
+          <filter id="softShadow" x="-60%" y="-60%" width="220%" height="220%">
+            <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.55"/>
+          </filter>
+          <filter id="nodeGlowFilter" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="3.2" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <g fill="none" stroke="url(#lineGrad)" stroke-width="1.8" filter="url(#softShadow)">
+          <path id="p1" d="M60,90 C160,90 160,90 250,120"/>
+          <path id="p2" d="M250,120 C330,150 340,80 420,70"/>
+          <path id="p3" d="M250,120 C330,150 340,200 420,210"/>
+          <path id="p4" d="M420,210 C470,210 470,300 500,320"/>
+          <path id="p5" d="M60,250 C160,250 160,180 250,120"/>
+          <path id="p6" d="M60,250 C150,320 340,340 420,320"/>
+        </g>
+        <g filter="url(#nodeGlowFilter)">
+          <circle cx="60" cy="90" r="26" fill="url(#nodeGlowNeutral)" stroke="#443f75" stroke-width="1.4"/>
+          <circle cx="60" cy="250" r="26" fill="url(#nodeGlowNeutral)" stroke="#443f75" stroke-width="1.4"/>
+          <circle cx="250" cy="120" r="30" fill="url(#nodeGlowViolet)" stroke="#a294ff" stroke-width="1.8"/>
+          <circle cx="420" cy="70" r="24" fill="url(#nodeGlowNeutral)" stroke="#443f75" stroke-width="1.4"/>
+          <circle cx="420" cy="210" r="24" fill="url(#nodeGlowNeutral)" stroke="#443f75" stroke-width="1.4"/>
+          <circle cx="500" cy="320" r="24" fill="url(#nodeGlowEmerald)" stroke="#3ddc9b" stroke-width="1.8"/>
+          <circle cx="420" cy="320" r="24" fill="url(#nodeGlowNeutral)" stroke="#443f75" stroke-width="1.4"/>
+        </g>
+        <text x="60" y="97" text-anchor="middle" class="flow-label">&#127760;</text>
+        <text x="60" y="257" text-anchor="middle" class="flow-label">&#128172;</text>
+        <text x="250" y="129" text-anchor="middle" class="flow-label">&#129302;</text>
+        <text x="420" y="78" text-anchor="middle" class="flow-label">&#128179;</text>
+        <text x="420" y="218" text-anchor="middle" class="flow-label">&#128203;</text>
+        <text x="500" y="328" text-anchor="middle" class="flow-label">&#10003;</text>
+        <text x="420" y="328" text-anchor="middle" class="flow-label">&#128276;</text>
+        <text x="60" y="130" text-anchor="middle" class="flow-label-em">Website</text>
+        <text x="60" y="290" text-anchor="middle" class="flow-label-em">WhatsApp</text>
+        <text x="250" y="168" text-anchor="middle" class="flow-label-em">AI Agent</text>
+        <text x="420" y="58" text-anchor="middle" class="flow-label-em">Payment</text>
+        <text x="420" y="248" text-anchor="middle" class="flow-label-em">CRM</text>
+        <text x="420" y="358" text-anchor="middle" class="flow-label-em">Follow-up</text>
+        <text x="500" y="358" text-anchor="middle" class="flow-label-em">Closed</text>
+        <circle r="3.6" fill="#2dd4ee" filter="url(#nodeGlowFilter)"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+        <circle r="3.6" fill="#7c6af7" filter="url(#nodeGlowFilter)"><animateMotion dur="2.2s" begin="0.4s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+        <circle r="3.6" fill="#3ddc9b" filter="url(#nodeGlowFilter)"><animateMotion dur="2.4s" begin="0.8s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+        <circle r="3.6" fill="#2dd4ee" filter="url(#nodeGlowFilter)"><animateMotion dur="2s" begin="1.2s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+        <circle r="3.6" fill="#7c6af7" filter="url(#nodeGlowFilter)"><animateMotion dur="2.8s" begin="0.2s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion></circle>
+        <circle r="3.6" fill="#f5b942" filter="url(#nodeGlowFilter)"><animateMotion dur="2.5s" begin="0.6s" repeatCount="indefinite"><mpath href="#p6"/></animateMotion></circle>
+      </svg>
     </div>
   </div>
 </section>
@@ -797,6 +776,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
+/* real WhatsApp glyph reused for the modal CTA buttons */
+const WHATSAPP_SVG = `<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.83.74 5.484 2.035 7.787L0 32l8.418-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0z" fill="#fff"/><path d="M23.17 20.557c-.32-.16-1.89-.934-2.183-1.04-.293-.107-.506-.16-.72.16-.213.32-.825 1.04-1.012 1.254-.187.213-.373.24-.693.08-.32-.16-1.351-.498-2.573-1.588-.95-.848-1.593-1.896-1.78-2.216-.187-.32-.02-.492.14-.652.145-.143.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.734-.986-2.374-.26-.626-.523-.54-.72-.55l-.613-.01c-.213 0-.56.08-.853.4-.293.32-1.12 1.094-1.12 2.668 0 1.574 1.147 3.094 1.307 3.307.16.213 2.254 3.44 5.462 4.827.763.33 1.359.527 1.823.674.766.243 1.464.209 2.015.127.615-.092 1.89-.772 2.156-1.52.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z" fill="#25D366"/></svg>`;
+document.getElementById('waIconModal1').innerHTML = WHATSAPP_SVG;
+document.getElementById('waIconModal2').innerHTML = WHATSAPP_SVG;
+
 /* ══════ REAL BRAND LOGO SVG LIBRARY ══════
    Each entry renders as a white rounded tile with the brand's actual mark
    inside, using accurate brand colours. No lettered fallbacks for known
