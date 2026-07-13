@@ -438,75 +438,79 @@
   <div class="hero-visual reveal">
   <style>
     .flow-line {
-      stroke-dasharray: 8;
-      animation: dash 1.5s linear infinite;
+      stroke-dasharray: 6;
+      stroke-dashoffset: 0;
+      animation: flow 1.5s linear infinite;
     }
-    @keyframes dash {
-      to { stroke-dashoffset: -20; }
+    @keyframes flow {
+      from { stroke-dashoffset: 20; }
+      to { stroke-dashoffset: 0; }
     }
-    .node-text { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; fill: #ffffff; }
+    .node-label { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff; }
+    .status-dot { animation: blink 1.5s infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
   </style>
   
-  <div class="hero-graph-card" style="background: #0f1014; border: 1px solid #2d2d3a; border-radius: 16px; overflow: hidden; position: relative;">
-    <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: rgba(255,255,255,0.03);">
-      <span style="font-family: sans-serif; color: #888; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Workflow Automation</span>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span style="width: 8px; height: 8px; background: #25D366; border-radius: 50%; box-shadow: 0 0 8px #25D366;"></span>
-        <span style="font-family: sans-serif; color: #fff; font-size: 12px; font-weight: 500;">LIVE WORKFLOW</span>
+  <div class="hero-graph-card" style="background: #0f1014; border: 1px solid #2d2d3a; border-radius: 20px; padding: 25px; position: relative; overflow: hidden;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+      <h3 style="color: #fff; font-family: 'Inter', sans-serif; margin: 0; font-size: 18px;">AI Agentic Automation</h3>
+      <div style="display: flex; align-items: center; gap: 8px; background: rgba(37, 211, 102, 0.1); padding: 6px 12px; border-radius: 20px;">
+        <span class="status-dot" style="width: 8px; height: 8px; background: #25D366; border-radius: 50%;"></span>
+        <span style="color: #25D366; font-family: sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">LIVE WORKFLOW</span>
       </div>
     </div>
 
-    <svg viewBox="0 0 950 450" width="100%" height="auto">
+    <svg viewBox="0 0 900 350" width="100%" height="auto">
       <defs>
         <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#6366f1" />
+          <stop offset="0%" stop-color="#4f46e5" />
           <stop offset="100%" stop-color="#ec4899" />
         </linearGradient>
       </defs>
 
-      <g stroke="url(#lineGrad)" stroke-width="3" fill="none" stroke-linecap="round">
-        <path d="M 120 225 L 230 225" class="flow-line" />
-        <path d="M 290 225 C 350 225, 350 120, 410 120" class="flow-line" />
-        <path d="M 470 120 L 590 120" class="flow-line" />
-        <path d="M 650 120 L 770 120" class="flow-line" />
-        <path d="M 290 225 C 350 225, 350 330, 410 330" class="flow-line" />
-        <path d="M 470 330 L 590 330" class="flow-line" />
+      <g stroke="url(#lineGrad)" stroke-width="4" fill="none" stroke-linecap="round">
+        <path d="M 80 175 L 200 175" class="flow-line" />
+        <path d="M 260 175 C 320 175, 320 80, 380 80" class="flow-line" />
+        <path d="M 440 80 L 560 80" class="flow-line" />
+        <path d="M 620 80 L 740 80" class="flow-line" />
+        <path d="M 260 175 C 320 175, 320 270, 380 270" class="flow-line" />
+        <path d="M 440 270 L 560 270" class="flow-line" />
       </g>
 
-      <g transform="translate(60, 195)">
+      <g transform="translate(20, 145)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#25D366" stroke-width="2" />
-        <circle cx="30" cy="30" r="15" fill="#25D366"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">WhatsApp</text>
+        <circle cx="30" cy="30" r="16" fill="#25D366"/>
+        <text x="30" y="88" text-anchor="middle" class="node-label">WhatsApp</text>
       </g>
-      <g transform="translate(230, 195)">
+      <g transform="translate(200, 145)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#4285F4" stroke-width="2" />
-        <circle cx="30" cy="30" r="15" fill="#4285F4"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">Gemini LLM</text>
+        <circle cx="30" cy="30" r="16" fill="#4285F4"/>
+        <text x="30" y="88" text-anchor="middle" class="node-label">Gemini LLM</text>
       </g>
-      <g transform="translate(410, 90)">
+      <g transform="translate(380, 50)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#3ECF8E" stroke-width="2" />
-        <circle cx="30" cy="30" r="15" fill="#3ECF8E"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">Supabase</text>
+        <circle cx="30" cy="30" r="16" fill="#3ECF8E"/>
+        <text x="30" y="88" text-anchor="middle" class="node-label">Supabase</text>
       </g>
-      <g transform="translate(590, 90)">
+      <g transform="translate(560, 50)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#34A853" stroke-width="2" />
-        <rect x="18" y="18" width="24" height="24" fill="#fff" rx="2"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">Sheets</text>
+        <rect x="18" y="18" width="24" height="24" rx="4" fill="#34A853"/>
+        <text x="30" y="88" text-anchor="middle" class="node-label">Sheets</text>
       </g>
-      <g transform="translate(770, 90)">
+      <g transform="translate(740, 50)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#EA4335" stroke-width="2" />
-        <circle cx="30" cy="30" r="15" fill="#EA4335"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">Gmail</text>
+        <circle cx="30" cy="30" r="16" fill="#EA4335"/>
+        <text x="30" y="88" text-anchor="middle" class="node-label">Gmail</text>
       </g>
-      <g transform="translate(410, 300)">
+      <g transform="translate(380, 240)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#0055FF" stroke-width="2" />
-        <circle cx="30" cy="30" r="15" fill="#0055FF"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">Razorpay</text>
+        <text x="30" y="38" text-anchor="middle" font-size="24" font-weight="900" fill="#fff">R</text>
+        <text x="30" y="88" text-anchor="middle" class="node-label">Razorpay</text>
       </g>
-      <g transform="translate(590, 300)">
+      <g transform="translate(560, 240)">
         <rect width="60" height="60" rx="15" fill="#1e1e2d" stroke="#25D366" stroke-width="2" />
-        <circle cx="30" cy="30" r="15" fill="#25D366"/>
-        <text x="30" y="85" text-anchor="middle" class="node-text">WA Reply</text>
+        <circle cx="30" cy="30" r="16" fill="#25D366"/>
+        <text x="30" y="88" text-anchor="middle" class="node-label">WA Reply</text>
       </g>
     </svg>
   </div>
