@@ -438,192 +438,193 @@
   <div class="hero-visual reveal">
     <div class="hero-graph-card">
       <div class="hgc-head">
-        <span class="hgc-title">LIVE_WORKFLOW.n8n</span>
-        <span class="hgc-live"><span class="badge-dot"></span> RUNNING</span>
+        <span class="hgc-title">LIVE_AUTOMATION_ENGINE.n8n</span>
+        <span class="hgc-live"><span class="badge-dot"></span> ORCHESTRATOR ACTIVE</span>
       </div>
-      <svg class="hero-graph" viewBox="0 0 880 500" xmlns="http://www.w3.org/2000/svg">
+      <svg class="hero-graph" viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg">
+        <!-- Structural Definitions & Filters -->
         <defs>
-          <!-- n8n Canvas Grid Background Pattern -->
-          <pattern id="n8nGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1" fill="#1b1b3a" opacity="0.8"/>
+          <!-- Grid System Background Pattern -->
+          <pattern id="archGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(124, 106, 247, 0.04)" stroke-width="1"/>
+            <circle cx="24" cy="24" r="1" fill="rgba(124, 106, 247, 0.1)"/>
           </pattern>
-          
-          <!-- Glowing Paths -->
-          <linearGradient id="wireGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#2dd4ee" stop-opacity="0.8"/>
-            <stop offset="50%" stop-color="#7c6af7" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#3ddc9b" stop-opacity="0.8"/>
-          </linearGradient>
-          
-          <!-- Node Drop Shadows -->
-          <filter id="n8nShadow" x="-20%" y="-20%" width="150%" height="150%">
-            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
-            <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#7c6af7" flood-opacity="0.15"/>
+
+          <!-- Core Lighting & Shadows (5D Dimension Layering) -->
+          <filter id="ultraShadow" x="-20%" y="-20%" width="150%" height="150%">
+            <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.85"/>
+          </filter>
+          <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
           </filter>
 
-          <!-- Status Glows -->
-          <filter id="successGlow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-          </filter>
+          <!-- Dynamic Linear Gradients for Connecting Paths -->
+          <linearGradient id="gradient-forms" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7248B9"/><stop offset="100%" stop-color="#7c6af7"/>
+          </linearGradient>
+          <linearGradient id="gradient-whatsapp" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#25D366"/><stop offset="100%" stop-color="#2dd4ee"/>
+          </linearGradient>
+          <linearGradient id="gradient-hub" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#7c6af7"/><stop offset="100%" stop-color="#EA4B71"/>
+          </linearGradient>
+          <linearGradient id="gradient-sheets" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0F9D58"/><stop offset="100%" stop-color="#3ddc9b"/>
+          </linearGradient>
+          <linearGradient id="gradient-ai" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#63D0FF"/><stop offset="100%" stop-color="#7c6af7"/>
+          </linearGradient>
+
+          <!-- Node Frame Gradient Borders -->
+          <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.15)"/><stop offset="100%" stop-color="rgba(124,106,247,0.2)"/>
+          </linearGradient>
+          <linearGradient id="frameActiveGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2dd4ee"/><stop offset="50%" stop-color="#7c6af7"/><stop offset="100%" stop-color="#EA4B71"/>
+          </linearGradient>
         </defs>
 
-        <!-- Canvas Background Grid -->
-        <rect width="100%" height="100%" fill="url(#n8nGrid)" rx="14"/>
+        <!-- Canvas Background Canvas Layer -->
+        <rect width="100%" height="100%" fill="url(#archGrid)"/>
 
-        <!-- Connection Wires (Cubic Bezier Curves) -->
-        <g fill="none" stroke="url(#wireGrad)" stroke-width="2.5" opacity="0.85">
-          <!-- Trigger to Router -->
-          <path id="wire1" d="M175,250 C220,250 210,250 255,250"/>
-          
-          <!-- Router to Supabase Check -->
-          <path id="wire2" d="M385,235 C420,235 410,120 455,120"/>
-          
-          <!-- Router to Gemini AI -->
-          <path id="wire3" d="M385,265 C420,265 410,380 455,380"/>
-          
-          <!-- Supabase to Razorpay -->
-          <path id="wire4" d="M585,120 C620,120 625,120 665,120"/>
-          
-          <!-- Gemini AI to WhatsApp Reply -->
-          <path id="wire5" d="M585,380 C620,380 625,290 665,290"/>
-          
-          <!-- Razorpay to Google Sheets -->
-          <path id="wire6" d="M795,120 C830,120 830,175 830,210"/>
-          
-          <!-- WhatsApp Reply to Google Sheets -->
-          <path id="wire7" d="M795,290 C830,290 830,255 830,250"/>
-          
-          <!-- Sheets to Slack Alert -->
-          <path id="wire8" d="M785,250 C800,250 810,360 810,395"/>
+        <!-- Premium High-Tech Data Interconnect Pipes -->
+        <g fill="none" stroke-linecap="round">
+          <!-- Column 1 Triggers to Central Hub -->
+          <path id="wire-forms" d="M180,108 C210,108 190,218 220,218" stroke="url(#gradient-forms)" stroke-width="2.5" opacity="0.85"/>
+          <path id="wire-whatsapp" d="M180,328 C210,328 190,218 220,218" stroke="url(#gradient-whatsapp)" stroke-width="2.5" opacity="0.85"/>
+
+          <!-- Central Hub to Data & AI Co-Processors -->
+          <path id="wire-sheets" d="M370,218 C400,218 380,108 410,108" stroke="url(#gradient-hub)" stroke-width="2.5" opacity="0.85"/>
+          <path id="wire-ai" d="M370,218 C400,218 380,328 410,328" stroke="url(#gradient-hub)" stroke-width="2.5" opacity="0.85"/>
+
+          <!-- Cross-Connections (The Professional Enterprise Mesh Look) -->
+          <path id="wire-sheets-to-gmail" d="M560,108 C580,108 580,163 600,163" stroke="url(#gradient-sheets)" stroke-width="2" opacity="0.7" stroke-dasharray="4,4"/>
+          <path id="wire-ai-to-crm" d="M560,328 C580,328 580,273 600,273" stroke="url(#gradient-ai)" stroke-width="2" opacity="0.7" stroke-dasharray="4,4"/>
+          <path id="wire-ai-to-gmail" d="M560,328 C585,328 575,163 600,163" stroke="url(#gradient-ai)" stroke-width="2" opacity="0.5" stroke-dasharray="4,4"/>
+          <path id="wire-sheets-to-crm" d="M560,108 C585,108 575,273 600,273" stroke="url(#gradient-sheets)" stroke-width="2" opacity="0.5" stroke-dasharray="4,4"/>
         </g>
 
-        <!-- Animated Data Packets (Flowing Signals) -->
-        <circle r="4.5" fill="#2dd4ee" filter="url(#successGlow)"><animateMotion dur="3s" repeatCount="indefinite" path="M175,250 C220,250 210,250 255,250"/></circle>
-        <circle r="4.5" fill="#7c6af7" filter="url(#successGlow)"><animateMotion dur="2.5s" begin="0.5s" repeatCount="indefinite" path="M385,235 C420,235 410,120 455,120"/></circle>
-        <circle r="4.5" fill="#a294ff" filter="url(#successGlow)"><animateMotion dur="2.8s" begin="1s" repeatCount="indefinite" path="M385,265 C420,265 410,380 455,380"/></circle>
-        <circle r="4.5" fill="#3ddc9b" filter="url(#successGlow)"><animateMotion dur="2.2s" begin="0.2s" repeatCount="indefinite" path="M585,380 C620,380 625,290 665,290"/></circle>
-        <circle r="4.5" fill="#f5b942" filter="url(#successGlow)"><animateMotion dur="3.5s" begin="1.2s" repeatCount="indefinite" path="M795,290 C830,290 830,255 830,250"/></circle>
-
-        <!-- ══════════════ WORKFLOW NODES ══════════════ -->
-
-        <!-- NODE 1: WhatsApp Webhook Trigger -->
-        <g transform="translate(45, 215)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#25d366" stroke-width="1.5"/>
-          <rect width="34" height="70" rx="9" fill="#122c1e" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#25d366"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="12" fill="#fff" text-anchor="middle">wa</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">WA Webhook</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#25d366" font-weight="600">● Triggered</text>
-          <!-- Connection Port -->
-          <circle cx="130" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- Dynamic Live Flowing Data Particles -->
+        <g filter="url(#neonGlow)">
+          <circle r="4.5" fill="#ffd989"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#wire-forms"/></animateMotion></circle>
+          <circle r="4.5" fill="#2FE871"><animateMotion dur="2.5s" repeatCount="indefinite"><mpath href="#wire-whatsapp"/></animateMotion></circle>
+          <circle r="4.5" fill="#2dd4ee"><animateMotion dur="2.2s" begin="0.5s" repeatCount="indefinite"><mpath href="#wire-sheets"/></animateMotion></circle>
+          <circle r="4.5" fill="#EA4B71"><animateMotion dur="2.8s" begin="0.2s" repeatCount="indefinite"><mpath href="#wire-ai"/></animateMotion></circle>
+          <circle r="3.5" fill="#3ddc9b"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#wire-sheets-to-gmail"/></animateMotion></circle>
+          <circle r="3.5" fill="#a294ff"><animateMotion dur="1.8s" repeatCount="indefinite"><mpath href="#wire-ai-to-crm"/></animateMotion></circle>
         </g>
 
-        <!-- NODE 2: n8n Switch/Router -->
-        <g transform="translate(255, 215)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#ea4b71" stroke-width="1.2"/>
-          <rect width="34" height="70" rx="9" fill="#2d141e" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#ea4b71"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle">⇄</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">Intent Router</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#a3a3bd">n8n Switch</text>
-          <!-- Input/Output Ports -->
-          <circle cx="0" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="130" cy="20" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="130" cy="50" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- 5D LAYERED ARCHITECTURAL WORKFLOW NODES -->
+
+        <!-- NODE 1: GOOGLE FORMS -->
+        <g transform="translate(30, 80)" filter="url(#ultraShadow)">
+          <rect width="150" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameGrad)" stroke-width="1.5"/>
+          <rect width="150" height="56" rx="14" fill="none" stroke="#7248B9" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="32" cy="28" r="16" fill="#7248B9" fill-opacity="0.15"/>
+          <!-- Vectorized Google Forms Icon -->
+          <g transform="translate(22, 18)">
+            <path d="M2.5,0 L11.5,0 C12.8,0 14,1.2 14,2.5 L14,17.5 C14,18.8 12.8,20 11.5,20 L2.5,20 C1.2,20 0,18.8 0,17.5 L0,2.5 C0,1.2 1.2,0 2.5,0 Z" fill="#7248B9"/>
+            <rect x="4" y="5" width="6" height="2" rx="0.5" fill="#fff"/>
+            <rect x="4" y="9" width="6" height="2" rx="0.5" fill="#fff"/>
+            <rect x="4" y="13" width="6" height="2" rx="0.5" fill="#fff"/>
+          </g>
+          <text x="60" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13px" font-weight="800" letter-spacing="0.3">Google Forms</text>
+          <text x="60" y="41" fill="#7248B9" font-family="'Inter', sans-serif" font-size="10.5px" font-weight="700" letter-spacing="0.5">WEB TRIGGER</text>
         </g>
 
-        <!-- NODE 3: Supabase CRM Check -->
-        <g transform="translate(455, 85)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#3ecf8e" stroke-width="1.2"/>
-          <rect width="34" height="70" rx="9" fill="#132a20" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#3ecf8e"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="12" font-weight="bold" fill="#03140e" text-anchor="middle">⚡</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">CRM Lookup</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#3ecf8e">Supabase DB</text>
-          <!-- Ports -->
-          <circle cx="0" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="130" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- NODE 2: WHATSAPP BUSINESS API -->
+        <g transform="translate(30, 300)" filter="url(#ultraShadow)">
+          <rect width="150" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameGrad)" stroke-width="1.5"/>
+          <rect width="150" height="56" rx="14" fill="none" stroke="#25D366" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="32" cy="28" r="16" fill="#25D366" fill-opacity="0.15"/>
+          <!-- Vectorized WhatsApp Clean Icon -->
+          <path d="M26,22 C25.6,21.8 23.9,21 23.6,20.9 C23.3,20.8 23.1,20.7 22.9,21 C22.7,21.3 22.1,22 21.9,22.2 C21.7,22.4 21.5,22.4 21.2,22.3 C20.9,22.1 19.9,21.8 18.7,20.7 C17.8,19.9 17.1,18.9 17,18.6 C16.8,18.3 17,18.1 17.1,18 C17.3,17.9 17.4,17.7 17.6,17.5 C17.7,17.3 17.8,17.2 17.9,17 C18,16.8 17.9,16.6 17.9,16.5 C17.8,16.4 17.2,14.8 17,14.2 C16.8,13.6 16.5,13.7 16.3,13.7 L15.7,13.7 C15.5,13.7 15.1,13.8 14.8,14.1 C14.5,14.4 13.7,15.2 13.7,16.8 C13.7,18.4 14.9,19.9 15,20.1 C15.2,20.3 17.3,23.5 20.5,24.9 C21.3,25.2 21.9,25.4 22.3,25.6 C23.1,25.8 23.8,25.8 24.3,25.7 C24.9,25.6 26.2,24.9 26.5,24.2 C26.8,23.5 26.8,22.8 26.7,22.7 C26.6,22.5 26.4,22.4 26,22 Z" fill="#25D366"/>
+          <path d="M32,12 C28.1,8.2 23,6 17.5,6 C6.5,6 2.4,15 2.4,26 C2.4,29.5 3.3,32.4 5,35 L2,44 L11.3,41.5 C13.8,42.9 16.6,43.6 19.5,43.6 C30.5,43.6 34.6,34.6 34.6,23.6 C34.6,19.2 33.7,15.1 32,12 Z" fill="none" stroke="#25D366" stroke-width="2" transform="translate(14,10) scale(0.6)"/>
+          <text x="60" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13px" font-weight="800" letter-spacing="0.3">WhatsApp API</text>
+          <text x="60" y="41" fill="#25D366" font-family="'Inter', sans-serif" font-size="10.5px" font-weight="700" letter-spacing="0.5">CHAT TRIGGER</text>
         </g>
 
-        <!-- NODE 4: Gemini AI Engine -->
-        <g transform="translate(455, 345)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#7c6af7" stroke-width="1.5"/>
-          <rect width="34" height="70" rx="9" fill="#1b1533" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#7c6af7" filter="url(#successGlow)"/>
-          <text x="17" y="40" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle">✧</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">Gemini 2.5</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#a294ff" font-weight="600">🤖 AI Scoring</text>
-          <!-- Ports -->
-          <circle cx="0" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="130" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- NODE 3: CENTRAL ORCHESTRATOR (n8n ENGINE) -->
+        <g transform="translate(220, 190)" filter="url(#ultraShadow)">
+          <!-- Glowing Frame Layer for Core Engine -->
+          <rect width="150" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameActiveGrad)" stroke-width="2" filter="url(#neonGlow)" opacity="0.3"/>
+          <rect width="150" height="56" rx="14" fill="#0b0b16" stroke="url(#frameActiveGrad)" stroke-width="2"/>
+          <circle cx="32" cy="28" r="16" fill="#EA4B71" fill-opacity="0.15"/>
+          <!-- Vectorized Premium n8n Mark -->
+          <g transform="translate(19, 15)">
+            <circle cx="4" cy="13" r="3" fill="#EA4B71"/>
+            <circle cx="22" cy="4" r="3" fill="#EA4B71"/>
+            <circle cx="22" cy="22" r="3" fill="#EA4B71"/>
+            <path d="M6,12 L20,5" stroke="#EA4B71" stroke-width="2"/>
+            <path d="M6,14 L20,21" stroke="#EA4B71" stroke-width="2"/>
+          </g>
+          <text x="60" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13px" font-weight="900" letter-spacing="0.5">n8n Core Hub</text>
+          <text x="60" y="41" fill="#EA4B71" font-family="'Inter', sans-serif" font-size="10.5px" font-weight="800" letter-spacing="0.7">CENTRAL CORE</text>
         </g>
 
-        <!-- NODE 5: Razorpay Engine -->
-        <g transform="translate(665, 85)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#3395ff" stroke-width="1.2"/>
-          <rect width="34" height="70" rx="9" fill="#0c1e3a" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#3395ff"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">rzp</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">Create Order</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#3395ff">Razorpay Link</text>
-          <!-- Ports -->
-          <circle cx="0" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="130" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- NODE 4: GOOGLE SHEETS STORAGE -->
+        <g transform="translate(410, 80)" filter="url(#ultraShadow)">
+          <rect width="150" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameGrad)" stroke-width="1.5"/>
+          <rect width="150" height="56" rx="14" fill="none" stroke="#0F9D58" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="32" cy="28" r="16" fill="#0F9D58" fill-opacity="0.15"/>
+          <!-- Vectorized Google Sheets Grid Mark -->
+          <g transform="translate(22, 18)">
+            <path d="M1.5,0 L11.5,0 C12.3,0 13,0.7 13,1.5 L13,16.5 C13,17.3 12.3,18 11.5,18 L1.5,18 C0.7,18 0,17.3 0,16.5 L0,1.5 C0,0.7 0.7,0 1.5,0 Z" fill="#0F9D58"/>
+            <rect x="3" y="4" width="3" height="3" fill="#fff"/>
+            <rect x="7" y="4" width="3" height="3" fill="#fff"/>
+            <rect x="3" y="8" width="3" height="3" fill="#fff"/>
+            <rect x="7" y="8" width="3" height="3" fill="#fff"/>
+            <rect x="3" y="12" width="3" height="3" fill="#fff"/>
+            <rect x="7" y="12" width="3" height="3" fill="#fff"/>
+          </g>
+          <text x="60" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13px" font-weight="800" letter-spacing="0.3">Google Sheets</text>
+          <text x="60" y="41" fill="#3ddc9b" font-family="'Inter', sans-serif" font-size="10.5px" font-weight="700" letter-spacing="0.5">DATA MATRIX</text>
         </g>
 
-        <!-- NODE 6: WhatsApp Outbound Responder -->
-        <g transform="translate(665, 255)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#25d366" stroke-width="1.2"/>
-          <rect width="34" height="70" rx="9" fill="#122c1e" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#25d366"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="12" fill="#fff" text-anchor="middle">➔</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">Send Reply</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#c7c7dd">Cloud API SMS</text>
-          <!-- Ports -->
-          <circle cx="0" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="130" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- NODE 5: GEMINI AI SCORING ENGINE -->
+        <g transform="translate(410, 300)" filter="url(#ultraShadow)">
+          <rect width="150" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameGrad)" stroke-width="1.5"/>
+          <rect width="150" height="56" rx="14" fill="none" stroke="#63D0FF" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="32" cy="28" r="16" fill="#63D0FF" fill-opacity="0.15"/>
+          <!-- Vectorized Premium AI Sparkle Mark -->
+          <g transform="translate(20, 16)" fill="url(#gradient-ai)">
+            <path d="M12,0 C12,6.6 17.4,12 24,12 C17.4,12 12,17.4 12,24 C12,17.4 6.6,12 0,12 C6.6,12 12,6.6 12,0 Z"/>
+            <path d="M20,4 C20,5.1 20.9,6 22,6 C20.9,6 20,6.9 20,8 C20,6.9 19.1,6 18,6 C19.1,6 20,5.1 20,4 Z" opacity="0.7"/>
+          </g>
+          <text x="60" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13px" font-weight="800" letter-spacing="0.3">Gemini 3 Flash</text>
+          <text x="60" y="41" fill="#63D0FF" font-family="'Inter', sans-serif" font-size="10.5px" font-weight="700" letter-spacing="0.5">LEAD INTELLIGENCE</text>
         </g>
 
-        <!-- NODE 7: Google Sheets Logger -->
-        <g transform="translate(720, 180)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#107c41" stroke-width="1.2"/>
-          <rect width="34" height="70" rx="9" fill="#0b2416" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#107c41"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="11" fill="#fff" text-anchor="middle">田</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">Log Pipeline</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#3ddc9b">Google Sheets</text>
-          <!-- Ports -->
-          <circle cx="0" cy="35" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
-          <circle cx="65" cy="70" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- NODE 6: GMAIL OUTBOUND ENGINE -->
+        <g transform="translate(600, 135)" filter="url(#ultraShadow)">
+          <rect width="130" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameGrad)" stroke-width="1.5"/>
+          <rect width="130" height="56" rx="14" fill="none" stroke="#EA4335" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="28" cy="28" r="14" fill="#EA4335" fill-opacity="0.12"/>
+          <!-- Vectorized Gmail Envelope -->
+          <g transform="translate(18, 20)">
+            <path d="M0,0 L18,0 L18,13 L0,13 Z" fill="none" stroke="#EA4335" stroke-width="2"/>
+            <path d="M0,0 L9,7 L18,0" fill="none" stroke="#EA4335" stroke-width="2"/>
+          </g>
+          <text x="52" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12.5px" font-weight="800" letter-spacing="0.3">Gmail Dispatch</text>
+          <text x="52" y="41" fill="#EA4335" font-family="'Inter', sans-serif" font-size="10px" font-weight="700" letter-spacing="0.5">AUTO DISPATCH</text>
         </g>
 
-        <!-- NODE 8: Emergency Live System Alert -->
-        <g transform="translate(720, 395)" filter="url(#n8nShadow)">
-          <rect width="130" height="70" rx="10" fill="#0f0f1a" stroke="#2dd4ee" stroke-width="1.2"/>
-          <rect width="34" height="70" rx="9" fill="#092830" opacity="0.6"/>
-          <!-- Icon Element -->
-          <circle cx="17" cy="35" r="11" fill="#2dd4ee"/>
-          <text x="17" y="39" font-family="sans-serif" font-size="12" fill="#06060b" text-anchor="middle">🔔</text>
-          <!-- Labels -->
-          <text x="44" y="32" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff">Urgent Notify</text>
-          <text x="44" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#2dd4ee">Slack / Email</text>
-          <!-- Ports -->
-          <circle cx="65" cy="0" r="4" fill="#5c5c8a" stroke="#0f0f1a" stroke-width="1.5"/>
+        <!-- NODE 7: BUILDER CRM / PIPELINE -->
+        <g transform="translate(600, 245)" filter="url(#ultraShadow)">
+          <rect width="130" height="56" rx="14" fill="#0e0e1a" stroke="url(#frameGrad)" stroke-width="1.5"/>
+          <rect width="130" height="56" rx="14" fill="none" stroke="#2dd4ee" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="28" cy="28" r="14" fill="#2dd4ee" fill-opacity="0.12"/>
+          <!-- Vectorized Modern Architectural Property/CRM Core -->
+          <g transform="translate(19, 18)" stroke="#2dd4ee" stroke-width="1.8" fill="none" stroke-linejoin="round">
+            <path d="M9,2 L17,8 L17,17 L1,17 L1,8 Z"/>
+            <path d="M6,17 L6,11 L12,11 L12,17"/>
+          </g>
+          <text x="52" y="26" fill="#ffffff" font-family="'Inter', sans-serif" font-size="12.5px" font-weight="800" letter-spacing="0.3">Builder CRM</text>
+          <text x="52" y="41" fill="#2dd4ee" font-family="'Inter', sans-serif" font-size="10px" font-weight="700" letter-spacing="0.5">PIPELINE SYNC</text>
         </g>
       </svg>
     </div>
