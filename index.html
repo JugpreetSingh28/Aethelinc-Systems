@@ -436,119 +436,89 @@
     </div>
   </div>
   <div class="hero-visual reveal">
-  <div class="hero-graph-card" style="width: 100%; height: auto; max-width: 1200px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); overflow: hidden;">
-    <div class="hgc-head" style="background: #f8fafc; padding: 14px 20px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;">
-      <div style="display: flex; gap: 8px;">
-        <div style="width:12px; height:12px; border-radius:50%; background:#ef4444;"></div>
-        <div style="width:12px; height:12px; border-radius:50%; background:#f59e0b;"></div>
-        <div style="width:12px; height:12px; border-radius:50%; background:#10b981;"></div>
-      </div>
-      <div style="font-family: 'Inter', sans-serif; font-size: 14px; color: #64748b; font-weight: 600;">
-        Workflow Active
-      </div>
+  <div class="hero-graph-card">
+    <div class="hgc-head">
+      <div class="dots"><span></span><span></span><span></span></div>
     </div>
-
-    <svg viewBox="0 0 1180 450" style="width:100%; height:auto; background: #f1f5f9; font-family: 'Inter', sans-serif;">
+    <svg viewBox="0 0 950 450" width="100%" height="100%">
       <defs>
-        <pattern id="bg-grid" width="24" height="24" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="1" fill="#cbd5e1"/>
-        </pattern>
-        <filter id="node-shadow" x="-10%" y="-10%" width="120%" height="120%">
-          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.05"/>
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.3" />
+          <stop offset="50%" stop-color="#6366f1" stop-opacity="1" />
+          <stop offset="100%" stop-color="#ec4899" stop-opacity="0.3" />
+        </linearGradient>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
       </defs>
-      <rect width="100%" height="100%" fill="url(#bg-grid)" />
-
-      <g fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round">
-        <path d="M 220 225 L 260 225" />
+      <g transform="translate(0, 0)">
         
-        <path d="M 450 225 C 470 225, 470 115, 490 115" />
-        
-        <path d="M 680 115 L 720 115" />
-        
-        <path d="M 910 115 L 950 115" />
-        
-        <path d="M 450 225 C 470 225, 470 335, 490 335" />
-        
-        <path d="M 680 335 L 720 335" />
-      </g>
-
-      <g filter="url(#node-shadow)">
-
-        <g transform="translate(30, 195)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <rect width="32" height="32" rx="8" fill="#FF6D5A"/>
-            <path fill="#fff" d="M14 8 l -3 10 h 4 l -1 6 l 7 -10 h -4 z"/>
-          </g>
-          <text x="56" y="35" font-size="15" font-weight="700" fill="#1e293b">Webhook</text>
-          <circle cx="190" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g stroke="url(#lineGrad)" stroke-width="3" fill="none">
+          <path d="M 110 220 L 220 220" />
+          
+          <path d="M 280 220 C 350 220, 350 120, 420 120" />
+          
+          <path d="M 480 120 L 600 120" />
+          
+          <path d="M 660 120 L 780 120" />
+          
+          <path d="M 280 220 C 350 220, 350 320, 420 320" />
+          
+          <path d="M 480 320 L 600 320" />
         </g>
 
-        <g transform="translate(260, 195)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <rect width="32" height="32" rx="8" fill="#8E44AD"/>
-            <path fill="#fff" d="M9 16 h 5 v 5 h 4 v -5 h 5 l -7 -7 z"/>
-          </g>
-          <text x="56" y="35" font-size="15" font-weight="700" fill="#1e293b">Router</text>
-          <circle cx="0" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
-          <circle cx="190" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g transform="translate(50, 190)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#25D366" filter="url(#glow)"/>
+          <path d="M25 22h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1h-1c-1.7 0-3.2.7-4.4 1.9-1.2 1.2-1.9 2.7-1.9 4.4v1c0 .6.4 1 1 1h2c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-2c-3.9 0-7-3.1-7-7v-2c0-3.9 3.1-7 7-7z" fill="#fff" transform="translate(2,3) scale(0.8)"/>
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">WhatsApp In</text>
         </g>
 
-        <g transform="translate(490, 85)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <circle cx="16" cy="16" r="16" fill="#f1f5f9"/>
-            <path fill="#4285F4" d="M16 4 c -1 5 -4 8 -9 9 c 5 1 8 4 9 9 c 1 -5 4 -8 9 -9 c -5 -1 -8 -4 -9 -9 z"/>
-          </g>
-          <text x="56" y="35" font-size="15" font-weight="700" fill="#1e293b">Gemini LLM</text>
-          <circle cx="0" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
-          <circle cx="190" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g transform="translate(220, 190)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#1e2128" />
+          <path d="M30 18 c 2 4, 6 8, 10 10 c -4 2, -8 6, -10 10 c -2 -4, -6 -8, -10 -10 c 4 -2, 8 -6, 10 -10 z" fill="#1A73E8" filter="url(#glow)"/>
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Gemini LLM</text>
         </g>
 
-        <g transform="translate(720, 85)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <rect width="32" height="32" rx="6" fill="#02042B"/>
-            <path fill="#00C4FF" d="M12 22 l 4 -12 h 4 l -4 12 h -4 z"/>
-          </g>
-          <text x="56" y="35" font-size="15" font-weight="700" fill="#1e293b">Razorpay API</text>
-          <circle cx="0" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
-          <circle cx="190" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g transform="translate(420, 90)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#1e2128" />
+          <circle cx="30" cy="30" r="14" fill="#3ECF8E" filter="url(#glow)"/>
+          <path d="M30 20 L36 30 L30 40 L24 30 Z" fill="#fff" />
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Supabase DB</text>
         </g>
 
-        <g transform="translate(950, 85)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <path fill="#25D366" d="M16 2a14 14 0 0 0-11.8 21.5L2 30l6.7-2.1A14 14 0 1 0 16 2zm0 25.4c-2 0-3.9-.5-5.6-1.5l-.4-.2-4.2 1.1 1.1-4-.3-.4a11.6 11.6 0 1 1 9.4 5z"/>
-            <path fill="#fff" d="M12 10c-.3 0-.8.1-1.2.6-.4.4-1.5 1.4-1.5 3.5s1.6 4.1 1.8 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9.9.3 1.8.2 2.5.1.7-.1 2.3-1 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.5-.3-.9-.5-.5-.3-2.6-1.3-3-1.4-.4-.1-.7-.2-1 .2-.3.5-1.2 1.4-1.4 1.7-.3.3-.5.4-1 .1-.5-.2-1.9-.7-3.6-2.2-1.3-1.2-2.2-2.7-2.5-3.2-.2-.5 0-.7.3-1 .2-.2.5-.5.7-.8.2-.3.3-.5.5-.8s.1-.5 0-.8c-.1-.3-1-2.5-1.4-3.4-.3-.9-.7-.8-1-.8h-.8z"/>
-          </g>
-          <text x="56" y="35" font-size="14" font-weight="700" fill="#1e293b">Send Pay Link &amp; Reply</text>
-          <circle cx="0" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g transform="translate(600, 90)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#1e2128" />
+          <rect x="18" y="18" width="24" height="24" rx="2" fill="#34A853" filter="url(#glow)"/>
+          <path d="M22 24 h16 v2 h-16 z M22 28 h16 v2 h-16 z" fill="#fff" />
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Google Sheets</text>
         </g>
 
-        <g transform="translate(490, 305)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <path fill="#0F9D58" d="M19 3H9c-1.1 0-2 .9-2 2v22c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9l-6-6z"/>
-            <path fill="#fff" d="M11 13h10v2H11zm0 4h10v2H11zm0 4h7v2h-7z"/>
-          </g>
-          <text x="56" y="35" font-size="15" font-weight="700" fill="#1e293b">Google Sheets</text>
-          <circle cx="0" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
-          <circle cx="190" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g transform="translate(780, 90)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#1e2128" />
+          <path d="M16 20 h28 v20 h-28 z" fill="#fff" />
+          <path d="M16 20 l14 10 l14 -10" stroke="#EA4335" stroke-width="3" fill="none" filter="url(#glow)"/>
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Gmail Notif</text>
         </g>
 
-        <g transform="translate(720, 305)">
-          <rect width="190" height="60" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
-          <g transform="translate(12, 14)">
-            <circle cx="16" cy="16" r="16" fill="#f8fafc"/>
-            <path fill="#EA4335" d="M23 10H9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm0 10H9v-8l7 4 7-4v8z"/>
-          </g>
-          <text x="56" y="35" font-size="15" font-weight="700" fill="#1e293b">Gmail Notification</text>
-          <circle cx="0" cy="30" r="5" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+        <g transform="translate(420, 290)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#0055FF" filter="url(#glow)"/>
+          <text x="30" y="36" font-family="sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">R</text>
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">Razorpay API</text>
         </g>
 
+        <g transform="translate(600, 290)">
+          <rect width="60" height="60" rx="12" fill="#1e1e2d" stroke="#32324d" stroke-width="2" />
+          <circle cx="30" cy="30" r="18" fill="#25D366" filter="url(#glow)"/>
+          <path d="M25 22h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1h-1c-1.7 0-3.2.7-4.4 1.9-1.2 1.2-1.9 2.7-1.9 4.4v1c0 .6.4 1 1 1h2c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-2c-3.9 0-7-3.1-7-7v-2c0-3.9 3.1-7 7-7z" fill="#fff" transform="translate(2,3) scale(0.8)"/>
+          <text x="30" y="80" font-family="sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">WA Reply</text>
+        </g>
       </g>
     </svg>
   </div>
